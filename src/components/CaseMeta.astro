@@ -1,0 +1,72 @@
+---
+interface Props {
+  category: string;
+  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
+  tags: string[];
+  phases: number;
+}
+
+const { category, difficulty, tags, phases } = Astro.props;
+
+const difficultyColor: Record<string, string> = {
+  Beginner: '#27ae60',
+  Intermediate: '#e67e22',
+  Advanced: '#c0392b',
+};
+---
+
+<div class="case-meta">
+  <div class="meta-item">
+    <span class="meta-label">Category</span>
+    <span class="meta-value">{category}</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Difficulty</span>
+    <span class="meta-badge" style={`background:${difficultyColor[difficulty] ?? '#7f8c8d'};`}>{difficulty}</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Phases</span>
+    <span class="meta-value">{phases} unfolding scenarios</span>
+  </div>
+  <div class="meta-item tags-item">
+    <span class="meta-label">Topics</span>
+    <div class="tags">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+  </div>
+</div>
+
+<style>
+  .case-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: #f8f9fa;
+    border: 1px solid #d5d8dc;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 0.2rem; min-width: 100px; }
+  .tags-item { flex: 1 1 100%; }
+  .meta-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: #7f8c8d; font-weight: 600; }
+  .meta-value { font-size: 0.9rem; font-weight: 600; color: #2c3e50; }
+  .meta-badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    width: fit-content;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.2rem; }
+  .tag {
+    background: #eaf4fc;
+    color: #1a5276;
+    font-size: 0.78rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    border: 1px solid #aed6f1;
+  }
+</style>

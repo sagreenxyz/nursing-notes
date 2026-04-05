@@ -1,0 +1,94 @@
+---
+interface Props {
+  phase: number;
+  total: number;
+  title: string;
+  vitals?: Record<string, string>;
+  labValues?: Record<string, string>;
+}
+
+const { phase, total, title, vitals, labValues } = Astro.props;
+---
+
+<div class="phase-header">
+  <div class="phase-badge">Phase {phase} of {total}</div>
+  <h2 class="phase-title">{title}</h2>
+</div>
+
+{vitals && (
+  <div class="data-grid">
+    <h3 class="data-grid-title">🩺 Vital Signs</h3>
+    <div class="data-grid-cells">
+      {Object.entries(vitals).map(([k, v]) => (
+        <div class="data-cell">
+          <span class="data-key">{k}</span>
+          <span class="data-val">{v}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+{labValues && (
+  <div class="data-grid labs">
+    <h3 class="data-grid-title">🔬 Lab Values</h3>
+    <div class="data-grid-cells">
+      {Object.entries(labValues).map(([k, v]) => (
+        <div class="data-cell">
+          <span class="data-key">{k}</span>
+          <span class="data-val">{v}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+<style>
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0 1rem;
+    flex-wrap: wrap;
+  }
+  .phase-badge {
+    background: linear-gradient(135deg, #1a5276, #2980b9);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .phase-title {
+    font-size: 1.25rem;
+    color: #1a5276;
+    font-weight: 700;
+  }
+  .data-grid {
+    background: #f8f9fa;
+    border: 1px solid #d5d8dc;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin: 0.75rem 0;
+  }
+  .data-grid.labs { background: #f4fcf9; border-color: #a9dfbf; }
+  .data-grid-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #566573;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .data-grid-cells {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+  .data-cell { display: flex; flex-direction: column; min-width: 80px; }
+  .data-key { font-size: 0.72rem; text-transform: uppercase; color: #7f8c8d; letter-spacing: 0.05em; }
+  .data-val { font-size: 0.95rem; font-weight: 600; color: #2c3e50; }
+</style>

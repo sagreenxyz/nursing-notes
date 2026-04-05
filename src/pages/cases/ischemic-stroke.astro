@@ -1,0 +1,169 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Ischemic Stroke"
+  description="Unfolding clinical case: 67-year-old female with sudden left-sided weakness and aphasia — stroke alert, tPA, neuro monitoring, and rehabilitation planning."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Ischemic Stroke (CVA)</h1>
+  <p class="case-tagline">Sudden Neurological Deficit → Stroke Alert → tPA Administration → Neuro Monitoring → Rehab</p>
+
+  <CaseMeta
+    category="Neurological"
+    difficulty="Advanced"
+    tags={['CVA', 'ischemic stroke', 'tPA', 'NIHSS', 'aphasia', 'neuro assessment', 'rehabilitation', 'dysphagia']}
+    phases={4}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> D.W. &nbsp;|&nbsp; <strong>Age:</strong> 67 years &nbsp;|&nbsp; <strong>Sex:</strong> Female</p>
+    <p><strong>PMH:</strong> Atrial fibrillation (on warfarin — last INR 1.5), HTN, hyperlipidemia, osteoarthritis</p>
+    <p><strong>Medications:</strong> Warfarin 5 mg daily, metoprolol 50 mg BID, amlodipine 5 mg daily, atorvastatin 40 mg daily</p>
+    <p><strong>Allergies:</strong> Sulfa drugs (anaphylaxis)</p>
+    <p><strong>Setting:</strong> Emergency Department → CT Suite → Neuro ICU → Acute Stroke Unit</p>
+    <p><strong>Last Known Well:</strong> 09:15 (onset approximately 45 minutes before arrival)</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={4}
+    title="ED Arrival — Stroke Alert Activation"
+    vitals={{ 'BP': '188/102 mmHg', 'HR': '94 bpm (irreg)', 'RR': '18/min', 'SpO₂': '95% RA', 'Glucose': '112 mg/dL', 'Temp': '36.9°C' }}
+  />
+
+  <div class="narrative-block">
+    <p>D.W. is brought by family after sudden onset of left-sided facial droop, left arm weakness, and expressive aphasia. Family noticed symptoms at 09:15. FAST exam positive: facial droop (left), arm drift (left), speech impairment. Stroke alert activated. Neurology notified. NIHSS score calculated at 14 (moderate-severe stroke). Head CT ordered STAT — no hemorrhage identified (ischemic pattern in right MCA territory).</p>
+    <p><strong>tPA eligibility checked:</strong> Onset &lt; 4.5 hours ✓ | No hemorrhage on CT ✓ | Glucose not critically low/high ✓ | BP managed to &lt; 185/110 ✓ | INR 1.5 (eligible) ✓</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="10:05"
+    author="RN T. Nguyen, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "D.W. is a 67-year-old female with A-fib presenting with acute left-sided facial droop, left arm weakness, and expressive aphasia — onset 09:15 (50 minutes ago). NIHSS 14. CT head: no hemorrhage, right MCA territory ischemic changes. Stroke alert active.",
+      Background: "PMH: A-fib on warfarin (INR 1.5 today), HTN, hyperlipidemia. BP on arrival 188/102 — treated with IV labetalol 10 mg to bring to target <185/110 for tPA eligibility. SpO₂ 95% — supplemental O₂ applied. Two IVs in place. Glucose 112 mg/dL.",
+      Assessment: "Patient meets criteria for IV tPA (alteplase). Time is critical — every minute of untreated stroke = ~1.9 million neurons lost. Consent obtained from patient (limited verbal response but nodded) and family.",
+      Recommendation: "Requesting immediate tPA order confirmation. Weight-based dosing: patient 72 kg → 0.9 mg/kg = 64.8 mg (max 90 mg). 10% bolus (6.5 mg IV push), remainder 58.3 mg over 60 minutes. Initiating bleeding precautions and continuous neuro checks q15 min × 2 hours per stroke protocol."
+    }}
+  />
+
+  <NursingNote
+    type="Narrative"
+    time="10:18"
+    author="RN T. Nguyen, BSN"
+    highlight="warning"
+    sections={{
+      "tPA Administration": "IV alteplase infusion initiated at 10:18 — 6.5 mg bolus administered IV push over 1 minute; 58.3 mg infusing over 60 minutes via dedicated IV line. No other medications infused in the same line. Stroke protocol initiated.",
+      "Monitoring": "Neuro checks every 15 minutes: LOC, orientation, pupils, strength, speech. BP q15 min — maintained between 150–180 systolic. Continuous cardiac monitoring for A-fib. Bleeding precaution sign placed. Family informed of tPA risks (intracranial hemorrhage — approximately 6% risk) and benefits. Family verbalized understanding.",
+      "Precautions": "Foley catheter inserted for strict I&O. No arterial lines, femoral access, or NG tubes during or 24 hours post-tPA unless life-threatening emergency. No anticoagulants or antiplatelets for 24 hours. Soft wrist restraint applied to left arm to prevent unintentional line removal per protocol.",
+      "Baseline Assessment": "NIHSS 14: facial droop (left) 2, left arm drift score 3 (no movement against gravity), left leg drift 2, aphasia 2, dysarthria 1, gaze deviation 1, partial hemianopia 1, extinction 2. Pupils equal 3mm reactive bilaterally. Patient follows simple commands inconsistently."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={4}
+    title="Neuro ICU — Post-tPA Monitoring"
+    vitals={{ 'BP': '162/88 mmHg', 'HR': '86 bpm (A-fib)', 'RR': '16/min', 'SpO₂': '98% 2L NC', 'Temp': '37.1°C' }}
+  />
+
+  <div class="narrative-block">
+    <p>D.W. is transferred to the Neuro ICU at 11:30. One hour post-tPA, she is reassessed. The nurse notes her NIHSS has improved to 8 — significant improvement. Left arm has partial movement (anti-gravity). Facial droop is less pronounced. She is producing single words. BP is stable and within target. No signs of angioedema or intracranial hemorrhage.</p>
+    <p>At 14:00 (4 hours post-tPA), the nurse notes a sudden decline: BP rises to 210/118, the patient becomes lethargic, and her left arm weakness worsens. The nurse suspects possible hemorrhagic transformation and activates a rapid response.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="14:05"
+    author="RN T. Nguyen, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "URGENT — D.W., 67 y/o, Neuro ICU, 4 hours post-tPA for ischemic stroke. Sudden neurological deterioration: BP 210/118 (from 162/88 one hour ago), new decrease in LOC (GCS 12 from 14), and worsening left arm weakness. Concerned for hemorrhagic transformation.",
+      Background: "Post-alteplase × 4 hours for right MCA ischemic stroke. Was improving (NIHSS 8 at 1 hour post-tPA). Current NIHSS reassessment: 16 (worsened by 8 points from post-tPA baseline). No coagulation reversal agents on hand. Head CT not yet obtained.",
+      Assessment: "Suspected hemorrhagic transformation of ischemic stroke — a known complication of tPA. Immediate imaging required. Neurosurgery may need to be involved. Blood pressure elevation likely contributing.",
+      Recommendation: "Requesting STAT: (1) Repeat Head CT with CTA, (2) Neurosurgery consult, (3) BP management with IV nicardipine per order, (4) CBC, PT/INR, fibrinogen STAT, (5) Type & crossmatch 2 units FFP, (6) Cryoprecipitate available at bedside, (7) Notify attending neurology."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={4}
+    title="Acute Stroke Unit — Day 2 (Stabilized)"
+    vitals={{ 'BP': '148/84 mmHg', 'HR': '78 bpm (A-fib)', 'SpO₂': '97% RA', 'Temp': '37.4°C' }}
+  />
+
+  <div class="narrative-block">
+    <p>CT showed petechial hemorrhagic transformation (HI-1) — managed conservatively without neurosurgical intervention. BP controlled with IV nicardipine, then transitioned to oral amlodipine. D.W. is now stable on the Acute Stroke Unit. NIHSS is 10. She has left arm weakness (can move against gravity but not resistance), mild expressive aphasia (word-finding difficulty), and a left facial droop. Dysphagia screening shows high risk — speech therapy consult placed. Diet is NPO pending swallow evaluation.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="08:00"
+    author="RN P. Williams, BSN"
+    sections={{
+      Data: "D.W., 67 y/o, Day 2 post-ischemic stroke with HI-1 hemorrhagic transformation. A&O × 2 (person and place, inconsistent time). NIHSS 10. Left facial droop present. Left arm 3/5 strength (improved). Expressive aphasia — responds yes/no with gestures, frustrated when unable to find words. Dysphagia screen by nursing: abnormal — patient coughed on water trial. NPO since admission. Foley in place. Skin intact. No IV infiltration. BP 148/84 on amlodipine 10 mg daily. Telemetry: A-fib rate-controlled at 78 bpm.",
+      Action: "Speech therapy notified of failed bedside dysphagia screen — formal evaluation scheduled for 10:00. Maintained NPO status with IV fluids (D5 0.45% NS at 75 mL/hr). HOB elevated to 30°. Patient repositioned Q2H with turn schedule posted. Fall precautions maintained: bed alarm, low bed, non-skid socks. Communication board provided at bedside — patient using successfully. Anticoagulation for A-fib discussion deferred to 24–48 hours post-stabilization per neurology. PT/OT began bedside exercises.",
+      Response: "Patient tolerating repositioning without distress. Using communication board effectively — expressed frustration about inability to speak; reassured and provided brief aphasia education to family. Family demonstrates understanding of fall risk. Speech therapy confirmed appointment for formal swallow study. Family asking about prognosis — social work consult placed."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 4 -->
+  <PhaseHeader
+    phase={4}
+    total={4}
+    title="Discharge Planning — Inpatient Rehab Transfer"
+    vitals={{ 'BP': '138/80 mmHg', 'HR': '74 bpm', 'SpO₂': '99% RA' }}
+  />
+
+  <NursingNote
+    type="SOAP"
+    time="11:00"
+    author="RN P. Williams, BSN"
+    sections={{
+      Subjective: "Patient communicating via word board and short phrases. Points to 'home' on board but nods understanding when inpatient rehab explained. Family states: 'We just want her to get as much of her speech and arm back as possible.' Patient nods in agreement. Denies pain. Reports difficulty sleeping.",
+      Objective: "NIHSS now 8. Left facial droop improving. Expressive aphasia persists but improved — producing 3–4 word phrases. Left arm 4-/5 strength (near full against gravity). Left leg 4/5. Speech therapy cleared patient for nectar-thick liquids and minced/moist diet after modified barium swallow study. Ambulating 50 feet with standby assist and single-point cane. A-fib rate-controlled; apixaban 5 mg BID initiated today (48 hours post-stabilization, per neurology). BP well-controlled.",
+      Assessment: "1. Post-ischemic stroke with partial neurological recovery. 2. Persistent expressive aphasia — requires continued SLP therapy. 3. Left-sided weakness — functional improvement with PT/OT. 4. Dysphagia — diet modified, continuing SLP. 5. A-fib — anticoagulation initiated. 6. High fall risk. 7. Patient and family coping, accepting rehab plan.",
+      Plan: "Transfer to inpatient rehabilitation facility today. Discharge summary sent to rehab team. Medications reconciled: apixaban 5 mg BID (new), metoprolol 50 mg BID, amlodipine 10 mg daily, atorvastatin 80 mg nightly (increased). Warfarin discontinued — transitioning to apixaban. Family given stroke education packet, return precautions (BEFAST), and A-fib stroke risk information. Primary care follow-up in 2 weeks after rehab discharge."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>Time is brain</strong> — every 30-minute delay in tPA reduces chance of good outcome. Rapid NIHSS, CT, and team activation are essential.</li>
+      <li><strong>BP targets differ</strong> pre- and post-tPA: must be &lt;185/110 before tPA; post-tPA goal is &lt;180/105 for 24 hours.</li>
+      <li><strong>Hemorrhagic transformation</strong> is a known tPA complication — NIHSS worsening ≥ 4 points or new headache/vomiting requires immediate CT.</li>
+      <li><strong>Dysphagia screening</strong> must be completed before any oral intake — aspiration pneumonia is a leading cause of post-stroke mortality.</li>
+      <li><strong>NIHSS</strong> is the gold standard for stroke severity assessment and tracking neurological change.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

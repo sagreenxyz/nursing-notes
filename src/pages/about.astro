@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase.slice(0, -1) : rawBase;
+---
+
+<Layout title="About" description="About the Nursing Notes clinical case study educational resource.">
+  <div class="about-hero">
+    <h1>About Nursing Notes</h1>
+    <p class="about-tagline">An educational resource for nursing students, new graduates, and clinical educators.</p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-main">
+      <section class="about-section">
+        <h2>Purpose</h2>
+        <p>
+          Nursing Notes is a free educational resource featuring rich, realistic clinical case studies designed to bridge the gap between textbook knowledge and real-world nursing practice. Each case is an <strong>unfolding scenario</strong> — a patient story that evolves through multiple phases, showing how clinical situations change and how skilled nurses respond, document, and communicate.
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2>What Are Unfolding Cases?</h2>
+        <p>
+          Unlike static case studies, unfolding cases present a <strong>chain of clinical events</strong> that unfold over time. A patient may arrive in the ED, deteriorate, stabilize, develop a complication, and then recover — just as real patients do. This approach develops critical thinking by asking nurses to respond to new information, re-prioritize care, and adjust their documentation at each phase.
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2>Documentation Formats</h2>
+        <p>Each case features nursing notes written in multiple professional charting formats:</p>
+        <div class="formats-grid">
+          <div class="format-card sbar">
+            <h3>SBAR</h3>
+            <p><strong>S</strong>ituation · <strong>B</strong>ackground · <strong>A</strong>ssessment · <strong>R</strong>ecommendation</p>
+            <p>Structured communication for urgent handoffs and physician notifications.</p>
+          </div>
+          <div class="format-card dar">
+            <h3>DAR</h3>
+            <p><strong>D</strong>ata · <strong>A</strong>ction · <strong>R</strong>esponse</p>
+            <p>Focus charting format ideal for documenting specific nursing interventions and outcomes.</p>
+          </div>
+          <div class="format-card soap">
+            <h3>SOAP</h3>
+            <p><strong>S</strong>ubjective · <strong>O</strong>bjective · <strong>A</strong>ssessment · <strong>P</strong>lan</p>
+            <p>Problem-oriented format for structured clinical reasoning documentation.</p>
+          </div>
+          <div class="format-card narrative">
+            <h3>Narrative</h3>
+            <p>Chronological documentation of observations, interventions, and responses.</p>
+            <p>Traditional format still used in many settings for detailed clinical notes.</p>
+          </div>
+          <div class="format-card focus">
+            <h3>Focus Charting</h3>
+            <p>Patient-centered documentation organized around a clinical focus area — especially useful for patient education and discharge planning.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <h2>Clinical Case Topics</h2>
+        <ul class="topics-list">
+          <li>❤️ <strong>Cardiovascular:</strong> Acute Coronary Syndrome / STEMI / Post-PCI Care</li>
+          <li>🩸 <strong>Endocrine:</strong> Diabetic Ketoacidosis (DKA)</li>
+          <li>🧠 <strong>Neurological:</strong> Ischemic Stroke / tPA Administration</li>
+          <li>🚨 <strong>Critical Care:</strong> Sepsis & Septic Shock</li>
+          <li>🫁 <strong>Pediatric / Respiratory:</strong> Asthma Exacerbation / Status Asthmaticus</li>
+          <li>🦴 <strong>Orthopedic / Surgical:</strong> Post-Op Hip Replacement / DVT Complication</li>
+        </ul>
+        <p><a href={`${base}/cases/`} class="link-cta">Browse all cases →</a></p>
+      </section>
+
+      <section class="about-section">
+        <h2>Disclaimer</h2>
+        <div class="disclaimer">
+          <p>
+            All cases, patient names, and clinical data on this site are <strong>entirely fictional and created for educational purposes only</strong>. Any resemblance to real patients is coincidental. This website is <strong>not a substitute for clinical judgment, professional nursing education, or institutional policies</strong>.
+          </p>
+          <p>
+            Medication doses and clinical protocols referenced are based on common practices at the time of writing but may not reflect the most current guidelines. Always follow your institution's policies and consult current clinical resources.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <aside class="about-sidebar">
+      <div class="sidebar-card">
+        <h3>Quick Stats</h3>
+        <ul>
+          <li><span class="stat-number">6</span> Clinical Cases</li>
+          <li><span class="stat-number">22</span> Unfolding Phases</li>
+          <li><span class="stat-number">5</span> Note Formats</li>
+          <li><span class="stat-number">6</span> Specialties</li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h3>Who Is This For?</h3>
+        <ul class="audience-list">
+          <li>🎓 Nursing students (BSN, ADN)</li>
+          <li>👩‍⚕️ New graduate nurses</li>
+          <li>📚 Clinical simulation educators</li>
+          <li>🏥 Nurse preceptors</li>
+          <li>📝 Anyone learning clinical documentation</li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h3>Skills Developed</h3>
+        <ul class="audience-list">
+          <li>✅ Clinical assessment documentation</li>
+          <li>✅ SBAR communication</li>
+          <li>✅ Critical thinking chains</li>
+          <li>✅ Priority nursing interventions</li>
+          <li>✅ Patient and family education</li>
+          <li>✅ Deterioration recognition</li>
+          <li>✅ Discharge planning</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</Layout>
+
+<style>
+  .about-hero {
+    text-align: center;
+    padding: 2rem 1rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .about-hero h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; color: #1a5276; margin-bottom: 0.5rem; }
+  .about-tagline { color: #566573; font-size: 1.05rem; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (max-width: 820px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-sidebar { order: -1; }
+  }
+
+  .about-section { margin-bottom: 2rem; }
+  .about-section h2 { font-size: 1.25rem; font-weight: 700; color: #1a5276; margin-bottom: 0.75rem; border-bottom: 2px solid #d5d8dc; padding-bottom: 0.3rem; }
+  .about-section p { color: #2c3e50; line-height: 1.7; font-size: 0.95rem; margin-bottom: 0.75rem; }
+
+  .formats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; margin-top: 0.75rem; }
+  .format-card { border-radius: 8px; padding: 0.9rem; border: 1px solid; }
+  .format-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; }
+  .format-card p { font-size: 0.82rem; color: #566573; line-height: 1.5; margin: 0; }
+  .format-card p + p { margin-top: 0.3rem; }
+  .sbar { background: #eaf4fc; border-color: #aed6f1; } .sbar h3 { color: #1a5276; }
+  .dar { background: #e9f7ef; border-color: #a9dfbf; } .dar h3 { color: #148f77; }
+  .soap { background: #f5eef8; border-color: #d2b4de; } .soap h3 { color: #7d3c98; }
+  .narrative { background: #eaf4fc; border-color: #aed6f1; } .narrative h3 { color: #1f618d; }
+  .focus { background: #fef9e7; border-color: #f8c471; } .focus h3 { color: #b7770d; }
+
+  .topics-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .topics-list li { font-size: 0.92rem; color: #2c3e50; }
+  .link-cta { font-weight: 700; color: #2980b9; }
+
+  .disclaimer {
+    background: #fef9e7;
+    border: 1px solid #f8c471;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+  }
+  .disclaimer p { font-size: 0.88rem; color: #566573; }
+
+  /* Sidebar */
+  .sidebar-card {
+    background: white;
+    border: 1px solid #e8ecef;
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  }
+  .sidebar-card h3 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.75rem; }
+  .sidebar-card ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+  .sidebar-card li { font-size: 0.88rem; color: #2c3e50; display: flex; align-items: center; gap: 0.5rem; }
+  .stat-number { font-size: 1.6rem; font-weight: 800; color: #2980b9; display: block; }
+  .audience-list li { font-size: 0.85rem; }
+</style>

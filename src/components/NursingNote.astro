@@ -1,0 +1,80 @@
+---
+interface Props {
+  type: 'SBAR' | 'DAR' | 'SOAP' | 'Narrative' | 'Focus';
+  time: string;
+  author: string;
+  sections: Record<string, string>;
+  highlight?: 'normal' | 'warning' | 'critical';
+}
+
+const { type, time, author, sections, highlight = 'normal' } = Astro.props;
+
+const typeColors: Record<string, string> = {
+  SBAR: '#1a5276',
+  DAR: '#148f77',
+  SOAP: '#7d3c98',
+  Narrative: '#1f618d',
+  Focus: '#b7770d',
+};
+
+const highlightColors: Record<string, string> = {
+  normal: '#eaf4fc',
+  warning: '#fef9e7',
+  critical: '#fdedec',
+};
+
+const highlightBorder: Record<string, string> = {
+  normal: '#aed6f1',
+  warning: '#f8c471',
+  critical: '#f1948a',
+};
+
+const headerBg = typeColors[type] ?? '#1a5276';
+const noteBg = highlightColors[highlight];
+const noteBorder = highlightBorder[highlight];
+---
+
+<div class="nursing-note" style={`background:${noteBg}; border-color:${noteBorder};`}>
+  <div class="note-header" style={`background:${headerBg};`}>
+    <span class="note-type">{type} Note</span>
+    <span class="note-meta">{time} &mdash; {author}</span>
+  </div>
+  <div class="note-body">
+    {Object.entries(sections).map(([label, text]) => (
+      <div class="note-section">
+        <span class="note-label">{label}:</span>
+        <span class="note-text" set:html={text} />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .nursing-note {
+    border: 1.5px solid;
+    border-radius: 8px;
+    margin: 1rem 0;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    font-size: 0.95rem;
+  }
+  .note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: white;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  .note-type { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; }
+  .note-meta { font-size: 0.8rem; opacity: 0.9; }
+  .note-body { padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .note-section { display: grid; grid-template-columns: 130px 1fr; gap: 0.5rem; }
+  .note-label { font-weight: 700; color: #2c3e50; align-self: start; padding-top: 0.05em; }
+  .note-text { color: #2c3e50; line-height: 1.55; }
+  @media (max-width: 540px) {
+    .note-section { grid-template-columns: 1fr; }
+    .note-label { padding-bottom: 0; }
+  }
+</style>

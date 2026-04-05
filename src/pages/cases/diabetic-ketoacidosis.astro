@@ -1,0 +1,156 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Diabetic Ketoacidosis"
+  description="Unfolding clinical case: 24-year-old with Type 1 DM presenting in DKA — hyperglycemia, fluid resuscitation, insulin protocol, and discharge education."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Diabetic Ketoacidosis (DKA)</h1>
+  <p class="case-tagline">Hyperglycemia → DKA Crisis → Insulin Protocol → Stabilization & Discharge Education</p>
+
+  <CaseMeta
+    category="Endocrine"
+    difficulty="Intermediate"
+    tags={['DKA', 'diabetes', 'insulin drip', 'fluid resuscitation', 'electrolytes', 'potassium', 'acidosis']}
+    phases={4}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> S.L. &nbsp;|&nbsp; <strong>Age:</strong> 24 years &nbsp;|&nbsp; <strong>Sex:</strong> Female</p>
+    <p><strong>PMH:</strong> Type 1 Diabetes Mellitus × 10 years, anxiety disorder</p>
+    <p><strong>Medications:</strong> Insulin glargine 20 units nightly, insulin lispro sliding scale, sertraline 50 mg daily</p>
+    <p><strong>Allergies:</strong> NKDA</p>
+    <p><strong>Social Hx:</strong> College student, lives in dormitory, reports missed insulin doses over the past 3 days due to midterm stress</p>
+    <p><strong>Setting:</strong> Emergency Department → Medical ICU/Step-Down → Medical Floor</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={4}
+    title="ED Presentation — DKA Recognition"
+    vitals={{ 'BP': '102/68 mmHg', 'HR': '118 bpm', 'RR': '26/min (Kussmaul)', 'SpO₂': '99% RA', 'Temp': '37.8°C', 'Pain': '6/10 (abd)' }}
+    labValues={{ 'Glucose': '624 mg/dL ↑↑', 'pH': '7.18 ↓↓', 'HCO₃': '9 mEq/L ↓↓', 'Anion Gap': '28 ↑↑', 'Na': '128 mEq/L ↓', 'K': '5.8 mEq/L ↑', 'BUN/Cr': '28/1.4', 'Ketones': 'Large +++' }}
+  />
+
+  <div class="narrative-block">
+    <p>S.L. is brought to the ED by her roommate after she was found confused in her dorm room. Her roommate states she has been vomiting for 2 days, has had increased thirst and urination, and was "breathing really fast." The patient is oriented to self only (A&O × 1). She has a fruity odor on her breath. Point-of-care glucose reads "HIGH" (>600 mg/dL). Kussmaul respirations are noted.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="11:35"
+    author="RN M. Chen, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "S.L. is a 24-year-old female with Type 1 DM presenting with altered mental status, Kussmaul respirations, nausea/vomiting × 2 days. POC glucose >600 mg/dL. ABG confirms severe metabolic acidosis (pH 7.18, HCO₃ 9). DKA confirmed.",
+      Background: "Type 1 DM × 10 years. Missed insulin doses × 3 days due to stress. BP 102/68 (hypotensive), HR 118 (tachycardic), K⁺ 5.8 mEq/L (elevated — will drop with insulin). Altered mental status — A&O × 1.",
+      Assessment: "Severe DKA with hypovolemia and altered mental status. Hyperkalemia currently but anticipate significant drop with insulin. Risk for cerebral edema with fluid resuscitation. Needs ICU-level monitoring.",
+      Recommendation: "Requesting immediate physician orders: (1) NS 1L bolus STAT, (2) insulin drip initiation, (3) MICU/step-down transfer, (4) continuous cardiac monitoring for hyperkalemia changes, (5) hourly glucose and electrolyte monitoring protocol."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={4}
+    title="ICU — Insulin Drip & Fluid Resuscitation"
+    vitals={{ 'BP': '114/72 mmHg', 'HR': '104 bpm', 'RR': '22/min', 'SpO₂': '99% RA', 'UO': '45 mL/hr' }}
+    labValues={{ 'Glucose (2h)': '488 mg/dL', 'K': '3.9 mEq/L', 'pH': '7.24', 'HCO₃': '12 mEq/L', 'Anion Gap': '22' }}
+  />
+
+  <div class="narrative-block">
+    <p>S.L. was transferred to the step-down unit after receiving a 2L NS bolus and is now on an insulin infusion at 0.1 units/kg/hr (7 units/hr). Per protocol, potassium was replaced (KCl 20 mEq in 1L of 0.45% NS at 250 mL/hr) once K⁺ dropped below 4.5. Blood glucose is checked hourly. The anion gap is closing. Her mental status has improved — she is now A&O × 3.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="15:00"
+    author="RN K. Osei, BSN"
+    sections={{
+      Data: "S.L., 24 y/o female, hour 4 of DKA treatment. Glucose trending down: 624 → 488 mg/dL. K⁺ 3.9 mEq/L (stable, repleting). pH improving: 7.18 → 7.24. HCO₃ 12 mEq/L. Anion gap narrowing: 28 → 22. BP 114/72, HR 104. UO 45 mL/hr. Mental status improved to A&O × 3. No longer able to detect fruity breath odor. Kussmaul breathing less pronounced. No complaints of headache or vision changes (monitoring for cerebral edema).",
+      Action: "Continued insulin infusion per DKA protocol at 7 units/hr. IV fluids changed to 0.45% NS + 40 mEq KCl at 250 mL/hr per MD order. Hourly glucose monitoring maintained. Anion gap recalculated each electrolyte check. Neurological assessments every hour (GCS, pupils, headache, vision). Patient kept NPO until nausea resolves. Family notified of improvement.",
+      Response: "Patient alert, cooperative, and able to state her name, location, and date. Reports feeling 'a little better' but still nauseated. No headache. Glucose decreasing at appropriate rate (~50–75 mg/dL/hr). Potassium holding at 3.9 mEq/L. Physician notified of continued improvement. Plan to add dextrose to IV fluids when glucose reaches 200–250 mg/dL to prevent hypoglycemia while insulin continues."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={4}
+    title="Transition to SubQ Insulin — DKA Resolution"
+    vitals={{ 'BP': '118/76 mmHg', 'HR': '88 bpm', 'RR': '16/min', 'SpO₂': '99% RA', 'Temp': '37.0°C' }}
+    labValues={{ 'Glucose': '198 mg/dL', 'pH': '7.36', 'HCO₃': '20 mEq/L', 'Anion Gap': '12', 'K': '4.1 mEq/L', 'Ketones': 'Negative' }}
+  />
+
+  <div class="narrative-block">
+    <p>After 12 hours of insulin infusion, S.L.'s DKA has resolved: pH ≥ 7.35, HCO₃ ≥ 18, anion gap ≤ 12, ketones negative. The team plans to transition to subcutaneous insulin using the overlap method — administering her scheduled glargine dose 1–2 hours before stopping the insulin drip to prevent rebound hyperglycemia.</p>
+  </div>
+
+  <NursingNote
+    type="SOAP"
+    time="01:00"
+    author="RN K. Osei, BSN"
+    sections={{
+      Subjective: "Patient states: 'I feel so much better. I'm hungry and my stomach doesn't hurt anymore.' Denies nausea, vomiting, abdominal pain, headache. Reports she understands she 'messed up' by missing her insulin and wants to learn how to prevent this from happening again.",
+      Objective: "A&O × 4. Glucose 198 mg/dL. ABG: pH 7.36, HCO₃ 20 mEq/L, PaCO₂ 38. Anion gap 12. Ketones negative in urine. K⁺ 4.1 mEq/L. BP 118/76, HR 88 NSR on monitor. IV site intact, no signs of infiltration. Tolerating ice chips without vomiting.",
+      Assessment: "DKA resolved by laboratory criteria. Patient hemodynamically stable. Appetite returning. Motivated and receptive to education regarding insulin management.",
+      Plan: "1. Administer glargine 20 units SQ now. Discontinue insulin infusion in 2 hours (overlap per protocol). 2. Advance diet to clear liquids, then regular diabetic diet as tolerated. 3. Glucose checks before meals and at HS (QID). 4. Transfer to medical floor in AM. 5. Diabetes education consult placed. 6. Social work consult for student stressors / barriers to insulin adherence. 7. Discharge planning to begin in AM."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 4 -->
+  <PhaseHeader
+    phase={4}
+    total={4}
+    title="Medical Floor — Discharge Education"
+    vitals={{ 'BP': '110/70 mmHg', 'HR': '76 bpm', 'SpO₂': '100% RA', 'Glucose (pre-lunch)': '142 mg/dL' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="10:00"
+    author="RN B. Martinez, BSN"
+    sections={{
+      Focus: "Diabetes self-management education and discharge planning",
+      Data: "S.L., 24 y/o, Type 1 DM, admitted for severe DKA secondary to insulin omission during academic stress. DKA resolved × 36 hours. Stable on SQ insulin regimen. Eating well. Glucose 110–160 mg/dL range. Endocrinology and diabetes educator visited. Social work evaluation completed — identified student stress and financial concern about insulin cost as barriers.",
+      Action: "Comprehensive diabetes education session completed: (1) Sick-day rules — NEVER omit basal insulin even when ill or not eating; (2) Ketone monitoring — demonstrated urine ketone test procedure, instructed to check with glucose >240 mg/dL or during illness; (3) Sick-day protocol — when to call provider vs. go to ED; (4) Insulin access — connected to campus health for subsidized insulin, patient assistance program application submitted; (5) Continuous glucose monitor (CGM) referral placed; (6) Stress management resources provided, counseling referral made; (7) MedicAlert bracelet strongly recommended. Written materials provided. Teach-back method used throughout.",
+      Response: "Patient demonstrated urine ketone testing correctly. Verbalized sick-day rules: 'I will always take my Lantus even if I can't eat, and I'll check ketones if my sugar is over 240.' Patient tearful but expressed gratitude and motivation. Stated she will tell her roommates about DKA warning signs. Follow-up scheduled with endocrinologist in 1 week and diabetes educator in 2 weeks."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>DKA diagnosis</strong> requires all three: hyperglycemia, ketosis, and metabolic acidosis — monitor all three as resolution criteria.</li>
+      <li><strong>Potassium management</strong> is critical — insulin drives K⁺ intracellularly; do not start insulin if K⁺ &lt; 3.5 mEq/L without replacement first.</li>
+      <li>The <strong>DKA-to-SubQ insulin transition</strong> requires a 1–2 hour overlap with basal insulin to prevent rebound hyperglycemia.</li>
+      <li><strong>Never omit basal insulin</strong> — even when the patient is ill or not eating. This is a key education point for Type 1 DM.</li>
+      <li>Addressing <strong>psychosocial and financial barriers</strong> to adherence is essential for preventing readmission.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

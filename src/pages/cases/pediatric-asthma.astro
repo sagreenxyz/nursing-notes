@@ -1,0 +1,150 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Pediatric Asthma Exacerbation"
+  description="Unfolding clinical case: 8-year-old with acute asthma exacerbation progressing to status asthmaticus — albuterol, steroids, magnesium sulfate, and discharge planning."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Pediatric Asthma Exacerbation</h1>
+  <p class="case-tagline">Acute Wheeze → Status Asthmaticus → Stabilization → Discharge Planning with Family Education</p>
+
+  <CaseMeta
+    category="Pediatric / Respiratory"
+    difficulty="Intermediate"
+    tags={['asthma', 'pediatric', 'albuterol', 'ipratropium', 'magnesium sulfate', 'steroids', 'peak flow', 'respiratory distress', 'status asthmaticus']}
+    phases={3}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> T.R. &nbsp;|&nbsp; <strong>Age:</strong> 8 years &nbsp;|&nbsp; <strong>Sex:</strong> Male</p>
+    <p><strong>PMH:</strong> Moderate persistent asthma (diagnosed age 5), eczema, allergic rhinitis</p>
+    <p><strong>Medications:</strong> Fluticasone 110 mcg inhaler BID (maintenance), albuterol MDI PRN</p>
+    <p><strong>Allergies:</strong> Peanuts (anaphylaxis), aspirin (exacerbates asthma)</p>
+    <p><strong>Weight:</strong> 28 kg</p>
+    <p><strong>Setting:</strong> Pediatric Emergency Department → Pediatric ICU (PICU) → Pediatric Floor</p>
+    <p><strong>Trigger:</strong> Mother reports T.R. was playing at a friend's house where there was a cat; wheezing began within 30 minutes. Used albuterol MDI × 3 doses at home without improvement.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={3}
+    title="Pediatric ED — Moderate-to-Severe Exacerbation"
+    vitals={{ 'BP': '104/62 mmHg', 'HR': '132 bpm', 'RR': '36/min', 'SpO₂': '90% RA', 'Temp': '37.2°C', 'Peak Flow': '42% predicted' }}
+  />
+
+  <div class="narrative-block">
+    <p>T.R. arrives in the Pediatric ED sitting upright in a tripod position, using accessory muscles. He has moderate intercostal and supraclavicular retractions. He is speaking in 2–3 word sentences only. Auscultation reveals diffuse expiratory wheezing bilaterally, prolonged expiratory phase. His peak flow is 42% of predicted (below 50% = severe). He is anxious and appears frightened. His mother is at the bedside and very anxious.</p>
+    <p><strong>PRAM Score (Pediatric Respiratory Assessment Measure): 8/12 — Severe</strong></p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="15:20"
+    author="RN H. Garcia, BSN — Peds ED"
+    highlight="critical"
+    sections={{
+      Situation: "T.R. is an 8-year-old male with a history of moderate persistent asthma presenting with severe acute exacerbation. SpO₂ 90% on RA. Accessory muscle use, 2–3 word sentences, tripod positioning. Peak flow 42% predicted. PRAM score 8/12 (severe). Failed 3 home doses of albuterol MDI.",
+      Background: "Triggered by cat allergen. On maintenance fluticasone BID (compliance unclear per mother). Allergic to aspirin — avoid. Weight 28 kg. No prior intubation. No PICU admissions.",
+      Assessment: "Severe asthma exacerbation — at risk for progression to status asthmaticus and respiratory failure. Requires continuous albuterol and early systemic steroids. PICU notification warranted given severity.",
+      Recommendation: "1. O₂ via non-rebreather mask to maintain SpO₂ ≥ 92%. 2. Albuterol 2.5 mg + ipratropium 0.5 mg via nebulizer × 3 doses every 20 minutes STAT. 3. Dexamethasone 0.6 mg/kg IV (max 16 mg) = 16 mg IV now. 4. IV access and STAT labs (CBC, BMP, ABG). 5. PICU notified — awaiting response. 6. NPO due to respiratory distress and potential intubation risk."
+    }}
+  />
+
+  <NursingNote
+    type="Narrative"
+    time="16:00"
+    author="RN H. Garcia, BSN — Peds ED"
+    highlight="warning"
+    sections={{
+      Assessment: "After first two albuterol/ipratropium treatments, minimal improvement. SpO₂ 91% on NRB, HR 138, RR 34. T.R. not able to complete sentences. Retractions remain significant. Peak flow now 45% (marginal improvement).",
+      "Escalation": "Physician notified of minimal response. Magnesium sulfate 40 mg/kg IV (max 2g) = 1,120 mg administered over 20 minutes per order for bronchodilation. Third albuterol/ipratropium nebulization in progress. Heliox 70:30 set up at bedside as backup.",
+      "Family Communication": "Mother extremely anxious. Explained procedure in simple terms: 'The breathing treatments are opening up T.R.'s airways. The magnesium will help his airway muscles relax. If he doesn't improve soon, we may need to admit him to the intensive care unit.' Mother verbalized understanding and gave consent for PICU transfer. Asked to call T.R.'s father — phone available.",
+      "Monitoring": "Continuous pulse oximetry and cardiorespiratory monitoring. Capnography placed — ETCO₂ 52 mmHg (elevated, concerning for early hypoventilation). Physician updated. PICU transfer arranged."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={3}
+    title="PICU — Status Asthmaticus Management"
+    vitals={{ 'BP': '108/64 mmHg', 'HR': '128 bpm', 'RR': '30/min', 'SpO₂': '94% 40% O₂', 'ETCO₂': '49 mmHg' }}
+    labValues={{ 'ABG pH': '7.32 ↓', 'PaCO₂': '48 mmHg ↑', 'PaO₂': '74 mmHg', 'HCO₃': '24 mEq/L', 'K': '3.4 mEq/L ↓ (albuterol effect)' }}
+  />
+
+  <div class="narrative-block">
+    <p>T.R. is admitted to the PICU with status asthmaticus. He is on continuous albuterol nebulization 10 mg/hr. ABG shows mild respiratory acidosis with rising PaCO₂ — indicating fatigue and reduced alveolar ventilation. Non-invasive positive pressure ventilation (HFNC at 30 L/min, FiO₂ 40%) is applied. IV methylprednisolone started. Potassium replacement initiated (albuterol drives K⁺ intracellularly). Intubation equipment prepared at bedside.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="20:00"
+    author="RN S. Kim, BSN — PICU"
+    sections={{
+      Data: "T.R., 8 y/o, PICU admission for status asthmaticus. HFNC 30L/min at 40% FiO₂. SpO₂ 94%. RR improved to 30 from 36. Retractions less severe than at admission (supraclavicular resolved, mild intercostal remaining). ETCO₂ 49 mmHg — still elevated but not worsening. ABG pH 7.32, PaCO₂ 48 (mild respiratory acidosis). K⁺ 3.4 mEq/L — receiving KCl 20 mEq in 250 mL NS at 10 mL/hr. Albuterol continuous neb running. Methylprednisolone 2 mg/kg (56 mg) IV q6h initiated. Magnesium level 2.2 mg/dL after IV mag given in ED.",
+      Action: "Continued continuous albuterol per order. HFNC maintained — reassessed fit and position. Potassium replacement running. Strict I&O — measured urine output via Foley. Hourly reassessment per PICU protocol. Intubation equipment at bedside and verified. Respiratory therapy (RT) partner coordinating nebulization changes. Parents educated: explained status asthmaticus, current treatment, goal of avoiding intubation if possible. Encouraged mother to speak quietly and calmly to T.R. — parental voice reduces anxiety and may decrease respiratory drive hyperactivity.",
+      Response: "After 2 hours in PICU: SpO₂ 96%, ETCO₂ trending down to 46 mmHg, RR 26/min, retractions mild only. T.R. was able to say 'I feel better' in a short sentence. Potassium recheck ordered in 4 hours. Parents appear reassured by improvement."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={3}
+    title="Pediatric Floor — Discharge Planning"
+    vitals={{ 'BP': '100/62 mmHg', 'HR': '96 bpm', 'RR': '20/min', 'SpO₂': '99% RA', 'Peak Flow': '82% predicted' }}
+  />
+
+  <div class="narrative-block">
+    <p>T.R. has dramatically improved after 24 hours in the PICU. He is now on room air, peak flow 82% of predicted, breathing comfortably. He is transferred to the pediatric floor. He is eating well and playing with his tablet. Discharge planning is the priority for today — the team wants to ensure this exacerbation doesn't recur and that his family has a clear asthma action plan.</p>
+  </div>
+
+  <NursingNote
+    type="Focus"
+    time="11:00"
+    author="RN A. Johnson, BSN — Peds Floor"
+    sections={{
+      Focus: "Asthma discharge education — patient and family",
+      Data: "T.R., 8 y/o, recovering from status asthmaticus secondary to cat allergen exposure. SpO₂ 99% RA, peak flow 82% predicted, breathing unlabored. Eating and playing. Mother and father both present. Respiratory therapy completed inhaler technique reassessment — spacer technique was incorrect (T.R. was actuating without inhaling fully). Fluticasone compliance was intermittent per mother ('He doesn't like it').",
+      Action: "Comprehensive asthma education with T.R. and parents: (1) Asthma action plan (Green/Yellow/Red zones) — laminated copy provided; (2) Spacer technique — T.R. and both parents demonstrated correct technique with return demonstration (all passed); (3) Fluticasone importance — explained as 'fire prevention, not fire fighting'; (4) Albuterol MDI is the rescue ('fire extinguisher') — never replace controller medication; (5) Allergen avoidance: cats and other animal danders identified as triggers, air purifier recommended; (6) Peak flow meter technique reviewed — T.R. will use daily at home, record in app; (7) School asthma action plan signed and copy provided for school nurse; (8) Appointment scheduled with pediatric pulmonologist in 1 week; (9) Follow-up with pediatrician in 2–3 days.",
+      Response: "T.R. proudly demonstrated his spacer technique: 'Is that right?' — correct technique confirmed. Parents verbalized understanding of green/yellow/red zones. Father asked: 'Can he go to his friend's house?' — answered: 'Yes, but not if there are cats.' Family laughed and nodded. Discharge instructions signed. T.R. given a sticker for being so brave."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>PRAM scoring</strong> is an evidence-based tool for standardizing pediatric asthma severity assessment.</li>
+      <li>When SpO₂ &lt; 92% and albuterol does not respond, consider <strong>ipratropium + IV magnesium sulfate</strong> as additional bronchodilators before escalating to intubation.</li>
+      <li><strong>Albuterol lowers serum potassium</strong> through intracellular shifting — monitor K⁺ closely and replace as needed.</li>
+      <li><strong>Rising PaCO₂</strong> in an asthmatic child is a red flag — normal or high CO₂ indicates respiratory muscle fatigue and impending failure.</li>
+      <li><strong>Inhaler technique with spacer</strong> is frequently inadequate — return demonstration with every asthma-related visit improves outcomes.</li>
+      <li>The <strong>asthma action plan</strong> in green/yellow/red zone format is the single most powerful self-management tool for families.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

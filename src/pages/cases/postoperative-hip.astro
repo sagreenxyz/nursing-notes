@@ -1,0 +1,166 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Post-Operative Hip Replacement"
+  description="Unfolding clinical case: 74-year-old female post total hip arthroplasty — post-op assessment, pain management, DVT complication, anticoagulation, and discharge planning."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Post-Operative Hip Replacement</h1>
+  <p class="case-tagline">Total Hip Arthroplasty → Post-Op Assessment → DVT Complication → Anticoagulation → Discharge Planning</p>
+
+  <CaseMeta
+    category="Orthopedic / Surgical"
+    difficulty="Intermediate"
+    tags={['post-op', 'THA', 'DVT', 'pain management', 'mobility', 'anticoagulation', 'neurovascular checks', 'PACU', 'fall prevention']}
+    phases={4}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> G.M. &nbsp;|&nbsp; <strong>Age:</strong> 74 years &nbsp;|&nbsp; <strong>Sex:</strong> Female</p>
+    <p><strong>PMH:</strong> Osteoarthritis (severe right hip), HTN, osteoporosis, mild cognitive impairment (MCI)</p>
+    <p><strong>Medications:</strong> Amlodipine 5 mg daily, calcium + vitamin D, memantine 10 mg BID, PRN acetaminophen</p>
+    <p><strong>Allergies:</strong> Codeine (nausea/vomiting)</p>
+    <p><strong>Procedure:</strong> Right total hip arthroplasty (THA) under spinal anesthesia — procedure time 95 minutes, estimated blood loss 250 mL</p>
+    <p><strong>Setting:</strong> PACU → Orthopedic/Surgical Unit</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={4}
+    title="PACU — Immediate Post-Operative Assessment"
+    vitals={{ 'BP': '138/82 mmHg', 'HR': '88 bpm', 'RR': '16/min', 'SpO₂': '96% 2L NC', 'Temp': '36.4°C', 'Pain': '6/10' }}
+  />
+
+  <div class="narrative-block">
+    <p>G.M. arrives in the PACU after a right THA under spinal anesthesia. She is alert but groggy, oriented to person only. The spinal block is still partially effective — she reports no lower extremity sensation. She is shivering. Estimated blood loss was 250 mL intraoperatively. A Foley catheter and surgical drain are in place. IV access: two 18g PIVs.</p>
+  </div>
+
+  <NursingNote
+    type="SOAP"
+    time="13:30"
+    author="RN F. Brown, BSN — PACU"
+    sections={{
+      Subjective: "Patient states: 'It's cold in here' and 'my hip really hurts.' Unable to rate pain consistently due to cognitive impairment — using FLACC-A modified scale: score 6/10 (grimacing, guarding right hip, verbal complaint). Reports nausea '4 out of 10.' States she cannot move her legs but 'they feel tingly now.'",
+      Objective: "A&O × 1 (MCI baseline per family). Pupils equal 3 mm, reactive. Warm blankets applied. Shivering improved. SpO₂ 96% on 2L NC (baseline 97% RA per anesthesia). RR 16, unlabored. Right hip surgical dressing dry and intact, minimal serosanguineous drainage on drain (10 mL in first 30 min — within normal limits). Foley draining clear yellow urine at 35 mL/hr. Right foot: cap refill 2 sec, sensation returning (tingling 3/10 from spinal block resolving), dorsalis pedis 2+, posterior tibial 2+, no color/temp change from left. Abdomen soft, bowel sounds present × 4.",
+      Assessment: "1. Post-op pain — partially controlled, spinal block waning. 2. Spinal anesthesia resolving — neurovascular assessment reassuring. 3. Hypothermia (mild) — resolved with warming. 4. Nausea — mild, no emesis. 5. A&O at baseline (MCI). 6. Foley patent, adequate UO. Risk: fall, bleeding, DVT, delirium.",
+      Plan: "IV ketorolac 15 mg Q6H × 5 doses (renal function reviewed — Cr 0.9 mg/dL). IV hydromorphone 0.2 mg Q3H PRN breakthrough pain (avoiding codeine and high-dose opioids per allergy and age). Ondansetron 4 mg IV Q6H PRN nausea. Neurovascular checks Q1H × 4, then Q2H. Drain output Q1H. Sequential compression devices (SCDs) to left leg only — right hip post-op protocol. Transfer to surgical floor when fully awake and pain controlled."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={4}
+    title="Orthopedic Floor — Post-Op Day 1"
+    vitals={{ 'BP': '128/78 mmHg', 'HR': '82 bpm', 'RR': '14/min', 'SpO₂': '97% RA', 'Temp': '37.2°C', 'Pain': '4/10' }}
+    labValues={{ 'Hgb': '9.8 g/dL ↓ (pre-op 12.4)', 'Cr': '1.0 mg/dL', 'INR': '1.1', 'Plt': '198 × 10³' }}
+  />
+
+  <div class="narrative-block">
+    <p>G.M. is comfortable on the floor, pain managed with oral analgesics. Physical therapy has initiated ambulation with a walker — she tolerated 20 feet with moderate assist. Hip precautions reviewed: no hip flexion greater than 90°, no adduction past midline, no internal rotation (posterior approach precautions). Surgical drain removed per protocol. She is on enoxaparin 40 mg SQ daily for DVT prophylaxis starting 12 hours post-op. Family is present and attentive.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="09:00"
+    author="RN V. Singh, BSN"
+    sections={{
+      Data: "G.M., 74 y/o, POD #1 right THA. Pain 4/10 at rest, 6/10 with movement. Tolerated ambulation 20 feet with walker and PT. A&O × 2 (baseline MCI). Hgb 9.8 — down from 12.4 preop. No active bleeding. Surgical site: dressing removed per protocol, wound closure strips intact, minimal serous drainage, no signs of infection (redness, warmth, excessive swelling). Right neurovascular check: sensation intact, pulses 2+ bilateral, cap refill <3 sec. Hip precautions maintained. Foley removed per order at 06:00 — voided 200 mL spontaneously at 08:30.",
+      Action: "Oral analgesic regimen: acetaminophen 1g Q6H scheduled + oxycodone 2.5 mg Q4H PRN breakthrough (lowest effective dose for age, MCI noted). Stool softener initiated (docusate sodium 100 mg BID). SCDs on left leg, right leg TED stocking. Enoxaparin 40 mg SQ given 06:00. Fall precautions: bed alarm, non-skid socks, call light in reach, family educated. Hip precaution reinforcement every interaction. Delirium prevention: maintain day/night cycle, preserve glasses/hearing aids, orientation board updated, familiar family presence encouraged.",
+      Response: "Patient tolerated repositioning to chair with assistance. Verbalized hip precautions when asked: 'I shouldn't bend too far.' Family reinforcing. No evidence of delirium (CIWA-like — using CAM screening: negative × 2 assessments). Pain improved to 3/10 after oral analgesics. Patient sleeping comfortably."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={4}
+    title="Post-Op Day 3 — DVT Complication"
+    vitals={{ 'BP': '134/84 mmHg', 'HR': '96 bpm', 'RR': '20/min', 'SpO₂': '95% RA', 'Temp': '37.8°C', 'Pain': '7/10 (right calf)' }}
+  />
+
+  <div class="narrative-block">
+    <p>On morning assessment, G.M. reports new onset of right calf pain and tenderness, different from her hip pain. The right calf is warm, erythematous, and swollen compared to the left. She also reports mild shortness of breath with ambulation. SpO₂ has dropped to 95% on room air. The nurse suspects deep vein thrombosis (DVT) despite enoxaparin prophylaxis.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="08:15"
+    author="RN V. Singh, BSN"
+    highlight="warning"
+    sections={{
+      Situation: "G.M., 74 y/o, POD #3 right THA, new complaint of right calf pain, warmth, swelling, and erythema this morning. SpO₂ dropped from 97% to 95% on RA. Reports mild dyspnea on exertion. Concerned for DVT and possible pulmonary embolism.",
+      Background: "Was on enoxaparin 40 mg SQ daily for DVT prophylaxis. On bed rest for portions of POD 1–2 due to pain. BMI 32 (obesity — DVT risk factor). Right leg SCDs were not used per hip protocol. Homan's sign not assessed (unreliable) but calf asymmetry confirmed: right calf circumference 38 cm vs. left 34 cm.",
+      Assessment: "Signs and symptoms consistent with right lower extremity DVT. SpO₂ decline with dyspnea raises concern for concurrent pulmonary embolism. Requires immediate imaging and escalation.",
+      Recommendation: "1. STAT right lower extremity duplex ultrasound, 2. STAT CT pulmonary angiography (CTPA) given respiratory symptoms, 3. Supplemental O₂ 2L NC now, 4. Therapeutic anticoagulation to hold pending imaging, 5. Activity restricted to bed until imaging complete. Physician at bedside within 5 minutes. Family informed."
+    }}
+  />
+
+  <NursingNote
+    type="Narrative"
+    time="11:30"
+    author="RN V. Singh, BSN"
+    sections={{
+      "Diagnostic Results": "Lower extremity duplex confirmed right popliteal DVT. CTPA: bilateral small segmental pulmonary emboli (low clot burden). No evidence of right heart strain. Hemodynamically stable.",
+      "Treatment Initiated": "Enoxaparin increased to therapeutic dose: 1 mg/kg SQ BID = 70 mg SQ BID (weight 70 kg). O₂ 2L NC maintained — SpO₂ 98%. Pain management for calf: ice pack × 20 min Q4H, leg elevated, opioid analgesics avoided (constipation risk). New compression ordered for left leg only. PT activity modified — ambulation maintained per physician order (ambulation does not increase PE risk in stable patients).",
+      "Patient & Family Education": "G.M. and family informed of DVT and small PE diagnosis. Explained: 'A clot formed in her right leg and a small portion traveled to her lungs. Because it is small and she is stable, we are treating with blood thinners without surgery or ICU care.' Discharge anticoagulation: rivaroxaban 15 mg BID × 21 days, then 20 mg daily × 3–6 months discussed. Family provided written PE handout. Questions answered.",
+      "Monitoring": "Q2H respiratory and neurovascular assessments. SpO₂ continuous monitoring. Daily CBC, anti-Xa levels to follow."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 4 -->
+  <PhaseHeader
+    phase={4}
+    total={4}
+    title="Post-Op Day 5 — Discharge to Skilled Nursing Facility"
+    vitals={{ 'BP': '126/76 mmHg', 'HR': '80 bpm', 'SpO₂': '99% RA', 'Pain': '2/10 (hip), 3/10 (calf)' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="10:00"
+    author="RN V. Singh, BSN"
+    sections={{
+      Focus: "Discharge teaching — post-THA with DVT/PE, anticoagulation education, and SNF transition",
+      Data: "G.M., POD #5 right THA, stable DVT/PE on therapeutic enoxaparin. Transitioning to rivaroxaban 15 mg BID at discharge (bridge not needed with DOAC). Ambulating 75 feet with walker and minimal assist. Pain well-controlled. A&O × 2-3 (fluctuates per MCI baseline). Family (daughter) present for all teaching. Orthopedic surgeon cleared for SNF with PT/OT continuation.",
+      Action: "Discharge education: (1) Rivaroxaban teaching — take with evening meal for absorption, DO NOT skip doses, DO NOT take NSAIDs or aspirin without physician approval, report unusual bleeding; (2) Hip precautions laminated card given — reviewed with patient and daughter; (3) DVT/PE warning signs: calf swelling/warmth, sudden chest pain, shortness of breath — go to ED immediately; (4) Wound care: SNF nurse to assess incision daily, report redness, drainage, or dehiscence; (5) Fall prevention: walker at all times, no unsupported standing; (6) Follow-up: orthopedic surgeon 2 weeks, hematology for anticoagulation duration at 6 weeks, PCP in 1 week. SNF receiving full handoff report via SBAR.",
+      Response: "Daughter demonstrated correct rivaroxaban administration technique with pill bottle. Patient verbalized one hip precaution correctly. Daughter verbalized DVT warning signs. Discharge summary reviewed and signed. Transfer to SNF arranged via medical transport. Patient tearful but hopeful — 'I can't wait to walk better.'"
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>DVT prophylaxis</strong> after THA is required — enoxaparin, aspirin, or direct oral anticoagulants (DOACs) are options; breakthrough DVT can still occur.</li>
+      <li><strong>Neurovascular checks</strong> (5 P's: Pain, Pulse, Pallor, Paresthesia, Paralysis) must be performed hourly in the immediate post-op period after orthopedic surgery.</li>
+      <li><strong>Hip precautions</strong> must be reinforced every nursing interaction to prevent prosthetic dislocation.</li>
+      <li><strong>Delirium prevention</strong> in elderly patients requires a bundle: maintain orientation cues, preserve sensory aids, day/night cycling, early mobilization, family engagement.</li>
+      <li><strong>Rivaroxaban</strong> must be taken with the evening meal for full absorption — a commonly missed patient education point.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

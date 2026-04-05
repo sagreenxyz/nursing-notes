@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Sepsis & Septic Shock"
+  description="Unfolding clinical case: 72-year-old male with UTI progressing to septic shock — sepsis bundle, vasopressors, MICU management, and recovery."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Sepsis & Septic Shock</h1>
+  <p class="case-tagline">UTI → SIRS → Sepsis → Septic Shock → MICU Stabilization → Recovery</p>
+
+  <CaseMeta
+    category="Critical Care"
+    difficulty="Advanced"
+    tags={['sepsis', 'septic shock', 'MICU', 'vasopressors', 'sepsis bundle', 'lactate', 'blood cultures', 'broad-spectrum antibiotics']}
+    phases={4}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> H.J. &nbsp;|&nbsp; <strong>Age:</strong> 72 years &nbsp;|&nbsp; <strong>Sex:</strong> Male</p>
+    <p><strong>PMH:</strong> Benign prostatic hyperplasia (BPH), Type 2 DM, CKD Stage 3, hypertension</p>
+    <p><strong>Medications:</strong> Tamsulosin 0.4 mg daily, metformin 1000 mg BID (held for CKD), lisinopril 10 mg daily, amlodipine 5 mg daily</p>
+    <p><strong>Allergies:</strong> Cephalosporins (rash)</p>
+    <p><strong>Setting:</strong> Nursing home → Emergency Department → MICU</p>
+    <p><strong>Situation:</strong> Nursing home staff reports H.J. has had 3 days of confusion, poor PO intake, and was incontinent of foul-smelling urine. Found unresponsive this morning.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={4}
+    title="ED Presentation — Sepsis Recognition"
+    vitals={{ 'BP': '82/50 mmHg', 'HR': '124 bpm', 'RR': '28/min', 'Temp': '39.4°C', 'SpO₂': '91% RA', 'GCS': '10 (E3V3M4)' }}
+    labValues={{ 'WBC': '22.4 × 10³ ↑', 'Lactate': '5.2 mmol/L ↑↑', 'Cr': '2.8 mg/dL ↑↑', 'BUN': '48 mg/dL ↑', 'Glucose': '278 mg/dL ↑', 'Procalcitonin': '42 ng/mL ↑↑', 'UA': 'WBC > 100, + bacteria, + nitrites' }}
+  />
+
+  <div class="narrative-block">
+    <p>H.J. arrives by ambulance unresponsive to verbal stimulation. Skin is warm, flushed, and mottled at the knees. Sepsis alert activated per SIRS criteria: temperature 39.4°C, HR 124, RR 28, WBC 22.4. Lactate 5.2 mmol/L and BP 82/50 mmHg confirm <strong>septic shock</strong> (MAP 61 mmHg, below target of 65). Source presumed urinary. Sepsis 1-hour bundle initiated immediately.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="07:45"
+    author="RN D. Robinson, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "H.J., 72 y/o male from nursing home, presenting unresponsive with hypotension (BP 82/50), tachycardia HR 124, fever 39.4°C, WBC 22.4, and lactate 5.2 mmol/L. UA confirms UTI source. Septic shock — MAP 61, target ≥ 65.",
+      Background: "PMH: BPH, DM2, CKD3. Allergic to cephalosporins. 3-day history of confusion and foul urine reported by nursing home. GCS 10. SpO₂ 91% on RA — supplemental O₂ applied. Two large-bore IVs placed. Central line kit at bedside.",
+      Assessment: "Septic shock — SOFA score estimated ≥ 2 (AMS, hypotension, renal dysfunction). Mortality risk high. Sepsis bundle hour-1 must be completed within 60 minutes: blood cultures, lactate, broad-spectrum antibiotics, 30 mL/kg IVF bolus.",
+      Recommendation: "1. STAT blood cultures × 2 sets (peripheral) before antibiotics. 2. IV piperacillin-tazobactam 3.375g (dose-adjusted for CKD, allergy to ceph noted). 3. 30 mL/kg NS bolus = 2,100 mL over 30 min. 4. Repeat lactate in 2 hours. 5. Norepinephrine ready for initiation if MAP remains <65 after fluid challenge. 6. MICU transfer requested."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={4}
+    title="MICU — Vasopressor Support & Bundle Completion"
+    vitals={{ 'BP': '88/54 mmHg (MAP 65)', 'HR': '112 bpm', 'RR': '24/min', 'SpO₂': '96% 6L FM', 'Temp': '39.1°C', 'UO': '15 mL/hr' }}
+    labValues={{ 'Lactate (2h)': '3.8 mmol/L ↑', 'Cr': '3.2 mg/dL ↑↑', 'Hgb': '10.2 g/dL', 'Plt': '88 × 10³ ↓', 'INR': '1.6 ↑', 'ABG pH': '7.28 ↓' }}
+  />
+
+  <div class="narrative-block">
+    <p>After 2L of IVF, MAP remains borderline at 65 mmHg. Norepinephrine infusion is started at 0.05 mcg/kg/min via central venous catheter (right internal jugular). The lactate is clearing (5.2 → 3.8) but has not yet normalized. Oliguria persists. Platelets dropping — concern for early DIC. Arterial line placed for continuous BP monitoring. Repeat urine and blood cultures from admission sent to lab.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="11:00"
+    author="RN E. Okafor, BSN — MICU"
+    highlight="warning"
+    sections={{
+      Data: "H.J., 72 y/o MICU Day 1. Septic shock — on norepinephrine 0.05 mcg/kg/min via CVC. MAP now 65 mmHg (target ≥ 65 achieved). HR 112. Temp 39.1 — acetaminophen 650 mg PR given. UO critically low: 15 mL/hr despite 3.5L total fluids given. Cr 3.2 (baseline 1.8 per SNF records) — AKI Stage 2. Plt 88, INR 1.6, fibrinogen 180 mg/dL — DIC screen concerning. ABG pH 7.28 — metabolic acidosis. GCS improved to 12 — opening eyes to voice. Patient moaning, pulling at lines.",
+      Action: "Norepinephrine titrated to maintain MAP ≥ 65 (currently 0.05 mcg/kg/min). IV hydrocortisone 200 mg/24h continuous drip started per intensivist for refractory shock. Nephrology consulted for AKI and potential CRRT. DIC workup continued — hematology notified. Soft restraints applied bilaterally per protocol after attempted line removal — family notified, consent obtained. Broad-spectrum antibiotics continued. Urine culture resulted: E. coli — pending sensitivities for antibiotic narrowing. Cooling measures: acetaminophen, cooling blanket ordered. Head-of-bed elevated 30–45°. Continuous arterial line monitoring initiated. Foley catheter patent; irrigated.",
+      Response: "MAP maintaining at 65–70 mmHg on current norepinephrine dose. Temperature decreased to 38.6°C after acetaminophen. No further hemodynamic deterioration at this time. GCS improving slightly. Family at bedside — chaplain support offered. Intensivist and RN discussed goals of care with family; DNR/DNI discussion deferred pending patient improvement."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={4}
+    title="MICU Day 3 — Vasopressor Weaning"
+    vitals={{ 'BP': '118/72 mmHg', 'HR': '94 bpm', 'RR': '18/min', 'SpO₂': '97% 2L NC', 'Temp': '37.6°C', 'UO': '55 mL/hr' }}
+    labValues={{ 'Lactate': '1.2 mmol/L ✓', 'WBC': '14.8 × 10³', 'Cr': '2.1 mg/dL (improving)', 'Plt': '128 × 10³ (recovering)', 'PCT': '18 ng/mL (trending down)' }}
+  />
+
+  <div class="narrative-block">
+    <p>H.J. has shown significant improvement. Norepinephrine has been weaned and discontinued at 06:00. Urine culture confirmed E. coli susceptible to pip-tazo — antibiotics narrowed appropriately. Hydrocortisone taper initiated. Creatinine improving — CRRT not required. Patient is now A&O × 2, following commands, and tolerating water thickened to honey-consistency per SLP recommendation.</p>
+  </div>
+
+  <NursingNote
+    type="SOAP"
+    time="14:00"
+    author="RN E. Okafor, BSN — MICU"
+    sections={{
+      Subjective: "Patient states: 'Where am I? What happened?' oriented to person and place. Unable to recall admission. Denies chest pain or shortness of breath. Reports feeling weak. States he is thirsty.",
+      Objective: "A&O × 2. GCS 14. BP 118/72 (MAP 87) off vasopressors × 8 hours. HR 94. SpO₂ 97% on 2L NC. Temperature 37.6°C. UO 55 mL/hr (improving). IV site CVC patent, dressing intact. Peripheral edema 2+ bilateral lower extremities (fluid resuscitation related). Skin intact, repositioned Q2H. Restraints discontinued. Tolerating thickened liquids without coughing. Blood cultures × 2 growing E. coli (sensitivities confirm pip-tazo appropriate). Procalcitonin trending down.",
+      Assessment: "1. Septic shock — resolving, off vasopressors 8 hours. 2. UTI/bacteremia source — receiving targeted therapy. 3. AKI — improving, diuresis with IV furosemide PRN. 4. Deconditioning — physical therapy beginning today. 5. Delirium — orientation exercises, family at bedside, day/night cycle maintained. 6. Fluid overload from resuscitation — gentle diuresis ordered.",
+      Plan: "Continue pip-tazo; plan 7–10 day total course — reassess at 5 days. Transition to oral antibiotics once tolerating PO. Wean O₂ as tolerated. PT/OT bedside eval today. Continue GCS/neuro checks Q4H. Monitor BMP daily for creatinine trend. Advance diet as SLP directs. Target step-down transfer within 24 hours."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 4 -->
+  <PhaseHeader
+    phase={4}
+    total={4}
+    title="Step-Down Unit — Recovery & Discharge Planning"
+    vitals={{ 'BP': '128/76 mmHg', 'HR': '80 bpm', 'SpO₂': '98% RA', 'Temp': '37.0°C' }}
+    labValues={{ 'Cr': '1.9 mg/dL (near baseline)', 'WBC': '8.2 × 10³ ✓', 'Lactate': '0.9 mmol/L ✓', 'Procalcitonin': '3.1 ng/mL (trending down)' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="10:30"
+    author="RN L. Thompson, BSN"
+    sections={{
+      Focus: "Discharge planning and nursing home transition after septic shock",
+      Data: "H.J., 72 y/o male, hospital Day 6, recovering from UTI-source septic shock. Off vasopressors × 3 days. Tolerating regular diet. Ambulating 100 feet with walker and minimal assist. A&O × 3. BPH contributing to urinary retention — urology has placed Foley to be removed in 2 weeks at outpatient follow-up. Antibiotics being switched to oral trimethoprim-sulfamethoxazole — CHECKED against allergy list (cephalosporins only — TMP-SMX SAFE). Creatinine approaching baseline.",
+      Action: "Discharge teaching completed: (1) Importance of hydration and UTI prevention with BPH, (2) Signs/symptoms of UTI recurrence and when to return to ED (fever, confusion, decreased urine output), (3) Medication changes: metformin held — to be resumed by PCP when Cr normalizes, (4) Foley care education provided to nursing home staff via phone, (5) 7-day oral antibiotic course dispensed and documented, (6) Follow-up: PCP in 1 week, urology in 2 weeks, nephrology in 1 month. Nursing home contact nurse called — full report provided using SBAR, medication reconciliation list faxed.",
+      Response: "Patient verbalized: 'I need to drink more water and tell the nurses if I stop urinating.' Family expressed relief and gratitude. Nursing home accepted transfer. Care coordination note in chart. Patient discharged to SNF via medical transport in stable condition."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li>The <strong>1-hour sepsis bundle</strong> (measure lactate, obtain blood cultures, give antibiotics, start IVF, vasopressors if needed) saves lives — nursing plays a central activation role.</li>
+      <li><strong>Vasopressor administration</strong> requires a central venous catheter — never administer peripheral norepinephrine for extended periods.</li>
+      <li><strong>Antibiotic stewardship</strong>: Broad-spectrum empiric antibiotics should be narrowed once culture results and sensitivities are available.</li>
+      <li><strong>Allergy verification</strong> is critical before every new antibiotic — cross-reactions between drug classes must be assessed.</li>
+      <li><strong>SBAR handoff</strong> to receiving facility ensures continuity of care and prevents post-discharge complications.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>
