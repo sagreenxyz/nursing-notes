@@ -1,0 +1,114 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Clinical nursing case studies and nursing notes for educational purposes." } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <title>{title} | Nursing Notes</title>
+    <style>
+      /* CSS Reset & Base */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --color-primary: #1a5276;
+        --color-primary-light: #2980b9;
+        --color-accent: #148f77;
+        --color-accent-light: #1abc9c;
+        --color-bg: #f4f6f8;
+        --color-surface: #ffffff;
+        --color-text: #2c3e50;
+        --color-text-muted: #7f8c8d;
+        --color-border: #d5d8dc;
+        --color-warning: #e67e22;
+        --color-danger: #c0392b;
+        --color-success: #27ae60;
+        --radius: 8px;
+        --shadow: 0 2px 8px rgba(0,0,0,.1);
+        --shadow-lg: 0 4px 16px rgba(0,0,0,.15);
+        --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        --font-mono: 'Courier New', Courier, monospace;
+      }
+
+      html { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
+
+      body { min-height: 100vh; display: flex; flex-direction: column; }
+
+      a { color: var(--color-primary-light); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      /* Header */
+      header {
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+        color: white;
+        padding: 0 1.5rem;
+        box-shadow: var(--shadow-lg);
+      }
+      .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1rem 0;
+      }
+      .site-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+        color: white;
+        text-decoration: none;
+      }
+      .site-title span { opacity: 0.75; font-weight: 400; font-size: 0.9em; }
+
+      nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+      nav a { color: rgba(255,255,255,0.9); font-size: 0.9rem; font-weight: 500; transition: color .2s; }
+      nav a:hover { color: white; text-decoration: none; }
+
+      /* Main */
+      main { flex: 1; max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; width: 100%; }
+
+      /* Footer */
+      footer {
+        background: var(--color-primary);
+        color: rgba(255,255,255,0.7);
+        text-align: center;
+        padding: 1.25rem;
+        font-size: 0.85rem;
+      }
+      footer a { color: rgba(255,255,255,0.85); }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <a href={base} class="site-title">🏥 Nursing Notes <span>| Clinical Case Studies</span></a>
+        <nav>
+          <a href={base}>Home</a>
+          <a href={`${base}cases/`}>All Cases</a>
+          <a href={`${base}about/`}>About</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>Nursing Notes — Clinical Case Studies for Education &amp; Practice &copy; {new Date().getFullYear()}</p>
+      <p style="margin-top:0.3rem; font-size:0.78rem;">For educational purposes only. Not a substitute for clinical judgment or professional guidance.</p>
+    </footer>
+  </body>
+</html>
