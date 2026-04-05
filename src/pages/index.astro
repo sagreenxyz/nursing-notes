@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { cases } from '../data/cases';
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase.slice(0, -1) : rawBase;
+
+const difficultyColor: Record<string, string> = {
+  Beginner: '#27ae60',
+  Intermediate: '#e67e22',
+  Advanced: '#c0392b',
+};
+
+const categoryIcons: Record<string, string> = {
+  Cardiovascular: '❤️',
+  Endocrine: '🩸',
+  Neurological: '🧠',
+  'Critical Care': '🚨',
+  'Pediatric / Respiratory': '🫁',
+  'Orthopedic / Surgical': '🦴',
+};
+---
+
+<Layout title="Home">
+  <section class="hero">
+    <h1>Clinical Nursing Case Studies</h1>
+    <p class="hero-sub">
+      Explore real-world unfolding clinical scenarios with professional nursing documentation. 
+      Each case traces a patient's journey through multiple phases — from initial presentation 
+      through treatment, complications, and discharge — with authentic nursing notes in 
+      <strong>SBAR</strong>, <strong>DAR</strong>, <strong>SOAP</strong>, and <strong>Narrative</strong> formats.
+    </p>
+    <a href={`${base}/cases/`} class="btn-primary">Browse All Cases →</a>
+  </section>
+
+  <section class="features">
+    <div class="feature-card">
+      <div class="feature-icon">📋</div>
+      <h3>Multiple Note Formats</h3>
+      <p>SBAR, DAR, SOAP, Focus, and Narrative charting — see how the same clinical situation is documented in different formats.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔄</div>
+      <h3>Unfolding Scenarios</h3>
+      <p>Cases progress through multiple phases, showing how patient status changes and how nurses adapt documentation accordingly.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎓</div>
+      <h3>Evidence-Based Practice</h3>
+      <p>All cases reflect current clinical guidelines and professional nursing standards for documentation and patient care.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏥</div>
+      <h3>Diverse Specialties</h3>
+      <p>Cases spanning cardiovascular, neurological, endocrine, critical care, pediatric, and surgical nursing.</p>
+    </div>
+  </section>
+
+  <section class="cases-section">
+    <h2 class="section-title">Featured Cases</h2>
+    <div class="cases-grid">
+      {cases.map(c => (
+        <a href={`${base}/cases/${c.slug}/`} class="case-card">
+          <div class="case-card-header">
+            <span class="case-icon">{categoryIcons[c.category] ?? '🏥'}</span>
+            <span class="case-category">{c.category}</span>
+            <span class="case-difficulty" style={`background:${difficultyColor[c.difficulty]};`}>{c.difficulty}</span>
+          </div>
+          <h3 class="case-title">{c.title}</h3>
+          <p class="case-subtitle">{c.subtitle}</p>
+          <p class="case-summary">{c.summary}</p>
+          <div class="case-footer">
+            <span class="case-phases">{c.phases} phases</span>
+            <span class="case-cta">Read case →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 3rem 1rem 2.5rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+  .hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    color: #1a5276;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: #566573;
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, #1a5276, #2980b9);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(26,82,118,.3);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(26,82,118,.4); text-decoration: none; }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+  .feature-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,.07);
+    border: 1px solid #e8ecef;
+  }
+  .feature-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .feature-card h3 { font-size: 1rem; color: #1a5276; margin-bottom: 0.5rem; }
+  .feature-card p { font-size: 0.88rem; color: #566573; line-height: 1.6; }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1a5276;
+    margin-bottom: 1.25rem;
+  }
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+  .case-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,.07);
+    border: 1px solid #e8ecef;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .case-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.12); text-decoration: none; }
+  .case-card-header { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+  .case-icon { font-size: 1.1rem; }
+  .case-category { font-size: 0.78rem; color: #7f8c8d; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; flex: 1; }
+  .case-difficulty { font-size: 0.72rem; font-weight: 700; color: white; padding: 0.18rem 0.55rem; border-radius: 10px; }
+  .case-title { font-size: 1.15rem; font-weight: 700; color: #1a5276; }
+  .case-subtitle { font-size: 0.83rem; color: #2980b9; font-style: italic; }
+  .case-summary { font-size: 0.86rem; color: #566573; line-height: 1.55; flex: 1; }
+  .case-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; }
+  .case-phases { font-size: 0.78rem; color: #7f8c8d; background: #f0f3f4; padding: 0.2rem 0.5rem; border-radius: 10px; }
+  .case-cta { font-size: 0.85rem; font-weight: 700; color: #2980b9; }
+</style>

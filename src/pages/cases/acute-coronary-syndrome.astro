@@ -1,0 +1,182 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Acute Coronary Syndrome"
+  description="Unfolding clinical case: 58-year-old male with chest pain → STEMI diagnosis → emergent PCI → post-catheterization nursing care."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Acute Coronary Syndrome</h1>
+  <p class="case-tagline">Chest Pain → STEMI → Emergent PCI → Post-Cath Recovery</p>
+
+  <CaseMeta
+    category="Cardiovascular"
+    difficulty="Advanced"
+    tags={['STEMI', 'cardiac', 'telemetry', 'PCI', 'chest pain', 'troponin', 'nitroglycerin', 'heparin']}
+    phases={4}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> R.M. &nbsp;|&nbsp; <strong>Age:</strong> 58 years &nbsp;|&nbsp; <strong>Sex:</strong> Male</p>
+    <p><strong>PMH:</strong> HTN, hyperlipidemia, 30 pack-year smoking history, sedentary lifestyle</p>
+    <p><strong>Medications:</strong> Lisinopril 10 mg daily, atorvastatin 40 mg daily, aspirin 81 mg daily</p>
+    <p><strong>Allergies:</strong> Penicillin (rash)</p>
+    <p><strong>Setting:</strong> Emergency Department → Cardiac Catheterization Lab → Cardiac Telemetry Unit</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={4}
+    title="ED Presentation — Chest Pain Triage"
+    vitals={{ 'BP': '168/94 mmHg', 'HR': '102 bpm', 'RR': '22/min', 'SpO₂': '94% RA', 'Temp': '37.1°C', 'Pain': '8/10' }}
+  />
+
+  <div class="narrative-block">
+    <p>R.M. arrives via EMS at 02:14 with a chief complaint of substernal chest pressure radiating to his left jaw and arm that began approximately 45 minutes ago. He describes the pain as "an elephant sitting on my chest." He is diaphoretic and appears anxious. EMS administered aspirin 325 mg en route. A 12-lead ECG was obtained within 5 minutes of arrival.</p>
+    <p><strong>ECG findings:</strong> ST elevation ≥ 2 mm in leads II, III, and aVF — consistent with inferior STEMI. Reciprocal ST depression noted in I and aVL.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="02:20"
+    author="RN J. Torres, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "R.M. is a 58-year-old male presenting to the ED with crushing substernal chest pain 8/10, diaphoresis, and jaw radiation × 45 minutes. 12-lead ECG shows ST elevation in II, III, aVF — inferior STEMI pattern.",
+      Background: "PMH: HTN, hyperlipidemia, heavy smoker. On lisinopril, atorvastatin, aspirin. Received aspirin 325 mg by EMS. VS: BP 168/94, HR 102, SpO₂ 94% on RA.",
+      Assessment: "Patient is hemodynamically compromised with active STEMI. Oxygen saturations below target. Pain uncontrolled. IV access not yet established. Cath lab activation required immediately.",
+      Recommendation: "Requesting immediate physician assessment and cath lab activation. Initiating O₂ 4 L/min via NC, placing two large-bore IVs, drawing STAT labs (troponin, CBC, CMP, coagulation, type & screen), and preparing for heparin bolus per STEMI protocol."
+    }}
+  />
+
+  <NursingNote
+    type="Narrative"
+    time="02:35"
+    author="RN J. Torres, BSN"
+    highlight="warning"
+    sections={{
+      "Assessment": "Patient alert and oriented × 3, though anxious and diaphoretic. Skin cool and clammy. Cardiac monitor reveals sinus tachycardia with inferior ST elevation. Telemetry lead placement completed.",
+      "Interventions": "O₂ applied at 4 L/min via nasal cannula — SpO₂ improved to 97%. Two 18g IVs placed in bilateral antecubital veins without difficulty. Blood draws obtained. IV nitroglycerin drip initiated at 10 mcg/min per order. IV morphine 2 mg administered for pain. Heparin bolus 5,000 units IV given per STEMI protocol. Foley catheter inserted.",
+      "Response": "Patient reports pain decreased to 5/10 after morphine. BP rechecked: 142/88. HR 96. SpO₂ 98% on O₂. Patient verbalized understanding of cath lab procedure. Family notified and present at bedside.",
+      "Plan": "Transport to cardiac catheterization lab. Continuous telemetry monitoring. Cath lab team notified and ready."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={4}
+    title="Cardiac Catheterization Lab — Emergent PCI"
+    vitals={{ 'BP': '136/82 mmHg', 'HR': '90 bpm', 'SpO₂': '98% 4L NC', 'Pain': '4/10' }}
+    labValues={{ 'Troponin I': '2.8 ng/mL ↑', 'CK-MB': '42 U/L ↑', 'Hgb': '14.2 g/dL', 'INR': '1.0', 'Cr': '1.1 mg/dL' }}
+  />
+
+  <div class="narrative-block">
+    <p>R.M. is transported to the cath lab at 02:48 (door-to-balloon time 34 minutes — within the 90-minute benchmark). Coronary angiography reveals a 100% occlusion of the right coronary artery (RCA) at the mid segment. A drug-eluting stent (DES) is placed successfully with TIMI-3 flow restored. Total procedure time: 48 minutes.</p>
+  </div>
+
+  <NursingNote
+    type="SOAP"
+    time="04:10"
+    author="RN C. Washington, BSN — Cath Lab"
+    sections={{
+      Subjective: "Patient states chest pain has resolved, now 0/10. Reports mild groin discomfort at arterial access site. States he feels 'much better' and is relieved. Denies shortness of breath.",
+      Objective: "BP 136/82 mmHg, HR 90 bpm (NSR on monitor), SpO₂ 98% on 4L NC. Right femoral access site intact with hemostasis device in place — no hematoma, no bleeding. Pedal pulses 2+ bilaterally. Post-procedure ECG: ST elevation resolved in inferior leads. Repeat troponin I pending.",
+      Assessment: "1. Successful revascularization post-STEMI with RCA DES placement. 2. Hemodynamically stable. 3. Right femoral access site without acute complication. 4. Pain resolved. Risk for post-procedure complications (hematoma, retroperitoneal bleed, contrast nephropathy) remains.",
+      Plan: "Transfer to cardiac telemetry unit. Continue heparin per protocol × 6 hours. Hourly neurovascular checks of right lower extremity. Encourage fluid intake to promote contrast clearance. Bed rest with HOB ≤ 30° for 4 hours post sheath removal. Recheck troponin, BMP at 6 and 12 hours. Cardiology to review statin therapy and dual antiplatelet therapy (DAPT) — aspirin + ticagrelor."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={4}
+    title="Cardiac Telemetry Unit — Post-PCI Monitoring"
+    vitals={{ 'BP': '122/76 mmHg', 'HR': '78 bpm', 'RR': '16/min', 'SpO₂': '99% RA', 'Temp': '37.3°C', 'Pain': '1/10' }}
+    labValues={{ 'Troponin I (6h)': '18.4 ng/mL ↑', 'BNP': '310 pg/mL ↑', 'BMP Na': '139 mEq/L', 'K': '4.0 mEq/L', 'Cr': '1.3 mg/dL ↑' }}
+  />
+
+  <div class="narrative-block">
+    <p>R.M. is admitted to the cardiac telemetry unit. He is on telemetry monitoring and is currently in normal sinus rhythm. At 08:00, the nurse notes that the patient's urine output over the past 4 hours has been 60 mL (15 mL/hr), and creatinine has risen from 1.1 to 1.3 mg/dL, raising concern for contrast-induced nephropathy (CIN).</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="08:15"
+    author="RN A. Patel, BSN"
+    highlight="warning"
+    sections={{
+      Data: "R.M., 58 y/o male, POD #0 post-RCA PCI for STEMI. UO last 4 hours: 60 mL (15 mL/hr — below goal of 30 mL/hr). Cr rose from 1.1 → 1.3 mg/dL. BUN 24 mg/dL. Patient received 150 mL contrast media in cath lab. Total IVF since admission approximately 1,200 mL NS. BNP 310 pg/mL. No peripheral edema currently noted. Lung sounds clear bilaterally. BP 122/76, HR 78 NSR.",
+      Action: "Physician notified of low urine output and rising creatinine. IV fluid rate increased to 150 mL/hr NS per new order. Foley catheter patent — irrigated without return of clot or debris. Nephrology consult placed. NSAIDs held. All nephrotoxic medications reviewed and flagged. Patient encouraged to increase PO fluid intake as tolerated. Urine output flow sheet initiated with hourly documentation.",
+      Response: "After 2 hours of increased IV fluids, UO improved to 45 mL/hr. BP stable at 118/74. No signs of fluid overload (lungs remain clear, no JVD, no new edema). Cr recheck ordered for 16:00. Patient verbalized understanding of kidney concerns and agreed to increase fluid intake."
+    }}
+  />
+
+  <NursingNote
+    type="SBAR"
+    time="14:30"
+    author="RN A. Patel, BSN"
+    sections={{
+      Situation: "Calling to provide update on R.M., 58 y/o post-STEMI/PCI. He remains hemodynamically stable. UO has improved to 45–50 mL/hr with IV fluid increase. However, patient is now requesting to get up to use the restroom and is asking questions about his medications.",
+      Background: "Admitted 12 hours ago post-inferior STEMI, RCA drug-eluting stent placed. Post-procedure creatinine bump being monitored. On DAPT (aspirin 81 mg + ticagrelor 90 mg BID), metoprolol 25 mg BID started, IV heparin discontinued at 10:00, lisinopril held due to creatinine rise.",
+      Assessment: "Patient is stable and progressing appropriately. Pain-free. Ambulation order not yet in chart. Patient education needs identified: DAPT importance, activity restrictions, cardiac rehab referral, diet modifications.",
+      Recommendation: "Requesting: (1) ambulation order — PT/OT consult, (2) confirm plan for lisinopril reinstatement, (3) pharmacy-led medication education visit, (4) cardiac rehab referral order."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 4 -->
+  <PhaseHeader
+    phase={4}
+    total={4}
+    title="Discharge Planning — Day 3"
+    vitals={{ 'BP': '118/74 mmHg', 'HR': '72 bpm', 'SpO₂': '99% RA', 'Pain': '0/10' }}
+    labValues={{ 'Troponin I (peak)': '32.1 ng/mL', 'Cr': '1.1 mg/dL', 'LDL': '142 mg/dL ↑', 'HbA1c': '5.4%' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="09:45"
+    author="RN A. Patel, BSN"
+    sections={{
+      Focus: "Discharge education — post-STEMI / PCI with drug-eluting stent",
+      Data: "R.M. has been stable for 48 hours. Ambulating in hallway × 3 daily without angina or dyspnea. EF estimated at 45% on bedside echo (mild LV dysfunction). Cr normalized to 1.1. LDL 142 — elevated, atorvastatin dose to be increased. Patient expresses anxiety about going home and 'having another heart attack.'",
+      Action: "Comprehensive discharge teaching session conducted × 60 minutes with patient and spouse: (1) Dual antiplatelet therapy — stressed critical importance of NEVER stopping aspirin or ticagrelor without cardiology approval, stent thrombosis risk explained. (2) All new medications reviewed: metoprolol, lisinopril, atorvastatin 80 mg, nitroglycerin SL PRN — patient demonstrated proper NTG use and when to call 911. (3) Activity: no strenuous activity × 1 week, no driving × 1 week, graduated walking program. (4) Diet: low-sodium, heart-healthy Mediterranean diet — nutritionist handout provided. (5) Smoking cessation: strong counseling, nicotine patch prescribed, quitline referral. (6) Cardiac rehab enrollment completed — first appointment in 2 weeks. (7) Follow-up with cardiologist in 1 week confirmed. (8) Written discharge instructions in English and Spanish provided.",
+      Response: "Patient and spouse verbalized understanding of all teaching points. Patient correctly demonstrated NTG administration. Stated: 'I understand I can't stop the blood thinners.' Patient's anxiety appears reduced. Spouse is engaged and supportive. Written quiz completed with 100% correct. Discharge instructions signed."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>Door-to-balloon time</strong> goal is ≤ 90 minutes — nursing plays a critical role in rapid triage and activation.</li>
+      <li><strong>Contrast-induced nephropathy (CIN)</strong> is a common post-cath complication — monitor urine output, creatinine, and hydration status.</li>
+      <li><strong>DAPT adherence</strong> after DES placement is critical — premature discontinuation is a leading cause of stent thrombosis.</li>
+      <li><strong>SBAR</strong> is ideal for urgent clinical communications; <strong>DAR</strong> effectively documents a focused complication response; <strong>SOAP</strong> captures structured clinical reasoning.</li>
+      <li>Comprehensive <strong>discharge education</strong> with teach-back improves outcomes after ACS.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>
