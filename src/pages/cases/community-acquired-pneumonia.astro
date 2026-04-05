@@ -1,0 +1,134 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Community-Acquired Pneumonia"
+  description="Unfolding clinical case: 55-year-old female with community-acquired pneumonia — antibiotic therapy, respiratory nursing care, and discharge education."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Community-Acquired Pneumonia</h1>
+  <p class="case-tagline">Productive Cough & Fever → CAP Diagnosis → Antibiotic Therapy → Recovery</p>
+
+  <CaseMeta
+    category="Respiratory"
+    difficulty="Beginner"
+    tags={['pneumonia', 'CAP', 'antibiotics', 'fever', 'oxygen therapy', 'incentive spirometry', 'sputum culture', 'respiratory assessment']}
+    phases={3}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> B.K. &nbsp;|&nbsp; <strong>Age:</strong> 55 years &nbsp;|&nbsp; <strong>Sex:</strong> Female</p>
+    <p><strong>PMH:</strong> Type 2 DM (well-controlled), mild asthma, current smoker (1/2 PPD × 20 years)</p>
+    <p><strong>Medications:</strong> Metformin 1000 mg BID, albuterol MDI PRN, fluticasone 110 mcg BID</p>
+    <p><strong>Allergies:</strong> Penicillin (hives)</p>
+    <p><strong>Setting:</strong> Emergency Department → Medical/Surgical Floor</p>
+    <p><strong>Situation:</strong> B.K. presents with a 4-day history of worsening productive cough with rust-colored sputum, fever, chills, and fatigue. She tried over-the-counter cold medications without improvement.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={3}
+    title="ED Presentation — CAP Diagnosis"
+    vitals={{ 'BP': '122/78 mmHg', 'HR': '96 bpm', 'RR': '24/min', 'SpO₂': '91% RA', 'Temp': '39.2°C', 'Pain': '4/10 (chest, pleuritic)' }}
+    labValues={{ 'WBC': '18.6 × 10³ ↑', 'CRP': '142 mg/L ↑', 'Procalcitonin': '2.4 ng/mL ↑', 'Glucose': '184 mg/dL ↑', 'BMP': 'Na 138, K 3.8, Cr 0.9 (normal)' }}
+  />
+
+  <div class="narrative-block">
+    <p>B.K. is a moderately ill-appearing woman with audible crackles at the right lower lobe. She has a nonproductive-turned-productive cough bringing up rust-colored sputum. She is using accessory muscles mildly. PSI/PORT score is calculated at Class III (moderate severity) — hospital admission is indicated. CXR reveals right lower lobe consolidation with air bronchograms — lobar pneumonia pattern consistent with community-acquired pneumonia.</p>
+    <p>Given her penicillin allergy (hives), azithromycin is the appropriate community-acquired pneumonia monotherapy in a low-risk patient. However, the admitting provider opts for combination therapy: levofloxacin (respiratory fluoroquinolone) to cover both typical and atypical organisms. Blood cultures × 2 and sputum Gram stain/culture are ordered before antibiotic initiation.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="14:30"
+    author="RN K. Adams, BSN"
+    sections={{
+      Situation: "B.K. is a 55-year-old female presenting with 4-day productive cough, fever 39.2°C, WBC 18,600, SpO₂ 91% on RA, and RLL consolidation on CXR. CAP confirmed. PSI Class III — hospital admission warranted.",
+      Background: "PMH: DM2, asthma, active smoker. Penicillin allergy (hives). Glucose 184 — DM exacerbated by infection/stress response. All other labs within normal limits. Blood cultures and sputum Gram stain obtained prior to antibiotics.",
+      Assessment: "Moderate CAP with hypoxia requiring supplemental oxygen. Infection-related hyperglycemia. Respiratory support and IV antibiotics required. Aspiration risk low. No signs of sepsis (MAP adequate, lactate not checked yet — will obtain if clinical picture changes).",
+      Recommendation: "Requesting: (1) Admit to medical floor; (2) Levofloxacin 750 mg IV daily; (3) O₂ via nasal cannula to maintain SpO₂ ≥ 95%; (4) Incentive spirometry Q1H while awake; (5) Sliding scale insulin for glucose management; (6) Respiratory care consult."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={3}
+    title="Medical Floor — Day 2 Treatment Response"
+    vitals={{ 'BP': '118/74 mmHg', 'HR': '88 bpm', 'RR': '20/min', 'SpO₂': '95% 2L NC', 'Temp': '38.1°C (improving)' }}
+    labValues={{ 'WBC': '14.2 × 10³ ↓', 'Glucose': '148 mg/dL', 'Blood Cx': 'No growth at 24h (preliminary)' }}
+  />
+
+  <div class="narrative-block">
+    <p>B.K. is showing early signs of improvement. Fever is trending down. WBC is decreasing. She is producing less sputum and finds her cough less exhausting. SpO₂ is 95% on 2L nasal cannula at rest but drops to 89% with ambulation — supplemental oxygen during activity is required. She is encouraged to use her incentive spirometer hourly while awake to prevent atelectasis.</p>
+    <p>The nurse identifies an opportunity for education: B.K. expresses surprise that she got "this sick" from a common infection. Smoking cessation and pneumococcal vaccination are important discharge topics.</p>
+  </div>
+
+  <NursingNote
+    type="Narrative"
+    time="09:00"
+    author="RN K. Adams, BSN"
+    sections={{
+      "Assessment": "B.K., 55 y/o female, hospital Day 2 for RLL CAP. Temp trending down from 39.2°C to 38.1°C. WBC improving 18,600 → 14,200. SpO₂ 95% at rest on 2L NC; desats to 89% with ambulation — O₂ titrated up to 4L with activity. Crackles persist at right lower lobe. Cough productive with smaller volume yellow sputum (rust color resolving). Mild pleuritic pain 2/10. RR 20/min — improved from 24/min on admission. Glucose 148 mg/dL — managed with sliding scale. Patient alert and oriented. Reports fatigue but improvement in energy vs. yesterday.",
+      "Interventions": "Levofloxacin 750 mg IV administered on schedule (dose 2 of planned course). IV fluid maintenance at 75 mL/hr. Incentive spirometry coaching — patient achieving 500 mL (goal 750 mL); technique reinforced. Encouraged ambulation Q4H with supplemental O₂. Positioned with HOB 45° to maximize respiratory effort. Acetaminophen 650 mg for fever and pleuritic pain. Sliding scale insulin given for glucose 148 mg/dL per protocol. Oral fluids encouraged (goal 1.5–2 L/day). Sputum culture report reviewed — no results yet (sent yesterday). Blood culture 48h: no growth — provider notified.",
+      "Response": "Patient ambulated 50 feet in hallway with 4L NC — SpO₂ maintained 92–93% with activity. Improved to 95% on return to room on 2L. Fever improving. Patient engaged in education and asking questions about her illness and prevention. Family visiting and supportive.",
+      "Plan": "Continue levofloxacin IV. Transition to PO antibiotics tomorrow if continued improvement. Daily reassessment of O₂ weaning. Discharge planning initiated — target Day 4 if tolerating PO, afebrile × 24h, SpO₂ ≥ 95% on RA."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={3}
+    title="Day 4 — Discharge Planning"
+    vitals={{ 'BP': '116/72 mmHg', 'HR': '82 bpm', 'RR': '16/min', 'SpO₂': '96% RA (at rest)', 'Temp': '37.1°C' }}
+    labValues={{ 'WBC': '9.4 × 10³ ✓', 'Glucose': '118 mg/dL', 'CXR (Day 4)': 'Improving consolidation, no effusion' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="10:15"
+    author="RN L. Carter, BSN"
+    sections={{
+      Focus: "Pneumonia recovery education, smoking cessation counseling, and discharge planning",
+      Data: "B.K., Day 4 CAP admission. Afebrile × 36 hours. WBC normalizing. SpO₂ 96% on RA at rest (was 91% on RA at admission). Ambulating independently without O₂ desaturation. Tolerating oral levofloxacin (transitioned from IV yesterday). CXR improving. Glucose well-controlled on current regimen. Sputum culture: normal respiratory flora — no pathogen isolated.",
+      Action: "Discharge education: (1) Antibiotic completion — oral levofloxacin 750 mg daily × 3 more days (5-day total course); take at same time each day, do not skip; (2) Fever/symptom monitoring — if fever >38.3°C, chest pain worsening, or new shortness of breath → go to ED; (3) Activity — rest for 1 week, gradually increase activity; fatigue may persist for 2–4 weeks after pneumonia; (4) Hydration — drink at least 8 glasses of water daily; (5) Incentive spirometry — continue at home 10 times/hour while awake for 1 week; (6) Follow-up — PCP in 1 week, repeat CXR in 6–8 weeks to confirm radiographic resolution; (7) Vaccines administered today: pneumococcal 13-valent (PCV13) and influenza — patient was not up to date; (8) Smoking cessation — provided motivational counseling; patient receptive; nicotine patch prescription given; cessation quitline number provided. Levofloxacin photosensitivity and tendinopathy warning reviewed.",
+      Response: "Patient verbalized when to return to ED, demonstrated correct inhaler technique, and accepted smoking cessation resources. Stated: 'I didn't realize how much smoking was hurting my lungs until now.' Follow-up appointment confirmed. Discharged home with written instructions in stable condition."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>Incentive spirometry Q1H while awake</strong> is the gold-standard nursing intervention to prevent atelectasis and promote alveolar recruitment in pneumonia.</li>
+      <li><strong>Penicillin allergy documentation</strong> is critical — the type of reaction (hives vs. anaphylaxis) determines alternative antibiotic choices. Cross-reactivity with cephalosporins depends on allergy severity.</li>
+      <li><strong>SpO₂ should be checked with ambulation</strong>, not just at rest — exertional desaturation is a key indicator of discharge readiness and supplemental O₂ need.</li>
+      <li><strong>Pneumococcal and influenza vaccination</strong> are preventable causes of CAP — hospitalization is an ideal time to ensure patients are up to date.</li>
+      <li><strong>CXR resolution lags clinical improvement</strong> by weeks — a follow-up CXR at 6–8 weeks is essential to confirm clearing (and rule out underlying malignancy).</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

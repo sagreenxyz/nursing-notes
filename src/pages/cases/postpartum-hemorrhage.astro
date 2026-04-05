@@ -1,0 +1,161 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Postpartum Hemorrhage"
+  description="Unfolding clinical case: 29-year-old G2P2 with postpartum hemorrhage from uterine atony — rapid response, uterotonics, massive transfusion, and maternal recovery."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Postpartum Hemorrhage</h1>
+  <p class="case-tagline">Vaginal Delivery → Uterine Atony → PPH → Uterotonic Response → Stabilization</p>
+
+  <CaseMeta
+    category="OB/GYN"
+    difficulty="Advanced"
+    tags={['postpartum hemorrhage', 'uterine atony', 'oxytocin', 'blood transfusion', 'obstetric emergency', 'maternal safety', 'fundal massage', 'massive transfusion']}
+    phases={4}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> L.S. &nbsp;|&nbsp; <strong>Age:</strong> 29 years &nbsp;|&nbsp; <strong>Sex:</strong> Female</p>
+    <p><strong>Obstetric History:</strong> G2P2. Previous delivery: spontaneous vaginal delivery (SVD) × 1 without complications. Current delivery: SVD at 39+2 weeks after 14-hour labor with oxytocin augmentation.</p>
+    <p><strong>PMH:</strong> No significant past medical history. Iron-deficiency anemia in third trimester (ferrous sulfate supplementation)</p>
+    <p><strong>Medications:</strong> Ferrous sulfate 325 mg daily (third trimester), prenatal vitamins</p>
+    <p><strong>Allergies:</strong> NKDA</p>
+    <p><strong>Setting:</strong> Labor & Delivery Unit → Postpartum Unit</p>
+    <p><strong>Risk factors for PPH:</strong> Oxytocin augmentation, prolonged labor, macrosomia (baby 4,200g), grand multiparity relative to age</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={4}
+    title="Immediate Postpartum — PPH Recognition"
+    vitals={{ 'BP': '98/60 mmHg', 'HR': '128 bpm', 'RR': '24/min', 'SpO₂': '97% RA', 'EBL': '>1,000 mL and ongoing' }}
+    labValues={{ 'Hgb (pre-delivery)': '9.8 g/dL ↓ (anemia)', 'Type & Screen': 'O positive', 'Coagulation': 'Pending (STAT)' }}
+  />
+
+  <div class="narrative-block">
+    <p>L.S. delivered a healthy 4,200g male infant at 14:32 via SVD. The placenta delivered 10 minutes later, appearing intact. At 15:05 (33 minutes after delivery), the bedside nurse notices L.S.'s peripad is completely saturated and blood is pooling beneath her. On assessment, the uterus is soft and "boggy" — failing to contract — consistent with <strong>uterine atony</strong>, the most common cause of PPH.</p>
+    <p>Estimated blood loss is already >1,000 mL. The nurse immediately calls for help, activates the PPH response team, and begins fundal massage. The obstetric provider is at the bedside within 2 minutes. IV oxytocin 30–40 units in 500 mL NS is running at maximum rate per standing order.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="15:07"
+    author="RN H. Coleman, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "L.S. is a 29-year-old G2P2 who delivered vaginally at 14:32. At 15:05, massive vaginal hemorrhage identified — peripad completely saturated, blood pooling under patient. Uterus boggy and unresponsive to initial fundal massage. EBL >1,000 mL ongoing. BP 98/60, HR 128. PPH from uterine atony.",
+      Background: "Risk factors: oxytocin augmentation, prolonged labor, macrosomia (4,200g), pre-existing anemia (Hgb 9.8). Placenta delivered intact. No cervical or perineal lacerations noted by provider. Oxytocin 30 units in 500 mL NS running at 125 mL/hr.",
+      Assessment: "Active postpartum hemorrhage from uterine atony. Hemodynamically decompensating — BP falling, HR rising, hypoperfusion signs. Anemia pre-existed — further blood loss is poorly tolerated. Coagulopathy risk if bleeding not controlled.",
+      Recommendation: "PPH response team activated. Requesting: (1) Second large-bore IV — already placing; (2) Methylergonovine 0.2 mg IM STAT (no hypertension — contraindication cleared); (3) Misoprostol 800 mcg sublingual/rectal STAT; (4) Type & crossmatch for 4 units pRBCs, 2 units FFP; (5) IV fluid bolus 1L NS wide open; (6) Bimanual uterine compression if massage fails; (7) Anesthesia and OR on standby."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={4}
+    title="Active PPH Management — Uterotonics & Blood Products"
+    vitals={{ 'BP': '86/52 mmHg', 'HR': '136 bpm', 'RR': '26/min', 'SpO₂': '95% 10L FM', 'EBL': '>1,800 mL (ongoing)' }}
+    labValues={{ 'Hgb (STAT)': '6.4 g/dL ↓↓', 'Plt': '88 × 10³ ↓', 'INR': '1.8 ↑', 'Fibrinogen': '140 mg/dL ↓ (DIC concern)', 'Lactate': '5.2 mmol/L ↑↑' }}
+  />
+
+  <div class="narrative-block">
+    <p>Despite oxytocin and methylergonovine, the uterus remains atonic. Misoprostol has been administered rectally. Carboprost (Hemabate) 0.25 mg IM is administered — a second-line uterotonic. Bimanual uterine compression is performed by the OB provider. Massive transfusion protocol is activated. Tranexamic acid (TXA) 1g IV is given within 3 hours of birth per WHO protocol for PPH — it reduces fibrinolysis and has been shown to reduce PPH mortality. Lab results confirm early DIC pattern.</p>
+    <p>The uterus begins to firm with carboprost. Hemorrhage slows but is not fully controlled. Interventional radiology is on standby for uterine artery embolization if surgical intervention is avoided.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="15:40"
+    author="RN H. Coleman, BSN"
+    highlight="critical"
+    sections={{
+      Data: "L.S., 29 y/o, PPH from uterine atony. EBL now >1,800 mL. BP 86/52, HR 136 — Class III-IV hemorrhagic shock. Hgb 6.4, Plt 88K, INR 1.8, fibrinogen 140 — early DIC. Lactate 5.2 — severe hypoperfusion. Uterotonics given: oxytocin (running), methylergonovine 0.2 mg IM, misoprostol 800 mcg PR, carboprost 0.25 mg IM — uterus beginning to firm with carboprost. Bimanual compression by OB provider. TXA 1g IV administered at 15:35. Massive transfusion protocol activated: 2 units pRBCs hanging, FFP ordered, cryoprecipitate ordered for fibrinogen < 150 mg/dL.",
+      Action: "Massive transfusion: 2 pRBCs wide open (pressure bags). FFP 2 units and cryoprecipitate 10 units in progress. Second large-bore 16g IV placed right AC. 1L NS bolused. SpO₂ 95% on 10L FM — supplemental O₂ continued. Foley catheter placed: UO 8 mL/hr (critically low). OR team and anesthesia at bedside — surgical option available if hemorrhage uncontrolled (Bakri balloon, B-Lynch suture, hysterectomy as last resort). Infant with NICU nurses nearby — parent updates given. Continuous telemetry monitoring. Partner at bedside — chaplain contacted.",
+      Response: "After carboprost and bimanual compression, uterine tone improving — fundus firming to walnut-sized at midline. Bleeding slowing but not stopped. BP still 86/52. Two units pRBCs transfusing. MTP in progress. Provider and team continue active management. Provider discussing Bakri balloon insertion with patient."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={4}
+    title="Stabilization — Post-Bakri Balloon Insertion"
+    vitals={{ 'BP': '104/66 mmHg', 'HR': '114 bpm', 'RR': '20/min', 'SpO₂': '98% 4L NC', 'UO': '35 mL/hr' }}
+    labValues={{ 'Hgb (post-4 units pRBCs)': '8.8 g/dL ↑', 'Plt': '118 × 10³ ↑', 'INR': '1.4 ↓', 'Fibrinogen': '210 mg/dL ↑', 'Lactate': '2.4 mmol/L ↓' }}
+  />
+
+  <div class="narrative-block">
+    <p>A Bakri balloon was inserted into the uterine cavity and inflated with 300 mL saline to provide tamponade — hemorrhage dramatically decreased. Total blood products received: 4 units pRBCs, 2 units FFP, 10 units cryoprecipitate. Hemodynamics are improving. Lactate is clearing. The patient is being transferred to the high-acuity postpartum observation unit. Her partner, who witnessed the emergency, is visibly shaken — emotional support and debriefing are priorities.</p>
+  </div>
+
+  <NursingNote
+    type="SOAP"
+    time="17:30"
+    author="RN H. Coleman, BSN"
+    sections={{
+      Subjective: "Patient states: 'Am I going to be okay?' — expressing fear and exhaustion. Reports pain 6/10 (abdominal cramping from uterotonic medications). States she is worried about her baby and wants to know if she will be able to breastfeed. Partner tearful at bedside.",
+      Objective: "A&O × 4 — anxious but cooperative. BP 104/66, HR 114. SpO₂ 98% on 4L NC. Bakri balloon in place with drainage system — output currently serosanguinous, <50 mL/hr. Fundus firm at midline, 1 fingerbreadth above umbilicus. Foley draining 35 mL/hr (improving). Hgb 8.8 after 4 units pRBCs. Coags improving. Lactate decreasing. Temperature 37.8°C (post-hemorrhage stress response). Total blood products given: 4 pRBCs, 2 FFP, 10 cryo. Total blood loss estimated: 2,200 mL.",
+      Assessment: "1. PPH — controlled post-Bakri balloon tamponade and uterotonics. 2. Hemorrhagic shock — resolving. 3. DIC — resolving with blood product replacement. 4. Anemia post-PPH — recovering. 5. Psychosocial: significant maternal anxiety and partner trauma — requires support. 6. Breastfeeding: delayed due to acuity — colostrum pumping can begin when stable.",
+      Plan: "Bakri balloon to remain in place 12–24 hours — removal with OB provider at bedside. Vital signs Q30 min × 4h, then Q1H. Strict I&O. Continue oxytocin infusion until Bakri removal. Hemoglobin rechecked in AM. Pain management: ibuprofen 600 mg Q6H ATC (uterine cramping) + acetaminophen 1g Q6H ATC. Breastfeeding consultant to visit — encourage pumping when stable. Social work and OB counselor for partner support. Iron supplementation restarted. Inform neonatal team of maternal status — newborn visit planned as soon as patient stable."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 4 -->
+  <PhaseHeader
+    phase={4}
+    total={4}
+    title="Day 3 — Recovery & Discharge Planning"
+    vitals={{ 'BP': '114/72 mmHg', 'HR': '88 bpm', 'SpO₂': '99% RA' }}
+    labValues={{ 'Hgb': '8.4 g/dL (stable)', 'Plt': '168 × 10³ ✓', 'Ferritin': '4 ng/mL ↓↓ (iron deficient)' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="10:00"
+    author="RN M. Diaz, BSN"
+    sections={{
+      Focus: "PPH recovery, iron deficiency anemia education, emotional support, and discharge planning",
+      Data: "L.S., postpartum Day 3 after PPH (EBL ~2,200 mL). Bakri balloon removed Day 1 without rebleeding. Fundus firm and involuting. Lochia rubra moderate. Hgb 8.4 — stable, will be supplemented. Ferritin critically low at 4 ng/mL. Breastfeeding established — lactation consultant involved. Partner recovered emotionally after social work visit; both bonding with newborn.",
+      Action: "Discharge education: (1) Iron deficiency anemia — iron-rich foods (red meat, dark leafy greens, beans, fortified cereals); prescribed IV iron infusion as outpatient (Hgb too low for oral iron alone); outpatient infusion appointment scheduled in 3 days; oral ferrous sulfate 325 mg TID with vitamin C for absorption; (2) Recovery — fatigue is expected; significant blood loss takes 4–6 weeks to fully recover; rest when infant rests; no strenuous activity × 6 weeks per OB; (3) Postpartum depression screening — Edinburgh Postnatal Depression Scale administered (score 4 — low risk); resources provided; 'if you feel overwhelmed, hopeless, or unable to care for your baby — call your OB or go to the ER'; (4) Warning signs: heavy bleeding (soaking > 1 pad/hour × 2 hours), fever >38°C, severe abdominal pain, wound redness → call OB or go to ED; (5) Future pregnancy planning — discussed increased PPH risk in future pregnancies; advised to notify OB immediately if pregnant; (6) Follow-up: OB in 1 week for wound check and Hgb recheck; OB 6-week comprehensive postpartum visit.",
+      Response: "Patient verbalized: 'I had no idea having a baby could be so dangerous.' Accepted iron infusion referral. Partner present and supportive — confirmed he will assist during recovery. Patient breastfeeding well with lactation support. Discharged to home with newborn in stable condition."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>Uterine atony</strong> (boggy, non-contracted uterus) is the most common cause of PPH — a boggy uterus after delivery is a nursing emergency requiring immediate fundal massage and uterotonic initiation.</li>
+      <li><strong>Tranexamic acid (TXA) 1g IV</strong> should be administered within 3 hours of delivery for PPH — it significantly reduces mortality by inhibiting fibrinolysis (WOMAN trial evidence).</li>
+      <li><strong>Staged uterotonic approach</strong>: oxytocin first → methylergonovine → misoprostol → carboprost (if no asthma). Each agent works through a different mechanism — stepping up is essential if initial therapy fails.</li>
+      <li>The <strong>Bakri balloon</strong> provides uterine tamponade as a uterus-sparing intervention before considering hysterectomy — nursing responsibilities include monitoring tamponade balloon output and vital signs closely.</li>
+      <li><strong>Pre-existing anemia</strong> dramatically lowers PPH tolerance — patients with low pre-delivery hemoglobin decompensate faster and require earlier blood product intervention.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

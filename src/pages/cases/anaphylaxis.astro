@@ -1,0 +1,130 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Anaphylaxis"
+  description="Unfolding clinical case: 28-year-old female with anaphylactic shock after IV penicillin — epinephrine administration, airway management, recovery, and patient education."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Anaphylaxis</h1>
+  <p class="case-tagline">IV Penicillin → Urticaria & Angioedema → Anaphylactic Shock → Epinephrine → Recovery</p>
+
+  <CaseMeta
+    category="Emergency / Immunology"
+    difficulty="Intermediate"
+    tags={['anaphylaxis', 'epinephrine', 'allergic reaction', 'airway management', 'diphenhydramine', 'anaphylactic shock', 'EpiPen', 'allergen avoidance']}
+    phases={3}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> T.W. &nbsp;|&nbsp; <strong>Age:</strong> 28 years &nbsp;|&nbsp; <strong>Sex:</strong> Female</p>
+    <p><strong>PMH:</strong> Seasonal allergies (allergic rhinitis), mild asthma, no prior anaphylaxis. No prior penicillin allergy documented.</p>
+    <p><strong>Medications:</strong> Cetirizine 10 mg daily (antihistamine for seasonal allergies), albuterol MDI PRN</p>
+    <p><strong>Allergies:</strong> No known drug allergies (NKDA) — <em>at time of admission</em></p>
+    <p><strong>Setting:</strong> Medical/Surgical Floor</p>
+    <p><strong>Situation:</strong> T.W. was admitted yesterday for a soft tissue infection of the left lower leg (cellulitis) and was started on IV penicillin G 2 million units Q4H. The current nurse is administering the second scheduled dose when the patient suddenly reports "my throat feels tight" and the nurse observes hives spreading across the patient's chest and neck.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={3}
+    title="Anaphylaxis Recognition — Rapid Response"
+    vitals={{ 'BP': '82/48 mmHg', 'HR': '132 bpm', 'RR': '28/min', 'SpO₂': '89% RA', 'Temp': '37.1°C' }}
+  />
+
+  <div class="narrative-block">
+    <p>Within 8 minutes of starting the penicillin infusion, T.W. develops urticaria (hives) across her chest, neck, and face, along with visible angioedema of the lips and tongue. She is in respiratory distress with audible stridor and a high-pitched "squeaking" sound on inspiration. Her blood pressure is 82/48 mmHg — anaphylactic shock. SpO₂ is dropping to 89%.</p>
+    <p>The nurse immediately stops the penicillin infusion and calls a rapid response. This is anaphylaxis — meeting criteria: two organ systems involved (cutaneous and cardiovascular) after exposure to a likely allergen. Epinephrine is the first-line treatment and must be given <em>immediately</em> — no other drug takes priority.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="10:18"
+    author="RN Q. Martin, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "T.W. is a 28-year-old female receiving IV penicillin G for cellulitis who developed anaphylaxis within 8 minutes of infusion — BP 82/48, HR 132, SpO₂ 89%, urticaria/angioedema of face/lips/tongue, stridor. Anaphylactic shock. Penicillin stopped immediately.",
+      Background: "Seasonal allergies (no prior PCN allergy documented). Mild asthma — albuterol PRN. Second dose of penicillin G 2 million units. IV access in left forearm — patent. No antihistamines pre-medicated. No prior anaphylaxis history.",
+      Assessment: "Anaphylaxis (multi-system: cutaneous + cardiovascular + respiratory) from penicillin allergy. Anaphylactic shock with impending airway compromise from angioedema and stridor. Imminent risk of complete airway obstruction and cardiac arrest.",
+      Recommendation: "Rapid response activated. IMMEDIATELY administered: epinephrine 0.3 mg IM (1:1000) into right anterolateral thigh — given at 10:18. O₂ 15L NRB applied. IV fluid bolus 1L NS wide open. Supine position with legs elevated (reverse Trendelenburg if respiratory distress worsens). Anesthesia/intubation team on standby. Requesting diphenhydramine 50 mg IV, methylprednisolone 125 mg IV, albuterol nebulizer, repeat epi in 5 min if no response."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={3}
+    title="Treatment Response & Monitoring"
+    vitals={{ 'BP': '106/68 mmHg', 'HR': '108 bpm', 'RR': '22/min', 'SpO₂': '94% 10L FM' }}
+  />
+
+  <div class="narrative-block">
+    <p>Within 5 minutes of epinephrine administration, T.W.'s blood pressure has improved from 82/48 to 106/68 mmHg. Stridor has decreased and she is breathing more comfortably. The urticaria is beginning to fade. SpO₂ improved to 94% on a face mask. A second dose of epinephrine was not required. Diphenhydramine 50 mg IV and methylprednisolone 125 mg IV have been administered to prevent biphasic anaphylaxis. Albuterol nebulizer is treating the bronchospasm component. She is transferred to a monitored step-down bed for observation for at least 6–8 hours (biphasic reaction can occur 1–72 hours later).</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="11:00"
+    author="RN Q. Martin, BSN"
+    sections={{
+      Data: "T.W., 28 y/o, 40 minutes post-anaphylaxis event. BP improved to 106/68 (was 82/48 in shock). HR 108 (was 132). SpO₂ 94% on 10L FM (was 89% RA). Stridor resolved. Urticaria fading — residual pruritus present. Angioedema: lip swelling markedly decreased; tongue edema resolved. RR 22/min — mild tachypnea, no accessory muscle use. Albuterol nebulizer ongoing — wheezing resolving. Patient alert, oriented, and frightened. Reports throat feels 'looser.' Skin: urticaria fading on chest and neck, hives on arms present but not spreading. Epinephrine administered: 0.3 mg IM once at 10:18 — no second dose required.",
+      Action: "Penicillin permanently discontinued — ALLERGY DOCUMENTED in chart (severe — anaphylaxis). Allergy wristband applied: PENICILLIN — ANAPHYLAXIS. IV access maintained. Diphenhydramine 50 mg IV given — monitoring for sedation. Methylprednisolone 125 mg IV given (biphasic prevention). Albuterol 2.5 mg nebulizer × 1 given — repeat ordered PRN. Transferred to step-down unit for Q15 min VS monitoring × 2 hours, then Q30 min × 4 hours. Observation minimum 6–8 hours per anaphylaxis protocol. Pharmacist notified — allergy propagated to EMR. All PCN/cephalosporin cross-allergy flag added. ID consult for alternative antibiotic for cellulitis (clindamycin or trimethoprim-sulfamethoxazole). Patient and family education initiated on epinephrine auto-injector (EpiPen) prescription.",
+      Response: "Vital signs stabilizing. Patient reports significant improvement — 'I can breathe again.' Family (mother and partner) arrived — updated on event. Patient asking many questions about what happened and why. Education begun. Physician reviewed allergergy documentation and new antibiotic ordered."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={3}
+    title="Discharge Planning — Allergen Avoidance & EpiPen Education"
+    vitals={{ 'BP': '118/74 mmHg', 'HR': '82 bpm', 'SpO₂': '99% RA', 'RR': '16/min' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="16:30"
+    author="RN Q. Martin, BSN"
+    sections={{
+      Focus: "Anaphylaxis education, epinephrine auto-injector training, allergen avoidance, and follow-up planning",
+      Data: "T.W., 8 hours post-anaphylaxis event. Fully recovered — vital signs normal, urticaria resolved, no angioedema, no respiratory symptoms. Cellulitis responding to clindamycin 600 mg PO TID (started × 1 dose, tolerating). No biphasic reaction during 8-hour observation. Penicillin allergy documented as anaphylaxis in all systems. EpiPen × 2 prescribed. Immunology/allergy outpatient referral placed.",
+      Action: "Comprehensive anaphylaxis discharge education: (1) Allergy alert — explained that she now has a confirmed severe penicillin allergy (anaphylaxis type); every healthcare provider must be told; she must list it on all medical forms; MedicAlert bracelet strongly recommended — website provided; (2) Cross-reactive antibiotics — reviewed list of penicillins to avoid (amoxicillin, ampicillin, Augmentin, piperacillin, nafcillin, etc.); also reviewed low cross-reactivity with cephalosporins — must tell any provider before receiving ANY antibiotic; (3) EpiPen training: demonstrated how to remove cap, inject into outer thigh (even through clothing), hold for 10 seconds, call 911 immediately after use even if feeling better; patient and partner both demonstrated return technique correctly × 2; (4) Carry 2 EpiPens at all times — biphasic reactions can occur hours later; (5) Antihistamines and steroids are NOT adequate for anaphylaxis — epinephrine is the ONLY definitive first-line treatment; (6) Action plan: if hives + breathing difficulty or throat tightness or dizziness → use EpiPen, call 911, do NOT wait to see if it resolves; (7) Allergy follow-up: immunology appointment in 2 weeks for penicillin skin testing and possible allergy evaluation; (8) Cellulitis follow-up: PCP in 3 days; complete clindamycin course (10 days).",
+      Response: "Patient and partner both successfully demonstrated correct EpiPen technique. Patient stated: 'I will never take penicillin again — and I'll always have my EpiPen.' MedicAlert bracelet order placed before discharge. All education understood. Partner present throughout and engaged. Discharged home in stable condition."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>Epinephrine IM into the anterolateral thigh</strong> is the ONLY first-line treatment for anaphylaxis — diphenhydramine and steroids are adjuncts only and should never delay or replace epinephrine.</li>
+      <li><strong>Anaphylaxis criteria</strong> (Brighton/WAO): onset of illness involving skin/mucous membranes PLUS at least one of: respiratory compromise, reduced BP, or organ dysfunction. Early recognition by nurses saves lives.</li>
+      <li><strong>Biphasic anaphylaxis</strong> can occur 1–72 hours after the initial event in up to 20% of cases — observation for ≥ 6–8 hours after epinephrine is mandatory.</li>
+      <li><strong>ALLERGY documentation</strong> is a critical nursing responsibility after anaphylaxis — every system (wristband, chart, pharmacy, provider communication) must be updated immediately.</li>
+      <li><strong>EpiPen training</strong> with teach-back before discharge significantly improves real-world self-injection confidence and accuracy — both the patient AND at least one household member should demonstrate competency.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

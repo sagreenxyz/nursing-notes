@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Acute Kidney Injury"
+  description="Unfolding clinical case: 78-year-old female with NSAID-induced AKI — recognition, fluid management, electrolyte monitoring, and nephrology-guided recovery."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Acute Kidney Injury</h1>
+  <p class="case-tagline">Oliguria & Confusion → AKI Diagnosis → Nephrology Management → Recovery</p>
+
+  <CaseMeta
+    category="Renal"
+    difficulty="Intermediate"
+    tags={['AKI', 'oliguria', 'creatinine', 'electrolytes', 'fluid balance', 'nephrology', 'NSAID nephrotoxicity', 'hyperkalemia']}
+    phases={4}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> E.M. &nbsp;|&nbsp; <strong>Age:</strong> 78 years &nbsp;|&nbsp; <strong>Sex:</strong> Female</p>
+    <p><strong>PMH:</strong> CKD Stage 2 (baseline Cr 1.1 mg/dL), osteoarthritis, hypertension, Type 2 DM, diastolic heart failure (EF 55%)</p>
+    <p><strong>Medications:</strong> Ibuprofen 600 mg TID (started 10 days ago for knee pain by PCP), metformin 500 mg BID, amlodipine 5 mg daily, lisinopril 10 mg daily, furosemide 20 mg daily</p>
+    <p><strong>Allergies:</strong> Sulfa (rash)</p>
+    <p><strong>Social Hx:</strong> Widowed, lives with daughter, independent with ADLs at baseline</p>
+    <p><strong>Setting:</strong> Emergency Department → Medical Floor</p>
+    <p><strong>Situation:</strong> Daughter brought E.M. to the ED after noticing she had been confused, weak, and producing "almost no urine" for 2 days.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={4}
+    title="ED Presentation — AKI Recognition"
+    vitals={{ 'BP': '162/96 mmHg', 'HR': '88 bpm', 'RR': '20/min', 'SpO₂': '96% RA', 'Temp': '36.8°C' }}
+    labValues={{ 'Cr': '4.8 mg/dL ↑↑ (baseline 1.1)', 'BUN': '68 mg/dL ↑↑', 'K': '6.2 mEq/L ↑↑', 'Na': '132 mEq/L ↓', 'Bicarb': '14 mEq/L ↓', 'GFR': '10 mL/min/1.73m² (estimated)', 'UA': 'No casts, no protein (pre-renal pattern)' }}
+  />
+
+  <div class="narrative-block">
+    <p>E.M. is confused and oriented only to her name. Her daughter reports she has had barely any urine output for 2 days and has been too weak to get out of bed. Foley catheter placement returns only 30 mL of dark concentrated urine. Creatinine has risen from a baseline of 1.1 to 4.8 mg/dL — AKI Stage 3 (KDIGO criteria). Potassium is critically elevated at 6.2 mEq/L — ECG is obtained immediately and shows peaked T waves with QRS widening, indicating cardiotoxicity risk.</p>
+    <p>The etiology is NSAID-induced acute tubular necrosis/hemodynamic AKI in a patient with pre-existing CKD, heart failure (volume-sensitive), and ACE inhibitor use — a classic "triple whammy" combination. All nephrotoxic medications are held immediately.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="13:45"
+    author="RN V. Patel, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "E.M. is a 78-year-old female with CKD2 presenting with AKI Stage 3 — Cr 4.8 (baseline 1.1), K⁺ 6.2 mEq/L with ECG changes (peaked T waves, QRS widening). Oliguria × 2 days. Altered mental status. NSAID use × 10 days as likely precipitant.",
+      Background: "PMH: CKD2, HTN, DM2, diastolic HF. On ibuprofen (NSAID — held), lisinopril (ACE — held), furosemide (diuretic — held), metformin (held for AKI per protocol). Triple whammy nephrotoxicity pattern. Last known Cr 1.1 mg/dL 3 months ago.",
+      Assessment: "NSAID-induced AKI Stage 3 with life-threatening hyperkalemia and metabolic acidosis. ECG changes present — cardiac arrest risk if K⁺ not urgently treated. Volume status uncertain — euvolemic to mildly hypovolemic appearance despite baseline diastolic HF.",
+      Recommendation: "STAT: (1) Calcium gluconate 1g IV for cardiac membrane stabilization (ECG changes); (2) Sodium bicarbonate 50 mEq IV (shift K⁺ intracellularly); (3) D50 50 mL + regular insulin 10 units IV (shift K⁺ intracellularly); (4) Kayexalate or patiromer PRN for K⁺ elimination; (5) Nephrology STAT consult — potential dialysis if oliguria persists or K⁺ worsens; (6) Hold all nephrotoxins; (7) Careful IV hydration — cautious in diastolic HF; (8) Continuous cardiac monitoring."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={4}
+    title="Medical Floor — Hyperkalemia Treatment & Fluid Management"
+    vitals={{ 'BP': '148/88 mmHg', 'HR': '84 bpm', 'RR': '18/min', 'SpO₂': '97% RA', 'UO (6h)': '90 mL (15 mL/hr)' }}
+    labValues={{ 'K (2h post-treatment)': '5.4 mEq/L ↓', 'ECG (repeat)': 'Peaked T waves resolving, QRS normalizing', 'Cr': '4.6 mg/dL (stable)', 'Bicarb': '16 mEq/L ↑ (improving)' }}
+  />
+
+  <div class="narrative-block">
+    <p>Hyperkalemia treatment has been effective — potassium decreased from 6.2 to 5.4 mEq/L within 2 hours and ECG changes have resolved. E.M. remains oliguric but is more alert. Cautious IV fluid resuscitation with 250 mL NS bolus was given — nephrology advised against aggressive hydration given diastolic HF. Furosemide has been held. Foley catheter remains to accurately track urine output. Nephrology is monitoring closely for dialysis indications (refractory hyperkalemia, severe acidosis, oliguria, uremic symptoms).</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="20:00"
+    author="RN V. Patel, BSN"
+    sections={{
+      Data: "E.M., 78 y/o, hospital admission hour 6 for AKI Stage 3. K⁺ decreased to 5.4 mEq/L (from 6.2) — ECG T waves improving, QRS normalizing per cardiology review. Cr 4.6 mg/dL — not worsening. Bicarb 16 (was 14). UO 15 mL/hr via Foley — persistently oliguria. BP 148/88. Patient more alert — A&O × 2. States she knows her name and is at a hospital. Not oriented to date or place. Daughter at bedside. Lung sounds: mild bibasilar crackles (fluid overload concern). Lower extremity: 1+ edema.",
+      Action: "Repeat K⁺, BMP, ECG ordered at 22:00 per nephrology. Telemetry: continuous. Fluid: maintenance IV D5 0.45% NS at 50 mL/hr — cautious hydration per nephrology (diastolic HF). Strict hourly I&O. All nephrotoxins held: ibuprofen STOPPED permanently (documented), lisinopril HELD, metformin HELD. Patiromer 8.4g PO given (ongoing K⁺ elimination). Renal diet ordered (potassium/phosphorus/sodium restricted). Nephrology plan: if UO does not improve to > 0.5 mL/kg/hr by AM, discuss hemodialysis catheter. Daughter educated on AKI and need for close monitoring.",
+      Response: "K⁺ improving — ECG normalized per repeat. Patient more interactive — recognized daughter. Creatinine stable (not worsening). Lung sounds: crackles present but no respiratory distress. No dialysis initiated yet. Nephrology at bedside and satisfied with current trajectory. Daughter verbalized understanding of plan."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={4}
+    title="Day 3 — Renal Recovery & Monitoring"
+    vitals={{ 'BP': '138/82 mmHg', 'HR': '80 bpm', 'RR': '16/min', 'SpO₂': '98% RA', 'UO (24h)': '780 mL (improving)' }}
+    labValues={{ 'Cr': '3.1 mg/dL ↓↓ (improving rapidly)', 'K': '4.8 mEq/L ↓ (normalizing)', 'BUN': '52 mg/dL ↓', 'Bicarb': '20 mEq/L ✓', 'Glucose': '138 mg/dL' }}
+  />
+
+  <div class="narrative-block">
+    <p>E.M. is showing robust renal recovery. Creatinine has dropped from 4.8 to 3.1 mg/dL in 48 hours — approaching recovery phase as the NSAID-mediated renal vasoconstriction resolves. Urine output has improved dramatically. She is fully oriented and eating a renal diet. Dialysis is no longer anticipated. Metformin remains held — will reassess when Cr returns closer to baseline. Nephrology plans to follow-up as outpatient.</p>
+  </div>
+
+  <NursingNote
+    type="SOAP"
+    time="08:30"
+    author="RN N. Thompson, BSN"
+    sections={{
+      Subjective: "Patient states: 'I feel so much better. My head is clearer.' Reports passing more urine — notices the Foley bag filling. No chest pain, no shortness of breath. Mild fatigue. Eating about 50% of renal diet meals. States she is worried about her kidneys and whether she'll need dialysis.",
+      Objective: "A&O × 4 — returned to baseline per daughter. BP 138/82. HR 80. SpO₂ 98% RA. UO last 24h: 780 mL (improving from near-zero on admission). Cr 3.1 (from 4.8) — recovering. K⁺ 4.8 — normalizing. Bicarb 20 — resolved acidosis. Edema trace bilateral ankles. Lungs clear. Foley draining yellow urine.",
+      Assessment: "1. AKI Stage 3 — recovering; NSAID cause removed. 2. Hyperkalemia — resolved; no ECG changes. 3. Metabolic acidosis — resolved. 4. Cognitive impairment — resolved with creatinine improvement (uremic encephalopathy). 5. Metformin held — continue holding until Cr < 1.5. 6. Diastolic HF — stable; watching fluid balance.",
+      Plan: "Continue renal diet. Hold lisinopril and metformin until Cr < 1.5 — discuss with nephrology at discharge. May restart furosemide 20 mg cautiously when Cr stabilized. Foley catheter will be removed tomorrow if UO adequate. Target discharge Day 5. Education: NSAID risks, reporting decreasing urine output, medication review with PCP."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 4 -->
+  <PhaseHeader
+    phase={4}
+    total={4}
+    title="Day 5 — Discharge Planning"
+    vitals={{ 'BP': '132/80 mmHg', 'HR': '76 bpm', 'SpO₂': '99% RA' }}
+    labValues={{ 'Cr': '1.8 mg/dL (approaching baseline)', 'K': '4.4 mEq/L ✓', 'BUN': '32 mg/dL ↓', 'GFR': '29 mL/min/1.73m² (CKD Stage 3b — worsened from Stage 2)' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="10:00"
+    author="RN N. Thompson, BSN"
+    sections={{
+      Focus: "NSAID nephrotoxicity education, medication reconciliation, and AKI recovery discharge planning",
+      Data: "E.M., Day 5 NSAID-induced AKI. Creatinine 1.8 (near baseline 1.1 — not fully recovered, but trending toward it). GFR 29 — now CKD Stage 3b (worsened from Stage 2). Voiding independently (Foley removed Day 4). Urine output adequate. Cognitively intact. Metformin and lisinopril remaining held at discharge. Ibuprofen PERMANENTLY discontinued.",
+      Action: "Comprehensive discharge education: (1) NSAID prohibition — explained in detail: ibuprofen, naproxen, aspirin (at anti-inflammatory doses), ketorolac, diclofenac all prohibited; this caused life-threatening kidney failure; must tell every healthcare provider about this restriction; (2) Pain management alternatives — acetaminophen is safe (< 3g/day), topical diclofenac gel (low systemic absorption), physical therapy; (3) Medication changes: ibuprofen STOPPED permanently; lisinopril — resume only when Cr < 1.5 per PCP/nephrology guidance; metformin — resume when Cr stable < 1.5 per nephrology; (4) Warning signs of AKI: decreased urine output, confusion, weakness, leg swelling, shortness of breath → return to ED; (5) Monitoring: daily fluid intake and urination frequency; report changes immediately; (6) Renal diet: low potassium, low phosphorus, low sodium; dietitian handout provided; (7) Follow-up: nephrology in 1 week, PCP in 3 days for Cr recheck; repeat CKD staging at nephrology visit.",
+      Response: "Patient and daughter verbalized: 'No more Advil — ever. That almost killed her kidneys.' Correctly identified 3 warning signs. Accepted nephrology follow-up. Daughter will help manage medications at home. Discharged home with daughter in stable condition."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li>The <strong>"triple whammy"</strong> (NSAID + ACE inhibitor + diuretic) combination dramatically increases AKI risk — especially in elderly patients with CKD and heart failure.</li>
+      <li><strong>Hyperkalemia with ECG changes</strong> (peaked T waves, wide QRS) is a medical emergency — calcium gluconate stabilizes the cardiac membrane immediately and must be given first, before K⁺ shifting agents.</li>
+      <li><strong>Metformin must be held</strong> in AKI due to risk of fatal lactic acidosis — it should only be restarted after Cr normalizes and with provider guidance.</li>
+      <li><strong>NSAID nephrotoxicity</strong> is common and preventable — nurses must educate all patients with CKD, heart failure, or advanced age about the prohibitions against NSAID use.</li>
+      <li><strong>Foley catheter</strong> placement in AKI is essential for accurate hourly urine output monitoring — a key indicator of renal recovery and resuscitation adequacy.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>
