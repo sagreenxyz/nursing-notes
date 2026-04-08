@@ -1,0 +1,160 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Alcohol Withdrawal & Delirium Tremens"
+  description="Unfolding clinical case: 46-year-old male with alcohol withdrawal progressing to delirium tremens — CIWA-Ar scoring, benzodiazepine protocol, seizure management, and counseling."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Alcohol Withdrawal & Delirium Tremens</h1>
+  <p class="case-tagline">Hospitalization → Alcohol Cessation → Withdrawal Seizures → DTs → Stabilization</p>
+
+  <CaseMeta
+    category="Psychiatric / Medical"
+    difficulty="Advanced"
+    tags={['alcohol withdrawal', 'delirium tremens', 'CIWA', 'benzodiazepines', 'seizures', 'thiamine', 'Wernicke encephalopathy', 'CIWA-Ar']}
+    phases={4}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> G.P. &nbsp;|&nbsp; <strong>Age:</strong> 46 years &nbsp;|&nbsp; <strong>Sex:</strong> Male</p>
+    <p><strong>PMH:</strong> Alcohol use disorder (heavy use × 15 years — approximately 1 pint of vodka daily), prior alcohol withdrawal seizure × 1 (5 years ago), community-acquired pneumonia (current admission reason), mild hepatic steatosis</p>
+    <p><strong>Medications:</strong> None (non-adherent with prescribed medications)</p>
+    <p><strong>Allergies:</strong> NKDA</p>
+    <p><strong>Social Hx:</strong> Divorced, lives alone, unemployed, drinks daily to avoid withdrawal symptoms, reports last drink approximately 18 hours prior to current admission</p>
+    <p><strong>Setting:</strong> Emergency Department → Medical Floor → Step-Down Unit (during DTs)</p>
+    <p><strong>Situation:</strong> G.P. was admitted for pneumonia. On Day 2 of hospitalization, the night nurse notes he is increasingly tremulous, diaphoretic, and anxious. He had his last drink approximately 36 hours ago.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={4}
+    title="Day 2 — Alcohol Withdrawal Recognition"
+    vitals={{ 'BP': '158/96 mmHg', 'HR': '116 bpm', 'RR': '22/min', 'SpO₂': '95% 2L NC', 'Temp': '38.1°C' }}
+  />
+
+  <div class="narrative-block">
+    <p>G.P. was admitted 36 hours ago for right lower lobe pneumonia. On the day shift assessment, the nurse observes coarse hand tremors and diaphoresis. The night nurse had noted increasing restlessness and mild confusion in her handoff. The CIWA-Ar (Clinical Institute Withdrawal Assessment for Alcohol — revised) is administered: score is 16 — indicating moderate withdrawal.</p>
+    <p>Key CIWA-Ar domains elevated: tremor (3), diaphoresis (3), anxiety (3), agitation (3), headache (2), and nausea (2). Scores ≥ 10 require pharmacological treatment. The nurse notifies the physician and initiates the benzodiazepine protocol. Thiamine is given immediately — every patient with alcohol use disorder must receive thiamine <em>before</em> glucose to prevent Wernicke encephalopathy.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="06:30"
+    author="RN C. Hayes, BSN"
+    highlight="warning"
+    sections={{
+      Situation: "G.P. is a 46-year-old male admitted for CAP, now hospital Day 2 showing signs of alcohol withdrawal — CIWA-Ar score 16 (moderate). Tremors, diaphoresis, tachycardia HR 116, hypertension BP 158/96, anxiety, mild agitation. Last drink ~36 hours ago.",
+      Background: "PMH: Alcohol use disorder × 15 years, prior withdrawal seizure 5 years ago — HIGH RISK for seizures and DTs. Drinks ~1 pint vodka daily. Admitted for pneumonia — levofloxacin Day 2. Thiamine not yet administered (notified pharmacy). Glucose 112 mg/dL.",
+      Assessment: "Moderate alcohol withdrawal (CIWA-Ar 16) with high risk for progression to severe withdrawal and delirium tremens given prior seizure history and chronicity of use. Window to prevent DTs is NOW — early benzodiazepine loading is the most effective intervention.",
+      Recommendation: "Requesting immediate: (1) Thiamine 100 mg IV STAT (before any dextrose); (2) Lorazepam per CIWA-Ar protocol — symptom-triggered dosing starting with lorazepam 2 mg IV for CIWA ≥ 10; (3) CIWA-Ar reassessment Q1H; (4) IV access verified; (5) Bedside continuous monitoring — telemetry, pulse ox; (6) Fall precautions — bed in lowest position, pads on rails; (7) Quiet, low-stimulation environment; (8) Banana bag (thiamine + folate + MVI in D5W) per order."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={4}
+    title="Day 2 Evening — Breakthrough Seizure"
+    vitals={{ 'BP': '172/104 mmHg', 'HR': '128 bpm', 'RR': '24/min', 'SpO₂': '92% RA (post-ictal)' }}
+  />
+
+  <div class="narrative-block">
+    <p>Despite lorazepam dosing for CIWA-Ar scores of 16–18 over the past 8 hours, G.P. has a witnessed generalized tonic-clonic seizure at 22:15. The nurse at the bedside immediately ensures safety (side-lying position, nothing in mouth, call light pressed, supplemental O₂ applied), times the seizure, and calls for help. The seizure lasts 90 seconds and self-terminates. Post-ictal: patient is confused and unresponsive to questions but breathing spontaneously.</p>
+    <p>Lorazepam 2 mg IV is administered immediately post-seizure. The physician is notified STAT. This patient is now at high risk for delirium tremens (DTs) — the most severe and life-threatening form of alcohol withdrawal, occurring 48–72 hours after the last drink.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="22:20"
+    author="RN C. Hayes, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "G.P., 46 y/o male, alcohol withdrawal — had witnessed generalized tonic-clonic seizure at 22:15, lasted 90 seconds, self-terminated. Currently post-ictal: unresponsive, breathing spontaneously. SpO₂ 92% on RA — supplemental O₂ applied. Lorazepam 2 mg IV given. Seizure precautions in place.",
+      Background: "CIWA-Ar was 18 at 21:00 — lorazepam 2 mg given at 21:05. Despite treatment, seizure occurred. Prior history of withdrawal seizure (high risk). On CIWA-protocol lorazepam × 8 hours. Total lorazepam given today: 10 mg. Levofloxacin pneumonia treatment ongoing — note: fluoroquinolones lower seizure threshold.",
+      Assessment: "Breakthrough withdrawal seizure despite benzodiazepine therapy. High risk for recurrent seizures and delirium tremens (DTs) within next 12–48 hours. Levofloxacin may be contributing — ID consult for antibiotic change.",
+      Recommendation: "Requesting: (1) Step-down/monitored unit transfer immediately; (2) Change to scheduled lorazepam (not symptom-triggered alone) — lorazepam 2 mg IV Q4H scheduled + CIWA-triggered PRN; (3) Seizure precautions: padded side rails, O₂ at bedside, suction at bedside; (4) Neurological checks Q1H; (5) ID consult re: antibiotic change from levofloxacin; (6) Phenobarbital loading if lorazepam requirements escalate."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={4}
+    title="Day 3 — Delirium Tremens (DTs)"
+    vitals={{ 'BP': '188/114 mmHg', 'HR': '144 bpm', 'RR': '28/min', 'SpO₂': '93% 6L FM', 'Temp': '39.6°C' }}
+  />
+
+  <div class="narrative-block">
+    <p>At 36 hours after admission (approximately 54 hours after last drink), G.P. has developed frank delirium tremens. He is now profoundly agitated, confused, pulling at IV lines, screaming that "there are spiders on the wall" (visual hallucinations), and sweating profusely. He requires physical holding to prevent falls. His temperature is 39.6°C — autonomic instability. DTs have a mortality rate of up to 15% if untreated. He is transferred to the step-down unit.</p>
+    <p>High-dose IV benzodiazepine therapy is the treatment of choice. Phenobarbital is added for refractory DTs. IV fluids and electrolyte repletion are critical — patients in DTs have massive fluid and electrolyte losses from diaphoresis, tachycardia, and hyperthermia. One-to-one nursing care is initiated.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="10:15"
+    author="RN L. Grant, BSN — Step-Down Unit"
+    highlight="critical"
+    sections={{
+      Data: "G.P., 46 y/o, Day 3 hospitalization — delirium tremens. CIWA-Ar unable to accurately assess (too agitated — score estimated >20). Profound agitation — requiring 2-person hold to prevent falls. Visual hallucinations: seeing spiders and snakes on walls. Diaphoresis: sheets soaked Q1-2H. Temp 39.6°C. BP 188/114 (hypertensive urgency). HR 144 (sinus tach). SpO₂ 93% on 6L FM. IV lines pulled out × 2 — peripheral IV x2 replaced (right forearm 18g, right AC 18g). Total lorazepam given in past 24h: 30 mg (escalating doses). Restraints applied bilaterally per protocol (physician order, family notified, Q2H neuro checks, PRN documentation).",
+      Action: "One-to-one nursing care initiated. Lorazepam infusion started at 5 mg/hr (titrate per agitation q15min); phenobarbital 260 mg IV loading dose given per addiction medicine. Cooling blanket and acetaminophen 1g IV for temperature management. Aggressive IV hydration: 1L LR wide open, then 250 mL/hr maintenance. K⁺ replacement: 40 mEq IV (K 3.1). Mg replacement: 2g IV (Mg 1.4). Thiamine 100 mg IV TID (ongoing). Folate 1 mg IV daily. Continuous cardiac telemetry — monitoring for QT prolongation and dysrhythmias. Foley catheter placed for accurate I&O (UO 20 mL/hr — concerning). Intubation tray at bedside.",
+      Response: "After lorazepam infusion titration over 2 hours: agitation improving — patient no longer requires physical restraint but remains confused. HR decreased to 122. Temperature down to 38.8°C with cooling. UO improved to 50 mL/hr with IV fluids. Electrolytes being repleted. BP 162/98 — improved but still elevated. Physician updated Q2H. Family notified of DT severity and ICU transfer possibility if no improvement."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 4 -->
+  <PhaseHeader
+    phase={4}
+    total={4}
+    title="Day 5 — Resolution of DTs & Discharge Planning"
+    vitals={{ 'BP': '132/82 mmHg', 'HR': '88 bpm', 'RR': '18/min', 'SpO₂': '97% 2L NC', 'Temp': '37.2°C' }}
+    labValues={{ 'K': '3.8 mEq/L ✓', 'Mg': '2.0 mg/dL ✓', 'LFTs': 'ALT 68 ↑, AST 94 ↑ (alcohol-related)', 'WBC': '10.2 × 10³ ↓ (pneumonia improving)', 'CIWA-Ar': '3 (minimal withdrawal)' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="11:00"
+    author="RN L. Grant, BSN"
+    sections={{
+      Focus: "Alcohol use disorder education, motivational counseling, and discharge planning",
+      Data: "G.P., Day 5 hospitalization. DTs resolved — CIWA-Ar 3 for 36 hours. Lorazepam infusion discontinued; transitioned to oral chlordiazepoxide taper (scheduled) with lorazepam PRN for CIWA ≥ 8 (weaning regimen). Pneumonia improving — completing antibiotic course (azithromycin replacing levofloxacin per ID). Alert and oriented × 4. Ashamed and motivated to discuss drinking. Addiction medicine met with patient × 1. States: 'I've been to the hospital before but I've never had the shaking and hallucinations like this. I want to stop.'",
+      Action: "Comprehensive discharge education and motivational counseling: (1) Alcohol withdrawal — explained that DTs are life-threatening and can recur with more severity each episode (kindling effect); next withdrawal may be worse; (2) Absolute cessation — medical necessity explained empathetically; body cannot safely stop heavy alcohol use without medical support; (3) NEVER attempt unsupervised alcohol withdrawal — must medically detox; (4) Treatment options: outpatient addiction medicine follow-up scheduled in 3 days; inpatient residential program information given; AA meeting schedule provided for local area; (5) Naltrexone prescribed per addiction medicine — reduces alcohol cravings; reviewed once-daily dosing, liver monitoring requirement; (6) Thiamine supplementation — OTC thiamine 100 mg PO daily indefinitely; (7) Safe discharge plan confirmed: sober companion (brother) will be present × 1 week; locked away alcohol at home; (8) Safety net: patient given addiction medicine 24-hour crisis line and written plan for 'if I relapse — call this number first, then go to ED.'",
+      Response: "Patient stated: 'I've been telling myself I could stop anytime for 15 years. Seeing my brother cry when they told him I might die — that was the moment I actually believed I needed help.' Accepted outpatient addiction medicine appointment. Brother present and engaged in discharge plan. Written instructions and naltrexone dispensed. Discharged home with brother in stable condition."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>CIWA-Ar ≥ 10</strong> requires pharmacological treatment — symptom-triggered benzodiazepine dosing is more effective and uses less medication than fixed-schedule dosing in most patients.</li>
+      <li><strong>Thiamine BEFORE glucose</strong> in all alcohol use disorder patients — glucose given first can precipitate fatal Wernicke's encephalopathy (Wernicke-Korsakoff syndrome) by depleting the last reserves of thiamine.</li>
+      <li><strong>Prior withdrawal seizures</strong> are the single strongest predictor of future seizures and DTs — always inquire about prior withdrawal history and escalate monitoring accordingly.</li>
+      <li><strong>DTs mortality can reach 15%</strong> without treatment — the triad of confusion, autonomic instability (tachycardia, hypertension, fever), and hallucinations is a medical emergency requiring ICU-level care.</li>
+      <li>The <strong>kindling effect</strong> means each alcohol withdrawal episode can be more severe — motivating patients to seek medically supervised detox before attempting to stop is a critical nursing education point.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

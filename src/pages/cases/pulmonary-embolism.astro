@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Pulmonary Embolism"
+  description="Unfolding clinical case: 45-year-old female post-cesarean section with acute pulmonary embolism — diagnosis, anticoagulation, risk stratification, and recovery."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Pulmonary Embolism</h1>
+  <p class="case-tagline">Acute Dyspnea → PE Diagnosis → Anticoagulation → Safe Discharge on DOAC</p>
+
+  <CaseMeta
+    category="Respiratory"
+    difficulty="Advanced"
+    tags={['PE', 'pulmonary embolism', 'anticoagulation', 'heparin', 'DVT', 'CT angiography', 'Wells score', 'DOAC']}
+    phases={4}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> A.R. &nbsp;|&nbsp; <strong>Age:</strong> 45 years &nbsp;|&nbsp; <strong>Sex:</strong> Female</p>
+    <p><strong>PMH:</strong> Cesarean section 14 days ago (uncomplicated), obesity (BMI 34), on combined oral contraceptive pills prior to pregnancy (discontinued at 6 weeks gestation)</p>
+    <p><strong>Medications:</strong> Ibuprofen PRN, prenatal vitamins (recently stopped), iron supplement</p>
+    <p><strong>Allergies:</strong> NKDA</p>
+    <p><strong>Social Hx:</strong> Married, mother of two, non-smoker, no prior clotting history</p>
+    <p><strong>Setting:</strong> Emergency Department → Telemetry Unit</p>
+    <p><strong>Situation:</strong> A.R. presents with sudden onset pleuritic right-sided chest pain and dyspnea that woke her from sleep. Her left calf has been tender and swollen for 2 days.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={4}
+    title="ED Presentation — PE Workup"
+    vitals={{ 'BP': '108/72 mmHg', 'HR': '118 bpm', 'RR': '26/min', 'SpO₂': '90% RA', 'Temp': '37.2°C', 'Pain': '7/10 (pleuritic)' }}
+    labValues={{ 'D-dimer': '>10,000 ng/mL ↑↑', 'Troponin I': '0.18 ng/mL ↑', 'BNP': '280 pg/mL ↑', 'ABG pH': '7.48', 'PaO₂': '62 mmHg ↓', 'PaCO₂': '28 mmHg ↓' }}
+  />
+
+  <div class="narrative-block">
+    <p>A.R. is brought in by her husband. She appears anxious and is in visible respiratory distress. Left lower extremity is warm, erythematous, and swollen compared to the right. Wells PE Score is calculated at 7.5 (high probability). CT pulmonary angiography (CTPA) is ordered immediately. ECG shows sinus tachycardia with S1Q3T3 pattern. Troponin and BNP elevation suggest right ventricular strain — concerning for submassive PE.</p>
+    <p>CTPA results confirm bilateral pulmonary emboli with saddle embolus at the main pulmonary artery bifurcation with extension into right and left main pulmonary arteries. Echocardiogram shows RV dilation and McConnell's sign. Hematology/PE response team activated.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="08:15"
+    author="RN J. Park, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "A.R. is a 45-year-old female, 14 days post-cesarean, presenting with acute pleuritic chest pain, SpO₂ 90% on RA, HR 118, and confirmed bilateral saddle PE on CTPA. Troponin 0.18, BNP 280 — right ventricular strain. Hemodynamically borderline (BP 108/72).",
+      Background: "Post-cesarean s/p 14 days. BMI 34. Left calf tender and swollen × 2 days. Wells score 7.5 (high probability). D-dimer >10,000. ECG: S1Q3T3 pattern. Echo: RV dilation. No prior PE/DVT history. No family history of clotting disorder.",
+      Assessment: "Submassive (intermediate-high risk) PE with RV dysfunction. Hemodynamically stressed but not in overt shock. Risk for deterioration to massive PE and cardiac arrest is high. Systemic thrombolysis vs. catheter-directed therapy under discussion by PE response team.",
+      Recommendation: "IV UFH bolus and infusion initiated per weight-based protocol. Supplemental oxygen titrated to maintain SpO₂ ≥ 95%. Continuous telemetry. Bed rest. IV access × 2 large-bore. Type and screen. PE response team at bedside. Requesting admission to monitored telemetry bed with potential ICU step-up if hemodynamics worsen."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={4}
+    title="Telemetry Unit — Anticoagulation Management"
+    vitals={{ 'BP': '116/74 mmHg', 'HR': '104 bpm', 'RR': '22/min', 'SpO₂': '95% 4L NC' }}
+    labValues={{ 'aPTT (4h)': '68 sec (therapeutic 60–100)', 'Hgb': '11.4 g/dL', 'Plt': '198 × 10³', 'INR': '1.1', 'Troponin (6h)': '0.22 ng/mL (peaking)' }}
+  />
+
+  <div class="narrative-block">
+    <p>A.R. is admitted to the telemetry unit. The PE response team has decided on systemic anticoagulation with IV unfractionated heparin, monitoring for potential clinical deterioration requiring catheter-directed thrombolysis. The patient and husband are frightened and have many questions about the clot and what it means for breastfeeding. The nurse provides empathetic education while maintaining close hemodynamic surveillance.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="14:30"
+    author="RN J. Park, BSN"
+    sections={{
+      Data: "A.R., 45 y/o, hospital admission hour 6 with submassive PE. On UFH infusion — aPTT 68 sec (therapeutic goal 60–100 per protocol). BP improving to 116/74. HR 104. SpO₂ 95% on 4L NC. Troponin peaked at 0.22, BNP 280 — RV strain present but not worsening. Patient alert, oriented, anxious. Reports pleuritic pain 4/10, improved from 7/10 with repositioning and IV ketorolac (cleared by hematology given anticoagulation — single dose). Left leg pain 5/10. Compression ultrasound confirms left popliteal DVT extending to femoral vein.",
+      Action: "UFH infusion titrated per aPTT nomogram — currently at 1,600 units/hr. Q4H aPTT monitoring. Vital signs Q1H with neuro checks. Bilateral lower extremity assessment Q4H. HOB elevated 30–45°. Supplemental O₂ titrated to SpO₂ ≥ 95%. DVT: no leg elevation per hematology (concern for propagation). Patient and husband provided education regarding PE pathophysiology, anticoagulation purpose, and signs of deterioration. Breastfeeding concerns addressed — heparin is safe in breastfeeding; discussed transition plan to DOAC after weaning. Emotional support offered; social work consulted.",
+      Response: "aPTT therapeutic within 4 hours. Hemodynamics stable without vasopressors. Patient reports feeling 'a little less scared' after education. Pain improved to 3/10. Husband verbalized understanding of monitoring plan. Breastfeeding consultant visited and documented plan."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={4}
+    title="Day 3 — Hemodynamic Stability & Transition to Oral Anticoagulation"
+    vitals={{ 'BP': '122/78 mmHg', 'HR': '88 bpm', 'RR': '18/min', 'SpO₂': '97% 2L NC' }}
+    labValues={{ 'Troponin': '0.09 ng/mL ↓ (trending down)', 'BNP': '180 pg/mL ↓', 'Hgb': '11.2 g/dL', 'aPTT': '72 sec (therapeutic)' }}
+  />
+
+  <div class="narrative-block">
+    <p>A.R. has been hemodynamically stable for 48 hours. Troponin and BNP are trending down — RV function improving. The PE response team has approved transition to oral anticoagulation. Given that A.R. is breastfeeding, rivaroxaban is discussed; however, the team ultimately chooses apixaban (lower molecular weight, less transfer to breast milk) with the understanding that the infant should be monitored for bleeding. Hematology will arrange outpatient follow-up and thrombophilia workup. Oxygen weaned to 2L NC — saturations stable.</p>
+  </div>
+
+  <NursingNote
+    type="SOAP"
+    time="10:00"
+    author="RN C. Brooks, BSN"
+    sections={{
+      Subjective: "Patient reports significant symptom improvement. Pleuritic chest pain now 1–2/10 with deep breathing. No new dyspnea at rest. Left leg pain 3/10. States she is anxious about going home with a blood clot and is worried about caring for her newborn. 'Will I be able to pick up my baby?'",
+      Objective: "A&O × 4. HR 88 NSR. BP 122/78. SpO₂ 97% on 2L NC. RR 18/min. Left calf erythema and swelling present but stable. Lung sounds clear with occasional diminished at right base. Last aPTT 72 sec — therapeutic. Troponin/BNP trending down. Tolerating regular diet. Ambulating in room with assist.",
+      Assessment: "1. Submassive PE — improving, hemodynamically stable. 2. Left proximal DVT — anticoagulated, no propagation. 3. RV dysfunction — resolving by labs. 4. Transitioning from IV heparin to oral apixaban. 5. Psychosocial: anxiety regarding discharge and newborn care — social work involved.",
+      Plan: "Start apixaban 10 mg BID × 7 days, then 5 mg BID × 3 months minimum. Overlap with heparin × 2 hours post first dose per protocol. Wean O₂ as tolerated. Ambulate with PT/OT today. Discharge teaching: anticoagulation safety, fall precautions, bleeding signs, infant monitoring. Hematology f/u in 2 weeks, thrombophilia panel at 3 months. OB/GYN notification of PE for contraception counseling (estrogen-containing OCP permanently contraindicated)."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 4 -->
+  <PhaseHeader
+    phase={4}
+    total={4}
+    title="Discharge Planning — Day 5"
+    vitals={{ 'BP': '118/72 mmHg', 'HR': '82 bpm', 'SpO₂': '98% RA', 'Pain': '1/10' }}
+    labValues={{ 'BNP': '120 pg/mL ↓', 'Hgb': '11.0 g/dL', 'Troponin': '0.04 ng/mL (near normal)' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="09:30"
+    author="RN C. Brooks, BSN"
+    sections={{
+      Focus: "Anticoagulation education, discharge planning, and VTE prevention counseling",
+      Data: "A.R., hospital Day 5 with bilateral PE and left proximal DVT. Hemodynamically stable. Off supplemental oxygen × 12 hours. Ambulating independently 200 feet. Apixaban initiated and tolerated. Husband present for teaching. Newborn at home with grandmother. Obstetrician notified of PE and contraception implications.",
+      Action: "Discharge education session completed: (1) Apixaban — never skip a dose; reviewed missed-dose protocol; demonstrated pill count; (2) Bleeding precautions — soft-bristle toothbrush, electric razor, no contact sports, report any unusual bruising, blood in urine/stool, prolonged bleeding from cuts; (3) Warning signs for PE recurrence or worsening — sudden chest pain, dyspnea, hemoptysis → call 911; worsening leg pain/swelling → call hematology; (4) Compression stockings — fitted and applied; worn daily × 2 years for DVT; (5) Newborn care — may lift up to 10 lbs per OB clearance, call pediatrician if infant has unusual bruising (apixaban in breast milk); (6) Future contraception — estrogen-containing OCP absolutely contraindicated; progestin-only or IUD acceptable; OB/GYN appointment in 1 week; (7) Thrombophilia workup scheduled at 3 months (after anticoagulation stopped for accurate results). Emergency contact numbers provided. MedicAlert bracelet recommended.",
+      Response: "Patient demonstrated correct apixaban administration and verbalized when to call 911. Stated: 'I never knew a blood clot could happen after having a baby.' Husband assisted with compression stocking application. Both verbalized three bleeding warning signs. Expressed confidence about going home. Discharged home in stable condition."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li>The <strong>postpartum period</strong> (especially after cesarean section) is a high-risk time for VTE — immobility, hypercoagulable state, and venous stasis contribute.</li>
+      <li><strong>Wells PE Score</strong> guides pre-test probability — scores ≥ 5 warrant immediate CTPA without waiting for D-dimer.</li>
+      <li><strong>Submassive PE</strong> (hemodynamically stable with RV dysfunction) requires close monitoring — deterioration to massive PE can occur rapidly and may require catheter-directed thrombolysis.</li>
+      <li><strong>Estrogen-containing contraceptives</strong> are absolutely contraindicated after PE — nurses play a key role in ensuring this counseling reaches the patient and OB provider.</li>
+      <li><strong>DOAC safety in breastfeeding</strong> is complex — hematology/pharmacy consultation and pediatrician involvement are essential before discharge.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Upper GI Hemorrhage"
+  description="Unfolding clinical case: 62-year-old male with massive hematemesis — hemorrhagic shock resuscitation, emergent endoscopy, blood transfusion, and recovery."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Upper GI Hemorrhage</h1>
+  <p class="case-tagline">Massive Hematemesis → Hemorrhagic Shock → Emergent EGD → Hemostasis → Recovery</p>
+
+  <CaseMeta
+    category="Gastrointestinal"
+    difficulty="Advanced"
+    tags={['GI bleed', 'hematemesis', 'PUD', 'endoscopy', 'transfusion', 'hemorrhagic shock', 'proton pump inhibitor', 'massive transfusion']}
+    phases={4}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> C.T. &nbsp;|&nbsp; <strong>Age:</strong> 62 years &nbsp;|&nbsp; <strong>Sex:</strong> Male</p>
+    <p><strong>PMH:</strong> Peptic ulcer disease (PUD), osteoarthritis, hypertension, prior H. pylori eradication (2 years ago)</p>
+    <p><strong>Medications:</strong> Naproxen 500 mg BID (long-term for OA), lisinopril 10 mg daily, omeprazole 20 mg daily (prescribed but non-adherent)</p>
+    <p><strong>Allergies:</strong> Codeine (nausea/vomiting)</p>
+    <p><strong>Setting:</strong> Emergency Department → ICU → Medical Floor</p>
+    <p><strong>Situation:</strong> C.T. was watching television when he suddenly vomited approximately 500 mL of bright red blood. He called 911. On arrival he is pale, diaphoretic, and barely able to answer questions.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={4}
+    title="ED Presentation — Hemorrhagic Shock Resuscitation"
+    vitals={{ 'BP': '74/42 mmHg', 'HR': '138 bpm', 'RR': '28/min', 'SpO₂': '96% 4L NC', 'Temp': '36.4°C', 'GCS': '12 (E3V4M5)' }}
+    labValues={{ 'Hgb': '6.2 g/dL ↓↓', 'Hct': '18% ↓↓', 'Plt': '142 × 10³', 'INR': '1.3', 'BUN': '48 mg/dL ↑ (BUN/Cr ratio > 20 — upper GI source)', 'Cr': '1.2 mg/dL', 'Lactate': '4.8 mmol/L ↑↑' }}
+  />
+
+  <div class="narrative-block">
+    <p>C.T. arrives by ambulance pale and diaphoretic with blood on his clothing. He is in hemorrhagic (hypovolemic) shock — BP 74/42, HR 138, lactate 4.8. Active airway protection is assessed — patient is protecting his airway. Two large-bore peripheral IVs (16g bilateral antecubital) are placed immediately and 1L normal saline bolus is started. Type and crossmatch for 6 units pRBCs is ordered STAT. Massive transfusion protocol (MTP) is activated.</p>
+    <p>The GI team is notified for emergent upper endoscopy (EGD). A nasogastric tube is placed — returns bright red blood with clots, confirming active upper GI bleeding. Glasgow-Blatchford score is 16 (maximum risk — requires urgent intervention).</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="22:05"
+    author="RN O. James, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "C.T. is a 62-year-old male with PUD presenting in hemorrhagic shock — BP 74/42, HR 138, Hgb 6.2, lactate 4.8. Massive hematemesis (~500 mL). NG tube confirmed active bright red bleeding. GBS score 16.",
+      Background: "PMH: PUD, OA on chronic naproxen (NSAID ulcer risk). Omeprazole prescribed but non-adherent. INR 1.3. Platelets 142K. No anticoagulant use. BUN/Cr ratio > 20 confirms upper GI source.",
+      Assessment: "Class III-IV hemorrhagic shock from active upper GI hemorrhage — most likely NSAID-induced gastric ulcer. Hemodynamically critical. Active airway — but at risk with large-volume bleeding. Risk for aspiration, hypoxic arrest, and exsanguination.",
+      Recommendation: "Massive transfusion protocol activated — pRBCs, FFP, platelets in 1:1:1 ratio. IV pantoprazole 80 mg bolus given, followed by 8 mg/hr drip. Two large-bore IVs in place. GI called — emergent EGD within 24 hours (target < 12h for active bleeding). ICU transfer immediately. Type & crossmatch for 6 units pRBCs in blood bank. IV access monitoring for extravasation. Foley placed for accurate UO."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={4}
+    title="ICU — Blood Product Administration & EGD"
+    vitals={{ 'BP': '94/60 mmHg', 'HR': '118 bpm', 'RR': '22/min', 'SpO₂': '98% 4L NC', 'UO': '30 mL/hr' }}
+    labValues={{ 'Hgb (post-2 units)': '8.4 g/dL ↑', 'Plt': '98 × 10³ ↓', 'INR': '1.5 ↑', 'Lactate (2h)': '2.8 mmol/L ↓', 'Fibrinogen': '160 mg/dL ↓' }}
+  />
+
+  <div class="narrative-block">
+    <p>C.T. received 2 units pRBCs, 2 units FFP, and 1 unit platelets via rapid infuser in the first hour. Hemodynamics have partially improved. He was taken for emergent EGD at 23:45 (within 2 hours of arrival). EGD reveals a large (2 cm) posterior duodenal ulcer with a visible vessel (Forrest Class Ia — active spurting) — high-risk finding. Endoscopic hemostasis is achieved with dual therapy: epinephrine injection and hemoclip placement. Total estimated blood loss > 1.5 L.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="02:30"
+    author="RN O. James, BSN"
+    highlight="warning"
+    sections={{
+      Data: "C.T., 62 y/o ICU, post-emergent EGD for active duodenal ulcer bleed (Forrest Ia). Endoscopic hemostasis achieved with epi injection + hemoclip. Total blood products received: 4 units pRBCs, 2 units FFP, 1 unit platelets. Hgb 8.4 (was 6.2). BP improving: 74/42 → 94/60. HR 118 (was 138). Lactate 2.8 (was 4.8). UO 30 mL/hr. Fibrinogen 160 — low, cryoprecipitate 10 units ordered. NG tube output: now darker brown/maroon vs. bright red (bleeding slowing). Plt dropped to 98K during resuscitation — platelet transfusion given. Patient now A&O × 2 — improving from GCS 12 on arrival.",
+      Action: "Cryoprecipitate 10 units infused per hematology consult (fibrinogen replacement). IV pantoprazole drip 8 mg/hr continued. NPO maintained. Continuous telemetry — monitoring for ischemic changes (blood loss, hemodynamic stress). Q1H VS and neuro checks. Strict I&O. NG tube position confirmed, draining — color/volume documented Q1H. Repeat CBC, coags, BMP, lactate ordered at 06:00. GI plan: re-scope in 48–72 hours if re-bleeding suspected. Hematology notified of coagulopathy. NSAID counseling documented for discharge planning.",
+      Response: "Blood pressure stabilizing. UO improving to 40 mL/hr. NG tube output transitioning from bright red to maroon — suggests slowing active bleeding. Patient more responsive — oriented to person and place. Family arrived at bedside — chaplain support offered. GI team informed of status."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={4}
+    title="Day 2 — Post-EGD Monitoring & Step-Down"
+    vitals={{ 'BP': '112/72 mmHg', 'HR': '92 bpm', 'RR': '18/min', 'SpO₂': '99% RA' }}
+    labValues={{ 'Hgb': '9.2 g/dL (stable)', 'Plt': '122 × 10³', 'INR': '1.2', 'BUN': '32 mg/dL ↓', 'Cr': '1.1 mg/dL', 'Lactate': '1.2 mmol/L ✓' }}
+  />
+
+  <div class="narrative-block">
+    <p>C.T. is hemodynamically stable and has been transferred to a step-down unit. NG tube was removed after 24 hours of no active bleeding (brown, coffee-ground output declining). He is advancing to clear liquids. BUN is decreasing — a sign of reduced intraluminal blood breakdown. Re-scope at 48 hours confirmed the hemoclip remains in place with no rebleeding. H. pylori antigen stool test is sent — positive. Triple therapy for H. pylori eradication is planned at discharge.</p>
+  </div>
+
+  <NursingNote
+    type="SOAP"
+    time="11:00"
+    author="RN S. Foster, BSN"
+    sections={{
+      Subjective: "Patient states: 'I never want to go through that again.' Reports feeling weak and fatigued. No nausea. No further blood in vomit. Mild epigastric discomfort 2/10. Tolerating clear liquids without nausea. States he is very scared and has many questions about his ulcer.",
+      Objective: "A&O × 4. BP 112/72, HR 92, SpO₂ 99% RA. Hgb stable at 9.2 g/dL (no further transfusion needed). BUN decreasing (48 → 32 → 32) — reassuring. Abdomen soft, mild epigastric tenderness. No guaiac-positive stool today. IV pantoprazole continued. H. pylori stool test sent. NG tube removed — patient tolerating sips of water. 4 units pRBCs total received. Foley removed — voiding adequate volumes of clear yellow urine.",
+      Assessment: "1. Upper GI hemorrhage — post EGD hemostasis; stable, no rebleeding. 2. Duodenal ulcer — NSAID-induced likely with positive H. pylori. 3. Anemia post-hemorrhage — stable, no active bleeding. 4. H. pylori eradication pending. 5. NSAID use: cessation counseled, NSAIDs must be discontinued permanently.",
+      Plan: "Advance diet to soft foods today, regular tomorrow. Transition IV pantoprazole to oral PPI (omeprazole 40 mg BID) when tolerating PO. H. pylori result pending — if confirmed, discharge with triple therapy (clarithromycin + amoxicillin + omeprazole × 14 days). NSAIDs MUST be discontinued. Orthopedics referral for OA pain management alternatives. GI follow-up in 6–8 weeks with repeat EGD to confirm ulcer healing. Hgb recheck at 1 week. Target discharge Day 4."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 4 -->
+  <PhaseHeader
+    phase={4}
+    total={4}
+    title="Discharge Planning — Day 4"
+    vitals={{ 'BP': '118/74 mmHg', 'HR': '84 bpm', 'SpO₂': '99% RA' }}
+    labValues={{ 'Hgb': '9.0 g/dL (stable)', 'H. pylori Ag': 'Positive', 'Stool guaiac': 'Negative' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="10:30"
+    author="RN S. Foster, BSN"
+    sections={{
+      Focus: "PUD education, H. pylori treatment, NSAID cessation, and discharge planning",
+      Data: "C.T., Day 4 upper GI bleed admission. Stable Hgb 9.0 — no further transfusion. H. pylori positive — eradication therapy initiated. Tolerating regular diet without symptoms. Epigastric pain 0–1/10. Guaiac-negative stool. NSAID use formally discontinued with documentation.",
+      Action: "Discharge education completed: (1) H. pylori eradication — clarithromycin 500 mg BID + amoxicillin 1g BID + omeprazole 40 mg BID × 14 days; reviewed each medication, timing, and side effects; stressed completing full course; (2) NSAIDs absolutely contraindicated — no ibuprofen, naproxen, aspirin, or ketorolac (risk of recurrent life-threatening GI bleed); reviewed all OTC labels; acetaminophen is safe alternative; (3) Omeprazole 40 mg BID — to continue indefinitely; reviewed importance of PPI adherence; (4) Warning signs: return to ED immediately for hematemesis, coffee-ground vomit, bright red rectal bleeding, dizziness/near-syncope, black tarry stools; (5) Diet: avoid spicy foods, alcohol, caffeine for 4 weeks; gradual return to regular diet; (6) Activity: light activity, avoid heavy lifting × 1 week; (7) Follow-up: GI in 6–8 weeks for repeat EGD to confirm healing; H. pylori test of cure 4 weeks after completing antibiotics (urea breath test preferred); PCP in 1 week for Hgb recheck.",
+      Response: "Patient verbalized: 'The ibuprofen I was taking caused all of this?' — confirmed understanding. Correctly stated warning signs and agreed to return to ED with any recurrence. Accepted orthopedics referral for knee OA management without NSAIDs. Written discharge instructions signed."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>Massive transfusion protocol</strong> uses a 1:1:1 ratio of pRBCs:FFP:platelets to prevent dilutional coagulopathy in massive hemorrhage — nursing must facilitate rapid blood product administration.</li>
+      <li><strong>BUN/Creatinine ratio > 20</strong> in a bleeding patient suggests an upper GI source — intraluminal blood is metabolized to urea, raising BUN disproportionately.</li>
+      <li><strong>NSAIDs and chronic PPI non-adherence</strong> are the most common preventable causes of peptic ulcer disease and GI hemorrhage — nursing education before discharge is critical.</li>
+      <li><strong>H. pylori eradication</strong> is confirmed by a urea breath test or stool antigen test ≥ 4 weeks after completing antibiotics — retesting is essential to ensure treatment success.</li>
+      <li><strong>IV PPI bolus followed by continuous drip</strong> is recommended after endoscopic hemostasis of high-risk ulcers — it maintains an intragastric pH > 6 to stabilize clot formation.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

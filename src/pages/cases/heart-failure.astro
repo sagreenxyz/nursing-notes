@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Acute Heart Failure Exacerbation"
+  description="Unfolding clinical case: 68-year-old male with HFrEF presenting with pulmonary edema — diuresis, hemodynamic monitoring, and discharge education."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Acute Heart Failure Exacerbation</h1>
+  <p class="case-tagline">Dyspnea → Pulmonary Edema → Diuresis → Hemodynamic Optimization → Discharge</p>
+
+  <CaseMeta
+    category="Cardiovascular"
+    difficulty="Intermediate"
+    tags={['heart failure', 'CHF', 'pulmonary edema', 'furosemide', 'BNP', 'fluid overload', 'EF', 'diuresis']}
+    phases={4}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> W.D. &nbsp;|&nbsp; <strong>Age:</strong> 68 years &nbsp;|&nbsp; <strong>Sex:</strong> Male</p>
+    <p><strong>PMH:</strong> HFrEF (EF 30%), hypertension, Type 2 DM, CAD s/p CABG × 3 (2018), atrial fibrillation on anticoagulation</p>
+    <p><strong>Medications:</strong> Carvedilol 25 mg BID, lisinopril 10 mg daily, furosemide 40 mg daily, spironolactone 25 mg daily, apixaban 5 mg BID, metformin 500 mg BID</p>
+    <p><strong>Allergies:</strong> Sulfa (rash)</p>
+    <p><strong>Setting:</strong> Emergency Department → Cardiac Telemetry Unit</p>
+    <p><strong>Situation:</strong> Wife called 911 after W.D. woke gasping for air at 3 AM. He has gained 8 lbs in 5 days and has been sleeping on three pillows.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={4}
+    title="ED Presentation — Acute Pulmonary Edema"
+    vitals={{ 'BP': '178/102 mmHg', 'HR': '104 bpm (AF)', 'RR': '32/min', 'SpO₂': '82% RA → 91% NRB', 'Temp': '37.0°C', 'Weight': '98 kg (dry weight ~90 kg)' }}
+    labValues={{ 'BNP': '2,840 pg/mL ↑↑', 'Troponin I': '0.04 ng/mL (neg)', 'Na': '132 mEq/L ↓', 'Cr': '1.6 mg/dL ↑', 'BUN': '32 mg/dL', 'Hgb': '11.8 g/dL' }}
+  />
+
+  <div class="narrative-block">
+    <p>W.D. arrives by EMS sitting bolt upright, using accessory muscles to breathe. He is pale, diaphoretic, and unable to complete sentences. Bilateral crackles are audible from the doorway. Chest X-ray reveals bilateral pulmonary infiltrates with vascular redistribution and Kerley B lines — consistent with acute pulmonary edema. ECG confirms atrial fibrillation with rapid ventricular response (rate 104 bpm) and no acute ischemic changes.</p>
+    <p>High-flow oxygen via non-rebreather mask is applied immediately, improving SpO₂ to 91%. IV access is established, and IV furosemide 80 mg is administered. The patient is placed in high Fowler's position.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="03:22"
+    author="RN T. Nguyen, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "W.D. is a 68-year-old male with known HFrEF (EF 30%) presenting with acute onset orthopnea, SpO₂ 82% on room air, RR 32, bilateral crackles, and 8-lb weight gain in 5 days. BNP 2,840 pg/mL. Chest X-ray confirms pulmonary edema. Currently on 15L NRB with SpO₂ 91%.",
+      Background: "PMH: HFrEF, HTN, DM2, CAD post-CABG, AF on apixaban. Home furosemide 40 mg daily. Na 132 (hyponatremia), Cr 1.6 (elevated), HR 104 in AF. Denies chest pain. Wife reports dietary indiscretion and missed furosemide doses × 3 days.",
+      Assessment: "Acute decompensated heart failure (ADHF) with flash pulmonary edema. Hypoxia requiring escalating oxygen support. Risk for intubation if not rapidly responsive to diuresis. Hemodynamically stressed — hypertensive with rapid AF.",
+      Recommendation: "Requesting: (1) Intensify diuresis — IV furosemide 80 mg already given, consider drip if inadequate response; (2) IV nitroglycerin for afterload reduction; (3) Rate control for AF; (4) Cardiology consult; (5) Possible BiPAP if SpO₂ does not improve; (6) Strict I&O, daily weights, fluid restriction."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={4}
+    title="Cardiac Telemetry — Diuresis & Stabilization"
+    vitals={{ 'BP': '148/88 mmHg', 'HR': '88 bpm (AF controlled)', 'RR': '20/min', 'SpO₂': '95% 4L NC', 'UO (first 6h)': '2,400 mL' }}
+    labValues={{ 'BNP (12h)': '1,620 pg/mL ↓', 'K': '3.2 mEq/L ↓', 'Na': '134 mEq/L', 'Cr': '1.8 mg/dL ↑', 'Mg': '1.6 mg/dL ↓' }}
+  />
+
+  <div class="narrative-block">
+    <p>W.D. was admitted to the cardiac telemetry unit. IV furosemide infusion at 10 mg/hr is producing brisk diuresis. He has lost 3.5 kg (7.7 lbs) of fluid since admission. He can now speak in full sentences and is resting more comfortably. However, electrolyte losses with diuresis require close monitoring and replacement. Creatinine has risen slightly — likely pre-renal from aggressive diuresis — and will be closely watched. Diltiazem IV was used for rate control; now transitioned to oral metoprolol.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="10:45"
+    author="RN P. Williams, BSN"
+    highlight="warning"
+    sections={{
+      Data: "W.D., 68 y/o, hospital Day 1 ADHF. UO 2,400 mL in first 6 hours on furosemide drip 10 mg/hr. Weight down 3.5 kg. RR improved to 20/min. SpO₂ 95% on 4L NC (was 82% on RA). Crackles reduced to bases only. K⁺ dropped to 3.2 mEq/L — hypokalemia. Mg 1.6 mg/dL — low. Cr 1.8 (was 1.6) — slight bump, monitoring. HR 88 in controlled AF. Patient reports significant symptom improvement but complains of leg cramps.",
+      Action: "Physician notified of hypokalemia and hypomagnesemia. KCl 40 mEq IV × 2 doses ordered and administered. Magnesium sulfate 2 g IV infused over 2 hours. Furosemide drip rate maintained at 10 mg/hr per orders. Strict I&O with hourly urine measurement. Cardiac telemetry monitored for hypokalemia-related dysrhythmias (PVCs, QT prolongation). Potassium-rich dietary intake encouraged (bananas, orange juice) when tolerating PO. Creatinine trended — nephrology notified of pre-renal concern. Daily weight protocol initiated.",
+      Response: "Patient's leg cramps improved 1 hour after electrolyte repletion. Cardiac monitor shows normal sinus rhythm — no dysrhythmias during repletion. K⁺ rechecked at 14:00 — 3.6 mEq/L (improved). Lungs with diminished crackles bilaterally. Patient tolerating clear liquid diet. Family updated on plan."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={4}
+    title="Day 2–3 — Optimization & Medication Titration"
+    vitals={{ 'BP': '128/78 mmHg', 'HR': '76 bpm (NSR)', 'RR': '16/min', 'SpO₂': '97% RA', 'Weight': '91.2 kg (down 6.8 kg from admission)' }}
+    labValues={{ 'BNP': '820 pg/mL ↓', 'K': '4.0 mEq/L', 'Cr': '1.5 mg/dL (improving)', 'Na': '136 mEq/L', 'Mg': '1.9 mg/dL' }}
+  />
+
+  <div class="narrative-block">
+    <p>W.D. has been transitioned to oral furosemide 80 mg BID (double his home dose). He converted spontaneously to normal sinus rhythm overnight. Carvedilol has been up-titrated. Creatinine is improving. He is ambulating in the hallway with minimal dyspnea and reports sleeping flat without difficulty for the first time in weeks. Cardiology has initiated a discussion regarding optimization of guideline-directed medical therapy (GDMT) and referral to a heart failure clinic.</p>
+  </div>
+
+  <NursingNote
+    type="SOAP"
+    time="09:00"
+    author="RN P. Williams, BSN"
+    sections={{
+      Subjective: "Patient states: 'I feel like a new person compared to when I came in. I slept flat last night for the first time in weeks.' Reports mild fatigue but no orthopnea, PND, or dyspnea at rest. Denies chest pain. Ambulated 200 feet in hallway — tolerated without dyspnea.",
+      Objective: "A&O × 4. Weight 91.2 kg (down 6.8 kg from 98 kg at admission). SpO₂ 97% on RA. RR 16/min. BP 128/78, HR 76 NSR. Lungs clear bilaterally. No JVD. 1+ pedal edema bilaterally (improving from 3+ at admission). Abdomen soft, no ascites. BNP trending down (2,840 → 1,620 → 820 pg/mL). I&O: negative 4.2L over 48 hours. Tolerating low-sodium diet.",
+      Assessment: "1. ADHF — significant improvement with IV-to-oral diuretic transition. 2. Volume status trending toward euvolemia. 3. AF — in NSR spontaneously, continuing anticoagulation. 4. Renal function improving. 5. GDMT optimization in progress. 6. Discharge education needs identified.",
+      Plan: "Continue oral furosemide 80 mg BID. Daily weight monitoring — notify MD if weight increases > 2 lbs overnight. Continue carvedilol, lisinopril, spironolactone. Discharge teaching to begin today: daily weights, low-sodium diet, medication adherence, fluid restriction, when to call provider. Heart failure clinic referral placed. Target discharge tomorrow if weight stable."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 4 -->
+  <PhaseHeader
+    phase={4}
+    total={4}
+    title="Discharge Planning — Day 4"
+    vitals={{ 'BP': '122/76 mmHg', 'HR': '74 bpm', 'SpO₂': '98% RA', 'Weight': '90.4 kg' }}
+    labValues={{ 'BNP': '580 pg/mL', 'K': '4.2 mEq/L', 'Cr': '1.4 mg/dL', 'Na': '138 mEq/L' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="11:00"
+    author="RN T. Nguyen, BSN"
+    sections={{
+      Focus: "Heart failure self-management education and discharge planning",
+      Data: "W.D., 68 y/o male, hospital Day 4, admitted for ADHF. Total fluid removed approximately 8 kg. Ambulating independently. Near dry weight. BNP trending down. Discharged on oral furosemide 80 mg BID (up from 40 mg daily). Heart failure clinic appointment scheduled in 3 days.",
+      Action: "Comprehensive heart failure education session conducted × 75 minutes with patient and wife: (1) Daily weights — taught to weigh every morning after voiding, before breakfast, and to call clinic if weight increases > 2 lbs in 1 day or 5 lbs in 1 week; (2) Sodium restriction — demonstrated reading food labels, target < 2,000 mg sodium/day; (3) Fluid restriction — 1.5 L/day; (4) Medication review — stressed never skipping diuretics, demonstrated carvedilol taper if dizzy; (5) Symptom recognition — when to call vs. go to ED: increasing dyspnea, orthopnea, new lower extremity swelling, weight gain; (6) Activity: graduated walking program, avoid strenuous activity until cardiology clearance; (7) Heart failure clinic enrollment completed; (8) Written instructions in plain language provided. Dietary consult completed with low-sodium handout and meal planning.",
+      Response: "Patient and wife demonstrated correct daily weight technique. Wife stated: 'I'll make sure he takes his water pill every day — that's what landed him here.' Patient verbalized three warning signs to report. Teach-back method used with 100% comprehension. Patient optimistic and motivated about heart failure clinic. Discharge instructions signed."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>Daily weights</strong> are the most reliable early warning system for fluid retention — a gain of 2 lbs overnight or 5 lbs in a week warrants urgent provider contact.</li>
+      <li><strong>Hypokalemia and hypomagnesemia</strong> are common diuresis complications — monitor electrolytes closely and replace aggressively to prevent life-threatening dysrhythmias.</li>
+      <li><strong>BNP trends</strong> guide response to therapy — falling BNP indicates effective decongestion, while persistently elevated levels suggest inadequate response.</li>
+      <li><strong>Sodium and fluid restriction</strong> are cornerstone non-pharmacological interventions — dietary education is as important as medication management in HF.</li>
+      <li><strong>GDMT adherence</strong> (beta-blockers, ACE inhibitors, MRAs) reduces mortality in HFrEF — never discontinue without cardiology guidance.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

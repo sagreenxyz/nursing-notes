@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Acute Pancreatitis"
+  description="Unfolding clinical case: 42-year-old male with acute pancreatitis — fluid resuscitation, pain management, nutritional support, and discharge planning."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Acute Pancreatitis</h1>
+  <p class="case-tagline">Severe Epigastric Pain → Pancreatitis → Aggressive Fluid Resuscitation → Recovery</p>
+
+  <CaseMeta
+    category="Gastrointestinal"
+    difficulty="Intermediate"
+    tags={['pancreatitis', 'lipase', 'NPO', 'fluid resuscitation', 'pain management', 'nutrition', 'alcohol use', 'nasojejunal feeding']}
+    phases={4}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> D.F. &nbsp;|&nbsp; <strong>Age:</strong> 42 years &nbsp;|&nbsp; <strong>Sex:</strong> Male</p>
+    <p><strong>PMH:</strong> Alcohol use disorder (heavy use × 10 years), one prior episode of pancreatitis 2 years ago, hypertriglyceridemia</p>
+    <p><strong>Medications:</strong> Fenofibrate 145 mg daily (non-adherent), thiamine 100 mg daily (prescribed, not taking)</p>
+    <p><strong>Allergies:</strong> NKDA</p>
+    <p><strong>Social Hx:</strong> Divorced, lives alone, works in construction, reports drinking a "case of beer a day" for the past 2 weeks</p>
+    <p><strong>Setting:</strong> Emergency Department → Medical/Surgical Floor → Step-Down (if needed)</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={4}
+    title="ED Presentation — Pancreatitis Recognition"
+    vitals={{ 'BP': '104/68 mmHg', 'HR': '122 bpm', 'RR': '24/min', 'SpO₂': '96% RA', 'Temp': '38.4°C', 'Pain': '10/10 (epigastric)' }}
+    labValues={{ 'Lipase': '4,820 U/L ↑↑', 'Amylase': '1,240 U/L ↑↑', 'WBC': '16.4 × 10³ ↑', 'Hct': '48% ↑ (hemoconcentration)', 'Ca': '7.8 mg/dL ↓', 'Triglycerides': '840 mg/dL ↑↑', 'Cr': '1.8 mg/dL ↑', 'LFTs': 'AST/ALT mildly elevated' }}
+  />
+
+  <div class="narrative-block">
+    <p>D.F. presents hunched over in the wheelchair, pressing his hands into his abdomen. He is pale, diaphoretic, and nauseated. He reports the pain began 6 hours ago after drinking heavily and has been progressively worsening with radiation to the back. He vomited 4 times en route. Abdominal exam reveals epigastric tenderness without rigidity or guarding. CT abdomen confirms pancreatic edema and peripancreatic fat stranding — acute interstitial edematous pancreatitis. BISAP score is 2 (intermediate risk).</p>
+    <p>Etiology is alcohol-induced acute pancreatitis with hypertriglyceridemia as a contributing factor. Aggressive IV fluid resuscitation is the cornerstone of early management.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="21:05"
+    author="RN R. Jordan, BSN"
+    highlight="warning"
+    sections={{
+      Situation: "D.F. is a 42-year-old male with known alcohol use disorder presenting with severe epigastric pain 10/10, lipase 4,820, vomiting × 4, tachycardia HR 122, and low-grade fever 38.4°C. CT confirms acute pancreatitis. BISAP score 2.",
+      Background: "PMH: Alcohol use disorder, prior pancreatitis, hypertriglyceridemia. Triglycerides 840 (contributing etiology). Hct 48% (hemoconcentration — hypovolemia). Ca 7.8 (hypocalcemia). Cr 1.8 (AKI — pre-renal). BP 104/68 — hypotensive. Reports heavy alcohol intake × 2 weeks.",
+      Assessment: "Moderate-severity acute pancreatitis with hypovolemia, hypocalcemia, hypertriglyceridemia, and pre-renal AKI. Risk for necrotizing pancreatitis, systemic inflammatory response, and ARDS. Alcohol withdrawal risk — last drink today but heavy chronic use.",
+      Recommendation: "Requesting immediate: (1) Aggressive IV fluid resuscitation — LR 500 mL bolus STAT, then 250–500 mL/hr (goal UO 0.5–1 mL/kg/hr); (2) IV morphine or hydromorphone for pain; (3) NPO with NG tube if needed for severe vomiting; (4) Calcium gluconate 2g IV; (5) Thiamine 100 mg IV STAT (alcohol use — prevent Wernicke's); (6) CIWA-Ar monitoring for withdrawal; (7) GI/Surgery consult."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={4}
+    title="Medical Floor — Fluid Resuscitation & Pain Control"
+    vitals={{ 'BP': '118/74 mmHg', 'HR': '104 bpm', 'RR': '20/min', 'SpO₂': '97% RA', 'UO': '60 mL/hr', 'Pain': '7/10' }}
+    labValues={{ 'Hct (8h)': '42% ↓ (improving)', 'Ca': '8.2 mg/dL ↑ (improving)', 'Cr': '1.4 mg/dL ↓ (improving)', 'WBC': '15.2 × 10³', 'CIWA-Ar Score': '6 (low)' }}
+  />
+
+  <div class="narrative-block">
+    <p>After 8 hours of aggressive fluid resuscitation with lactated Ringer's, D.F.'s hemodynamics have improved. Urine output is adequate at 60 mL/hr. Hemoconcentration is resolving. Pain remains significant at 7/10 despite IV hydromorphone. He is NPO with IV antiemetics controlling nausea. The nurse is monitoring closely for signs of alcohol withdrawal (CIWA-Ar score 6 — currently low risk, reassessed every 4 hours). Thiamine and folate have been administered. No antibiotics are indicated at this time — routine antibiotic prophylaxis is not recommended in acute pancreatitis without infected necrosis.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="07:30"
+    author="RN R. Jordan, BSN"
+    sections={{
+      Data: "D.F., 42 y/o, hospital admission hour 12 for acute alcoholic pancreatitis. LR at 300 mL/hr since admission — total 3.6L infused. UO 60 mL/hr (goal met). BP improved 104/68 → 118/74. HR 104 (was 122). Hct dropping appropriately from 48% to 42%. Ca improved to 8.2. Cr 1.4 (was 1.8). Pain: 7/10 despite IV hydromorphone 0.4 mg Q4H — partially controlled. Nausea: improved with ondansetron 4 mg IV Q8H. NPO — tolerating ice chips. CIWA-Ar 6 at 07:00 — reassessing Q4H. No tremors, no diaphoresis, no hallucinations currently. Temp 37.8°C. Abdomen tender, diffuse, but no rigidity. Bowel sounds hypoactive.",
+      Action: "LR rate decreased to 200 mL/hr per GI — UO goal met, reducing overload risk. Hydromorphone PCA initiated per pain management consult — patient education provided. CIWA-Ar monitoring Q4H — lorazepam protocol available at score ≥ 8. Calcium gluconate 2g IV repeated (Ca still below normal). Thiamine 100 mg IV daily continued. Folate 1 mg daily added. NPO maintained. Strict I&O. Daily BMP, lipase, CBC ordered. Patient educated on importance of NPO status and bowel rest for pancreatic recovery.",
+      Response: "Pain decreased to 5/10 with PCA within 2 hours. Patient tolerating ice chips without vomiting. HR trending down to 100 bpm. No signs of withdrawal currently. CIWA-Ar score stable. Family notified of condition and plan."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={4}
+    title="Day 3–4 — Nutritional Support & Complication Monitoring"
+    vitals={{ 'BP': '122/78 mmHg', 'HR': '92 bpm', 'RR': '16/min', 'SpO₂': '98% RA', 'Pain': '4/10' }}
+    labValues={{ 'Lipase': '1,240 U/L ↓ (trending down)', 'WBC': '12.4 × 10³ ↓', 'Ca': '8.6 mg/dL', 'Cr': '1.1 mg/dL (near normal)', 'Glucose': '186 mg/dL ↑ (pancreatic dysfunction)' }}
+  />
+
+  <div class="narrative-block">
+    <p>D.F. has not tolerated advancement to clear liquids — he reports return of nausea with any PO intake. Given that NPO status beyond 72 hours increases the risk of gut mucosal breakdown, the GI team has placed a nasojejunal (NJ) feeding tube and initiated enteral nutrition. Enteral nutrition (not TPN) is preferred in pancreatitis as it maintains gut integrity and reduces infectious complications. Blood glucose is being monitored closely — pancreatitis-related endocrine dysfunction is causing hyperglycemia. No evidence of necrotizing pancreatitis on repeat imaging at 72 hours.</p>
+  </div>
+
+  <NursingNote
+    type="SOAP"
+    time="10:00"
+    author="RN A. Wilson, BSN"
+    sections={{
+      Subjective: "Patient states: 'My stomach is a little better but I still feel sick when I try to eat or drink.' Reports pain 4/10 — improved from 10/10 on admission. Tolerating NJ tube feedings. Denies nausea at rest. Reports feeling 'shaky and anxious' — CIWA assessed.",
+      Objective: "A&O × 4. CIWA-Ar 9 at 10:00 — lorazepam 1 mg IV given per protocol. Reassessing in 1 hour. BP 122/78, HR 92. Abdomen tender but improved. NJ tube in place, position confirmed — enteral feeding at 40 mL/hr (starting rate, goal 80 mL/hr by 24h). Glucose 186 — sliding scale insulin given. Lipase trending down (1,240 from peak 4,820). No fever. Bowel sounds present in all quadrants. No signs of peritoneal signs suggesting necrotizing pancreatitis. Skin: jaundice absent.",
+      Assessment: "1. Acute pancreatitis — improving by labs and clinical course. 2. Unable to tolerate PO — NJ feedings initiated. 3. Pancreatitis-related hyperglycemia — managed with sliding scale. 4. Alcohol withdrawal — CIWA-Ar 9, treated with lorazepam per protocol. 5. Hypertriglyceridemia — fenofibrate held (NPO), lipid panel to recheck after recovery.",
+      Plan: "Advance NJ feeds to goal rate. Continue glucose monitoring Q6H. CIWA Q4H — titrate lorazepam per protocol (dose q8h lorazepam scheduled if scores consistently ≥ 8). Advance to clear liquids when pain resolves and nausea controlled. Lipase not required to normalize for diet advancement — use clinical assessment. Addiction medicine consult placed for alcohol use disorder counseling."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 4 -->
+  <PhaseHeader
+    phase={4}
+    total={4}
+    title="Day 6 — Diet Advancement & Discharge Planning"
+    vitals={{ 'BP': '118/76 mmHg', 'HR': '80 bpm', 'SpO₂': '99% RA', 'Pain': '1/10' }}
+    labValues={{ 'Lipase': '480 U/L ↓', 'WBC': '8.6 × 10³ ✓', 'Glucose': '124 mg/dL', 'Triglycerides': '420 mg/dL ↓ (improving)' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="11:00"
+    author="RN A. Wilson, BSN"
+    sections={{
+      Focus: "Pancreatitis recovery, diet advancement, alcohol use disorder education, and discharge planning",
+      Data: "D.F., Day 6 pancreatitis admission. Tolerating low-fat soft diet × 24 hours without pain recurrence. NJ tube removed. Lipase 480 and trending down. WBC normal. CIWA-Ar scores < 4 for 48 hours — lorazepam discontinued. Alcohol withdrawal resolved. Pain 1/10. Addiction medicine visited — patient open to recovery program. Triglycerides 420 — fenofibrate to be restarted with monitoring.",
+      Action: "Discharge education completed: (1) Pancreatitis prevention — absolute abstinence from alcohol is critical; one more episode risks chronic pancreatitis, pancreatic insufficiency, and diabetes; (2) Low-fat diet × 4–6 weeks — dietary handout provided with restricted fat foods listed; (3) Medication compliance — fenofibrate restarted; importance of daily compliance for triglyceride control explained; (4) Warning signs for recurrence — epigastric pain radiating to back, nausea/vomiting, fever → return to ED immediately; (5) Alcohol use disorder — strong counseling on abstinence; Alcoholics Anonymous enrollment information provided; outpatient addiction medicine referral placed; (6) Naltrexone prescription provided per addiction medicine — patient counseled on mechanism and side effects; (7) Follow-up: GI in 2 weeks, PCP in 1 week, repeat lipid panel in 4 weeks.",
+      Response: "Patient verbalized: 'I know I have to stop drinking — this time really scared me.' Accepted addiction medicine referral and AA schedule. Demonstrated knowledge of low-fat diet choices and correctly identified warning signs. Wife present and supportive. Discharged to home in stable condition."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>Aggressive IV fluid resuscitation</strong> with lactated Ringer's within the first 24–48 hours is the single most important intervention in acute pancreatitis — it reduces pancreatic ischemia and necrosis.</li>
+      <li><strong>Enteral nutrition via NJ tube</strong> is preferred over TPN in pancreatitis — it maintains gut mucosal integrity and is associated with fewer infectious complications.</li>
+      <li><strong>Alcohol withdrawal</strong> must be anticipated and screened for in all patients with alcohol use disorder — CIWA-Ar scoring should begin on admission and continue Q4H.</li>
+      <li>Diet advancement in pancreatitis is guided by <strong>clinical symptoms, not lipase levels</strong> — a patient who is pain-free and hungry can advance regardless of elevated lipase.</li>
+      <li><strong>Hypertriglyceridemia > 1,000 mg/dL</strong> is a direct cause of pancreatitis — lipid control with fibrates and dietary fat restriction is essential for secondary prevention.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

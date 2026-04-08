@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Traumatic Brain Injury"
+  description="Unfolding clinical case: 32-year-old male with severe TBI from MVC — intracranial pressure management in the Neuro ICU, herniation recognition, and rehabilitation transition."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Traumatic Brain Injury</h1>
+  <p class="case-tagline">Head Trauma → ICP Elevation → Herniation Risk → Neuro ICU Management → Rehab</p>
+
+  <CaseMeta
+    category="Neurological"
+    difficulty="Advanced"
+    tags={['TBI', 'intracranial pressure', 'GCS', 'neuro assessment', 'ICP monitoring', 'brain herniation', 'mannitol', 'hyperventilation']}
+    phases={4}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> K.R. &nbsp;|&nbsp; <strong>Age:</strong> 32 years &nbsp;|&nbsp; <strong>Sex:</strong> Male</p>
+    <p><strong>PMH:</strong> No significant past medical history. No medications. No prior neurological conditions.</p>
+    <p><strong>Allergies:</strong> NKDA</p>
+    <p><strong>Social Hx:</strong> Married, two young children, works as a carpenter. Unrestrained driver in high-speed MVC. No alcohol detected (blood alcohol 0.00).</p>
+    <p><strong>Setting:</strong> Trauma Bay → Neuro ICU → Neuro Rehab</p>
+    <p><strong>Mechanism:</strong> Unrestrained driver, head-on collision at approximately 60 mph. Prolonged extrication × 40 minutes. Airbag deployed. GCS at scene: 6.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={4}
+    title="Trauma Bay — Severe TBI Initial Management"
+    vitals={{ 'BP': '178/96 mmHg', 'HR': '52 bpm', 'RR': '8/min (agonal)', 'SpO₂': '84% RA → intubated', 'Temp': '36.6°C', 'GCS': '5 (E1V1M3)' }}
+    labValues={{ 'ABG (post-intubation)': 'pH 7.28, PaCO₂ 52 mmHg, PaO₂ 88 mmHg', 'Hgb': '10.8 g/dL', 'Glucose': '218 mg/dL ↑ (stress)', 'Coags': 'INR 1.1 (normal)', 'Blood Alcohol': '0.00%' }}
+  />
+
+  <div class="narrative-block">
+    <p>K.R. arrives intubated by EMS (GCS 5 at scene — unable to protect airway). He has a 7 cm frontoparietal scalp laceration, bilateral periorbital ecchymosis (raccoon eyes), and Battle's sign (retroauricular bruising) — both suggesting basilar skull fracture. Pupils are 6 mm bilaterally — sluggishly reactive. Cushing's triad is present: hypertension (BP 178/96), bradycardia (HR 52), and irregular respirations — a late sign of severely elevated intracranial pressure and impending herniation.</p>
+    <p>Emergent CT head reveals a large right epidural hematoma with 12 mm midline shift and early uncal herniation. Neurosurgery is paged STAT for emergent craniotomy/evacuation. In the meantime, ICP-lowering measures are initiated: HOB elevated to 30°, mannitol 1g/kg IV, target PaCO₂ 35–40 mmHg (mild hyperventilation if herniation imminent).</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="19:22"
+    author="RN B. Osei, BSN — Trauma Bay"
+    highlight="critical"
+    sections={{
+      Situation: "K.R. is a 32-year-old male, unrestrained driver, severe TBI. GCS 5 (E1V1M3), intubated. Pupils 6 mm bilaterally, sluggish. Cushing's triad present (BP 178/96, HR 52, agonal respirations). CT: large right epidural hematoma, 12 mm midline shift, early uncal herniation.",
+      Background: "No PMH, no medications, no alcohol. MVC at 60 mph, prolonged extrication. Basilar skull fracture signs (raccoon eyes, Battle's sign). Post-intubation ABG: pH 7.28, PaCO₂ 52 — hypercapnia worsening ICP. Neurosurgery activated.",
+      Assessment: "Severe TBI (GCS ≤ 8) with epidural hematoma and active uncal herniation. Imminent risk of brainstem compression and death. Emergent surgical decompression required. Every minute without decompression increases irreversible brain injury.",
+      Recommendation: "Neurosurgery STAT for craniotomy. Immediate: (1) Mannitol 1g/kg IV (80g in 200 mL over 15 min); (2) HOB 30°, head neutral; (3) Target PaCO₂ 35–40 mmHg on vent — brief hyperventilation to 30–35 if herniation worsens; (4) Avoid hypotension (target SBP ≥ 110 mmHg) and hypoxia (SpO₂ ≥ 95%); (5) Foley catheter; (6) IV access × 2; (7) Glucose management — target 140–180 mg/dL; (8) ICP bolt placement post-OR."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={4}
+    title="Neuro ICU — Post-Craniotomy ICP Management"
+    vitals={{ 'BP': '134/78 mmHg (CPP 72 mmHg)', 'HR': '78 bpm', 'RR': 'Ventilated 14/min', 'SpO₂': '98%', 'ICP': '18 mmHg (goal < 20 mmHg)', 'GCS': '7 (E1V1T M5)' }}
+    labValues={{ 'ABG': 'pH 7.42, PaCO₂ 38, PaO₂ 112', 'Na': '142 mEq/L', 'Glucose': '158 mg/dL', 'Hgb': '10.2 g/dL', 'Hct': '31%' }}
+  />
+
+  <div class="narrative-block">
+    <p>K.R. underwent emergent right-sided craniotomy and hematoma evacuation. He is now in the Neuro ICU intubated and sedated. An ICP monitor (external ventricular drain — EVD) has been placed. Current ICP is 18 mmHg — within acceptable range (goal &lt;20 mmHg). Cerebral perfusion pressure (CPP = MAP − ICP) is 72 mmHg (goal 60–70 mmHg). The nurse performs neuro checks every hour, titrates sedation, and monitors for ICP spikes that could indicate secondary injury.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="06:00"
+    author="RN I. Chen, BSN — Neuro ICU"
+    sections={{
+      Data: "K.R., 32 y/o, Neuro ICU post-craniotomy Day 1 for right EDH with 12 mm shift. Intubated, sedated (propofol 30 mcg/kg/min + fentanyl PRN). GCS 7 (best motor 5 — localizes). Pupils: right 4 mm reactive, left 3 mm reactive — improving from admission (bilateral 6 mm sluggish). ICP monitor EVD: current ICP 18 mmHg. MAP 90 mmHg. CPP 72 mmHg (target 60–70). SpO₂ 98% on AC/VC ventilation. PaCO₂ 38 (within target). Glucose 158 — insulin drip at 1 unit/hr. Na 142. Temp 37.4°C — warming blanket removed. UO 65 mL/hr via Foley. Surgical drain: 20 mL serosanguinous overnight. No seizure activity noted on EEG monitor.",
+      Action: "Hourly neuro checks: GCS, pupils, motor assessment, ICP value. ICP elevation protocol: if ICP > 20 mmHg × > 5 min: (1) HOB to 30°, head neutral, (2) Check for coughing/agitation — propofol bolus PRN, (3) Check for hyperthermia, (4) Notify neurosurgery. Last ICP spike (to 24 mmHg at 03:00) treated with propofol bolus — ICP returned to 18 within 10 min. EVD zeroed and calibrated at 00:00 per protocol. 3% NS available for osmotic therapy if ICP unresponsive. Seizure prophylaxis: levetiracetam 1g IV BID (TBI seizure prevention). Sequential compression devices bilateral lower extremities. HOB maintained at 30°. Family (wife and parents) in waiting room — hourly updates provided by charge nurse.",
+      Response: "ICP stable 14–18 mmHg over past 4 hours. CPP maintained at target. Pupils improving from admission. No additional ICP crises overnight. Neurosurgeon reviewed patient at 05:00 — satisfied with ICP control. Plan: wean sedation trial tomorrow if ICP remains stable."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={4}
+    title="Neuro ICU Day 5 — Sedation Wean & Neuro Assessment"
+    vitals={{ 'BP': '128/76 mmHg', 'HR': '82 bpm', 'SpO₂': '97% (FiO₂ 40%)', 'ICP': '10 mmHg', 'GCS': '10 (E3V1T M6)' }}
+    labValues={{ 'Na': '148 mEq/L ↑ (hypernatremia from mannitol/hypertonic saline)', 'Glucose': '132 mg/dL', 'Hgb': '9.8 g/dL' }}
+  />
+
+  <div class="narrative-block">
+    <p>K.R.'s sedation has been weaned over 48 hours. He is opening his eyes to voice (E3), not following verbal commands yet, but demonstrating purposeful movement of all four extremities (M6). The EVD has been removed as ICP has been stable &lt;15 mmHg for 48 hours. He is being weaned from the ventilator — passed a spontaneous breathing trial (SBT) today. His wife has been at the bedside daily and has been updated on his progress. A family meeting with neurology, neurosurgery, and the care team is scheduled today.</p>
+  </div>
+
+  <NursingNote
+    type="SOAP"
+    time="09:30"
+    author="RN I. Chen, BSN — Neuro ICU"
+    sections={{
+      Subjective: "Patient unable to communicate verbally (intubated). Wife reports patient appears more alert over past 24 hours — 'He squeezed my hand when I talked to him.' Wife is tearful but hopeful.",
+      Objective: "GCS 10 (E3V1T M6). Opens eyes to voice. Localizes to pain bilaterally. Moving all four extremities purposefully. Pupils: 3 mm bilaterally, brisk reaction (improved from admission). ICP monitor removed at 07:00 — EVD site clean and dry. BP 128/76. Temp 37.8°C (mild post-TBI hyperthermia — cooling measures). Ventilator: assist-control, FiO₂ 40%, PEEP 5 — passed SBT × 30 min. Plan for extubation today. Na 148 — mild hypernatremia; free water flushes per NG tube ordered. Hgb 9.8 — stable. No seizure activity on telemetry.",
+      Assessment: "1. Severe TBI post-craniotomy — improving neuro exam (GCS 5 → 10). 2. ICP controlled — EVD removed. 3. Weaning from mechanical ventilation — SBT passed. 4. Mild post-traumatic hypernatremia — managing with free water. 5. Post-traumatic hyperthermia — controlled. 6. Family education and support needs high.",
+      Plan: "Extubate today per neurosurgery and ICU team. Post-extubation: Q2H neuro checks, continue levetiracetam seizure prophylaxis × 1 week, NPO → dysphagia screening before diet advancement (SLP consult), physical and occupational therapy begin at bedside today. Family meeting at 14:00 — prognosis, rehabilitation planning, home expectations. Target step-down transfer when GCS consistently ≥ 12."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 4 -->
+  <PhaseHeader
+    phase={4}
+    total={4}
+    title="Neuro Step-Down — Rehabilitation Transition"
+    vitals={{ 'BP': '122/74 mmHg', 'HR': '80 bpm', 'SpO₂': '98% RA', 'GCS': '14 (E4V4M6)' }}
+    labValues={{ 'Na': '140 mEq/L ✓', 'Hgb': '9.6 g/dL', 'Glucose': '118 mg/dL' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="11:00"
+    author="RN P. Barnes, BSN — Neuro Step-Down"
+    sections={{
+      Focus: "TBI recovery monitoring, family education, and inpatient rehabilitation transition",
+      Data: "K.R., Day 8 post-severe TBI and right craniotomy. GCS now 14 — alert, oriented to name and wife; not yet to date or place (TBI-related memory impairment). Extubated × 3 days — tolerating soft mechanical diet after SLP clearance. Ambulating 25 feet with PT assistance (right leg weakness, left arm weakness — expected post-right hemisphere surgery). Levetiracetam continued. No seizures. Headaches reported 4/10 — managed with acetaminophen. Emotional lability — laughing and crying unpredictably (expected post-TBI). Wife and family extremely anxious about long-term prognosis.",
+      Action: "Comprehensive TBI family education session with wife and parents: (1) Brain injury recovery — explained neuroplasticity; 'the brain can heal and rewire, but recovery is measured in months to years, not days'; (2) Expected deficits: cognitive changes (memory, attention, processing speed), physical (weakness, balance), behavioral (emotional lability, impulsivity) — all addressed in inpatient rehab; (3) Inpatient rehabilitation — admission to Brain Injury Rehab Unit tomorrow; PT/OT/SLP 3 hours therapy per day; (4) Seizure precautions at home — no driving until seizure-free × 6 months and cleared by neurologist; (5) Safety at home (post-rehab): fall precautions, home modifications, supervision during early recovery; (6) Support resources: Brain Injury Association of America, caregiver support groups; social work referral placed; (7) Helmet and seatbelt use discussion — strong reinforcement for future; (8) Follow-up: neurosurgery in 3 weeks, neurology in 2 weeks, repeat CT head at neurosurgery visit.",
+      Response: "Wife stated: 'He's still here and fighting — that's all I needed to know.' Family accepted rehab plan. K.R. verbalized his name and wife's name correctly. Participating in PT — moved right leg on command. Transferred to inpatient rehabilitation unit in stable condition."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>Cushing's triad</strong> (hypertension, bradycardia, irregular respirations) is a late, ominous sign of severely elevated ICP and impending herniation — immediate neurosurgical intervention is required.</li>
+      <li><strong>CPP = MAP − ICP</strong>: maintaining CPP 60–70 mmHg is the goal in severe TBI — both hypotension (↓ MAP) and elevated ICP lower CPP and worsen brain perfusion.</li>
+      <li><strong>Two secondary TBI insults</strong> nurses must actively prevent: hypoxia (SpO₂ &lt; 95%) and hypotension (SBP &lt; 90 mmHg) — each independently doubles mortality after TBI.</li>
+      <li><strong>Hourly ICP monitoring and neuro assessments</strong> are critical nursing skills in TBI — nurses are often the first to detect acute changes in ICP or neurological status.</li>
+      <li><strong>TBI behavioral changes</strong> (emotional lability, impulsivity, personality change) are neurological consequences — family education about these expected changes is essential to prevent misunderstanding and caregiver burnout.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

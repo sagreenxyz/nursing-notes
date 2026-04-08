@@ -1,0 +1,135 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="Hypertensive Crisis"
+  description="Unfolding clinical case: 51-year-old male with hypertensive emergency — BP 218/134 mmHg, end-organ damage assessment, controlled BP reduction, and medication adherence counseling."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">Hypertensive Crisis</h1>
+  <p class="case-tagline">BP 218/134 mmHg → End-Organ Damage Assessment → Controlled Reduction → Adherence Education</p>
+
+  <CaseMeta
+    category="Cardiovascular"
+    difficulty="Advanced"
+    tags={['hypertension', 'hypertensive emergency', 'labetalol', 'nicardipine', 'end-organ damage', 'stroke risk', 'medication adherence', 'MAP']}
+    phases={3}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> M.B. &nbsp;|&nbsp; <strong>Age:</strong> 51 years &nbsp;|&nbsp; <strong>Sex:</strong> Male</p>
+    <p><strong>PMH:</strong> Hypertension (diagnosed 8 years ago), hyperlipidemia, prior hypertensive urgency (1 year ago), obesity (BMI 36)</p>
+    <p><strong>Medications:</strong> Amlodipine 10 mg daily (non-adherent × 2 weeks — ran out), hydrochlorothiazide 25 mg daily (non-adherent), atorvastatin 40 mg daily</p>
+    <p><strong>Allergies:</strong> NKDA</p>
+    <p><strong>Social Hx:</strong> Works in construction, high-sodium diet, minimal exercise, occasional alcohol, non-smoker</p>
+    <p><strong>Setting:</strong> Emergency Department → ICU → Cardiac Step-Down</p>
+    <p><strong>Situation:</strong> M.B. presents with the worst headache of his life (10/10), blurred vision in both eyes, and nausea × 4 hours. He ran out of his blood pressure medications 2 weeks ago and did not refill them.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={3}
+    title="ED Presentation — Hypertensive Emergency"
+    vitals={{ 'BP': '218/134 mmHg', 'HR': '94 bpm', 'RR': '20/min', 'SpO₂': '98% RA', 'Temp': '37.0°C', 'Pain': '10/10 (headache)' }}
+    labValues={{ 'Cr': '2.1 mg/dL ↑ (baseline unknown)', 'BUN': '28 mg/dL', 'UA': 'Protein 3+, RBC casts present ↑ (hypertensive nephropathy)', 'Troponin I': '0.06 ng/mL (borderline)', 'BNP': '180 pg/mL ↑', 'Na': '138 mEq/L', 'K': '3.6 mEq/L' }}
+  />
+
+  <div class="narrative-block">
+    <p>M.B. arrives holding his head. Fundoscopic examination by the ED physician reveals bilateral papilledema and flame-shaped hemorrhages — hallmark findings of hypertensive emergency with end-organ damage. Neurological exam shows no focal deficits. CT head is negative for hemorrhage or ischemia. Urinalysis with RBC casts confirms hypertensive nephropathy. The borderline troponin and elevated BNP suggest early cardiac involvement.</p>
+    <p>This is a <strong>hypertensive emergency</strong> (not urgency) — BP elevation with confirmed end-organ damage (eyes, kidneys, early cardiac). The target is to reduce MAP by no more than 25% in the first hour, then cautiously to 160/100 mmHg over the next 2–6 hours. <em>Rapid BP reduction risks stroke, myocardial infarction, and renal ischemia.</em> IV labetalol is initiated.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="11:20"
+    author="RN T. Okafor, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "M.B. is a 51-year-old male with known HTN, non-adherent × 2 weeks, presenting with BP 218/134 mmHg (MAP 162), worst-ever headache, bilateral visual changes, papilledema on fundoscopy, protein/RBC casts on UA, and borderline troponin. Hypertensive emergency confirmed.",
+      Background: "HTN × 8 years, prior hypertensive urgency. Ran out of amlodipine and HCTZ × 2 weeks without refill. High-sodium diet. CT head negative for bleed. No focal neuro deficits. Cr 2.1 — renal involvement. Eye changes — hypertensive retinopathy.",
+      Assessment: "Hypertensive emergency with end-organ damage: hypertensive retinopathy/encephalopathy, hypertensive nephropathy (RBC casts), and early cardiac involvement (borderline troponin, BNP). Goal MAP reduction of ≤ 25% in first hour — overly rapid reduction risks stroke and MI.",
+      Recommendation: "Requesting ICU transfer. IV labetalol 20 mg bolus given × 1; infusion to follow per order. Arterial line for continuous BP monitoring. Hourly neurological assessments. Target MAP reduction to 121 mmHg (25% of 162 mmHg) in first hour. Ophthalmology consult. Nephrology consult. Strict I&O. Foley catheter placed."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={3}
+    title="ICU — Controlled BP Reduction"
+    vitals={{ 'BP': '174/108 mmHg (MAP 130)', 'HR': '82 bpm', 'RR': '18/min', 'SpO₂': '99% RA', 'Pain (headache)': '6/10 (improving)' }}
+    labValues={{ 'Cr (6h)': '1.9 mg/dL ↓ (slight improvement)', 'Troponin (6h)': '0.08 ng/mL (stable, no rise)', 'Repeat UA': 'Protein 2+, fewer RBC casts' }}
+  />
+
+  <div class="narrative-block">
+    <p>After 4 hours of IV labetalol infusion, M.B.'s MAP has reduced from 162 to 130 mmHg — achieving the goal of ≤ 25% reduction. His headache has improved from 10/10 to 6/10 and visual blurring is somewhat improved. Arterial line is in place for beat-to-beat monitoring. The nurse meticulously documents BP every 15 minutes and titrates the labetalol drip per the ICU protocol — balancing adequate reduction with avoiding overshoot. Ophthalmology confirmed Grade III hypertensive retinopathy — no acute retinal artery occlusion.</p>
+    <p>Neurological checks every 30 minutes confirm no new deficits. The plan is to continue gradual reduction to 160/100 over the next 6 hours, then transition to oral agents when stable.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="16:45"
+    author="RN T. Okafor, BSN"
+    sections={{
+      Data: "M.B., 51 y/o ICU admission, hour 6 hypertensive emergency management. BP 174/108 (MAP 130) — down from 218/134 (MAP 162) on admission. 25% MAP reduction achieved (goal met: MAP ≤ 121). HR 82. SpO₂ 99% RA. Headache improving 10/10 → 6/10. Visual blurring improving per patient report. Neurological checks Q30 min: A&O × 4, PERRLA 3mm bilaterally, no pronator drift, grip equal bilaterally, speech clear — no new deficits. Cr 1.9 (slight improvement). Troponin stable — no upward trend. Arterial line a-line: dressing intact, waveform adequate. UO 55 mL/hr.",
+      Action: "Labetalol drip titrated down from 2 mg/min to 1 mg/min per order (approaching target BP). Q15 min BP documentation ongoing. IV access × 2 maintained. Foley draining clear yellow urine. Oral medications held until hemodynamically stable and able to swallow safely. Renal diet initiated. Acetaminophen 1g PO given for headache (aspirin avoided in hypertensive emergency pending full workup). Continuous cardiac telemetry. Patient educated on reason for slow BP reduction: 'We are bringing your blood pressure down carefully — bringing it down too fast could cause a stroke or heart attack.' Patient verbalized understanding.",
+      Response: "BP responding appropriately to titration. No BP overshoot. No new neurological deficits in any assessment. Patient increasingly alert. Headache decreasing. Daughter notified of ICU admission and current stable status."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={3}
+    title="Step-Down — Oral Medications & Discharge Education"
+    vitals={{ 'BP': '148/92 mmHg', 'HR': '78 bpm', 'SpO₂': '99% RA', 'Pain': '1/10 (headache resolved)' }}
+    labValues={{ 'Cr': '1.6 mg/dL ↓', 'UA': 'Protein 1+, no casts', 'Troponin (24h)': '0.04 ng/mL (normal)', 'BNP': '110 pg/mL ↓' }}
+  />
+
+  <NursingNote
+    type="Focus"
+    time="09:30"
+    author="RN D. Rivera, BSN"
+    sections={{
+      Focus: "Hypertension medication adherence education and discharge planning",
+      Data: "M.B., hospital Day 2 hypertensive emergency. BP 148/92 on oral labetalol 200 mg BID + amlodipine 10 mg daily. Headache resolved. Visual symptoms resolved. Creatinine improving 2.1 → 1.9 → 1.6. Troponin normalized. Ophthalmology: Grade III retinopathy — follow-up in 6 weeks. Nephrology: hypertensive nephropathy — close outpatient monitoring needed. Patient expressed embarrassment about not refilling medications.",
+      Action: "Discharge education session × 60 minutes: (1) Medication adherence — discussed consequences of stopping antihypertensives (rebound hypertension, emergency, organ damage, death); reviewed new regimen: labetalol 200 mg BID, amlodipine 10 mg daily, HCTZ 25 mg daily; (2) Prescription access — 90-day supply prescribed, refill reminders set up via patient portal; pharmacy phone number programmed into patient's phone; (3) Home BP monitoring — prescribed home cuff; taught correct measurement technique; given BP log; target BP < 130/80; (4) Lifestyle modification — sodium restriction < 2g/day (demonstrated label reading), DASH diet principles, weight loss goal, exercise progression; (5) Red flags — 'Call 911 if: worst headache of your life, vision changes, chest pain, confusion, trouble speaking, facial drooping — these are signs of stroke or hypertensive emergency'; (6) Never stop medications without calling provider — even if BP feels normal; (7) Follow-up: PCP in 3 days, nephrology in 2 weeks, ophthalmology in 6 weeks; BP recheck at every visit.",
+      Response: "Patient verbalized: 'I didn't think missing my pills for a couple of weeks would almost kill me. I'll never do that again.' Correctly measured BP on practice cuff. Identified red flag symptoms accurately. Wife present — both engaged in education. Prescription access plan confirmed. Discharged home with wife in stable condition."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>Hypertensive emergency vs. urgency</strong>: Emergency involves end-organ damage and requires IV therapy with controlled reduction; urgency is severe BP elevation without organ damage and can be managed orally.</li>
+      <li><strong>BP reduction targets</strong> in hypertensive emergency: reduce MAP by no more than 25% in the first hour — overly rapid reduction causes cerebral, cardiac, and renal ischemia from auto-regulatory failure.</li>
+      <li><strong>Papilledema</strong> on fundoscopic exam is the hallmark of hypertensive encephalopathy and confirms true hypertensive emergency — every nurse should know to check for this.</li>
+      <li><strong>RBC casts</strong> in urinalysis confirm glomerular damage — a critical indicator of hypertensive nephropathy requiring nephrology involvement.</li>
+      <li><strong>Medication non-adherence</strong> is the leading cause of preventable hypertensive emergencies — discharge education focusing on adherence and access is as therapeutic as the medications themselves.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>

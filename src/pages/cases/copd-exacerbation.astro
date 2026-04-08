@@ -1,0 +1,137 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseMeta from '../../components/CaseMeta.astro';
+import PhaseHeader from '../../components/PhaseHeader.astro';
+import NursingNote from '../../components/NursingNote.astro';
+---
+
+<Layout
+  title="COPD Exacerbation"
+  description="Unfolding clinical case: 71-year-old male with severe COPD presenting in hypercapnic respiratory failure — bronchodilators, BiPAP, steroids, and pulmonary rehab."
+>
+  <div class="case-breadcrumb">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/cases/`}>← All Cases</a>
+  </div>
+
+  <h1 class="case-heading">COPD Exacerbation</h1>
+  <p class="case-tagline">Acute Dyspnea → Hypercapnic Respiratory Failure → BiPAP → Recovery & Rehab Planning</p>
+
+  <CaseMeta
+    category="Respiratory"
+    difficulty="Intermediate"
+    tags={['COPD', 'bronchospasm', 'BiPAP', 'bronchodilators', 'corticosteroids', 'respiratory failure', 'hypercapnia', 'smoking cessation']}
+    phases={3}
+  />
+
+  <div class="scenario-box">
+    <h2>Patient Profile</h2>
+    <p><strong>Name:</strong> F.H. &nbsp;|&nbsp; <strong>Age:</strong> 71 years &nbsp;|&nbsp; <strong>Sex:</strong> Male</p>
+    <p><strong>PMH:</strong> COPD (GOLD Stage III — severe), 50 pack-year smoking history (quit 5 years ago), hypertension, osteoporosis</p>
+    <p><strong>Medications:</strong> Tiotropium inhaler daily, fluticasone/salmeterol (Advair) BID, albuterol MDI PRN, lisinopril 5 mg daily, calcium/vitamin D supplement</p>
+    <p><strong>Allergies:</strong> Aspirin (bronchospasm)</p>
+    <p><strong>Setting:</strong> Emergency Department → Respiratory Step-Down Unit</p>
+    <p><strong>Situation:</strong> F.H. has had 3 days of worsening shortness of breath, increased green sputum, and has been using his rescue inhaler every 2 hours without relief. Paramedics report he was found leaning over a table to breathe.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 1 -->
+  <PhaseHeader
+    phase={1}
+    total={3}
+    title="ED Presentation — COPD Exacerbation Recognition"
+    vitals={{ 'BP': '154/92 mmHg', 'HR': '108 bpm', 'RR': '30/min', 'SpO₂': '80% RA → 88% 2L NC', 'Temp': '38.1°C' }}
+    labValues={{ 'ABG (on 2L NC)': 'pH 7.31, PaCO₂ 62 mmHg ↑, PaO₂ 54 mmHg ↓, HCO₃ 30 mEq/L ↑', 'WBC': '14.2 × 10³ ↑', 'Procalcitonin': '0.8 ng/mL (borderline)', 'Hgb': '15.8 g/dL (polycythemia)' }}
+  />
+
+  <div class="narrative-block">
+    <p>F.H. arrives in a tripod position, using pursed-lip breathing. He is barrel-chested with audible wheezing and prolonged expiration. He can speak only in 2–3 word sentences. Oxygen is carefully titrated to target SpO₂ 88–92% (avoiding hypoxic drive suppression in COPD). ABG reveals hypercapnic (Type II) respiratory failure with a compensated respiratory acidosis — CO₂ retention is a significant concern. Chest X-ray shows hyperinflation with flattened diaphragms and a right lower lobe infiltrate suggestive of community-acquired pneumonia as the precipitating trigger.</p>
+    <p>Nebulized albuterol and ipratropium (DuoNeb) are started immediately. IV methylprednisolone 125 mg is administered. Azithromycin is started for presumed bacterial exacerbation. Given worsening hypercapnia, BiPAP is initiated at IPAP 14 / EPAP 6 cmH₂O.</p>
+  </div>
+
+  <NursingNote
+    type="SBAR"
+    time="16:10"
+    author="RN M. Santos, BSN"
+    highlight="critical"
+    sections={{
+      Situation: "F.H. is a 71-year-old male with severe COPD presenting with 3-day AECOPD — SpO₂ 80% on RA, RR 30, tripod positioning, ABG showing hypercapnic respiratory failure (pH 7.31, PaCO₂ 62). CXR suggests RLL infiltrate. BiPAP initiated.",
+      Background: "GOLD Stage III COPD, 50 pack-year smoker (quit 5 years). Aspirin allergy (bronchospasm — acetaminophen used instead). Currently on DuoNeb nebs, IV solumedrol, azithromycin started. Target SpO₂ 88–92% to avoid CO₂ retention.",
+      Assessment: "Acute hypercapnic (Type II) respiratory failure from AECOPD with probable community-acquired pneumonia. Risk for respiratory fatigue and intubation. BiPAP initiated — will assess response in 1 hour. ICU transfer may be required if no improvement.",
+      Recommendation: "Requesting: (1) Respiratory therapy involvement for BiPAP management; (2) Hourly ABG monitoring plan; (3) ICU notification on standby; (4) Continuous pulse oximetry with SpO₂ alarm ≥ 95% target DISABLED — target is 88–92% for this patient; (5) IV access × 2 and strict I&O."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 2 -->
+  <PhaseHeader
+    phase={2}
+    total={3}
+    title="Step-Down Unit — BiPAP Management & Antibiotic Therapy"
+    vitals={{ 'BP': '138/84 mmHg', 'HR': '92 bpm', 'RR': '22/min', 'SpO₂': '91% on BiPAP (IPAP 14/EPAP 6)' }}
+    labValues={{ 'ABG (4h on BiPAP)': 'pH 7.37, PaCO₂ 52 mmHg ↓, PaO₂ 64 mmHg ↑, HCO₃ 30 mEq/L', 'WBC': '13.8 × 10³', 'Sputum Cx': 'Pending' }}
+  />
+
+  <div class="narrative-block">
+    <p>F.H. was admitted to the respiratory step-down unit. After 4 hours of BiPAP, his CO₂ has decreased from 62 to 52 mmHg and his pH has normalized to 7.37. He is more comfortable and can speak in full sentences. Nursing staff are coaching him on BiPAP tolerance — facial mask is well-fitted with no air leaks. Azithromycin is continued pending sputum culture. Oral prednisone taper has been started, with IV solumedrol discontinued. Nebulizer treatments every 4 hours are maintaining bronchodilation.</p>
+  </div>
+
+  <NursingNote
+    type="DAR"
+    time="22:00"
+    author="RN M. Santos, BSN"
+    sections={{
+      Data: "F.H., 71 y/o, hospital admission hour 8 — AECOPD with CAP. On BiPAP IPAP 14/EPAP 6 continuously. ABG improved: pH 7.37, PaCO₂ 52 (was 62), PaO₂ 64. SpO₂ 91% on BiPAP — within target. RR 22/min. Wheezing markedly reduced. Patient more alert and interactive. Reports mask is 'tight' on face but tolerates. Bilateral rales at right lower lobe (pneumonia). No accessory muscle use. Has had 3 nebulizer treatments (DuoNeb) since admission. Sputum: moderate yellow-green, productive cough. T 37.8°C. Tolerating sips of water. Blood cultures × 2 sets drawn.",
+      Action: "BiPAP continued with Q1H tolerance and seal assessment. Instructed patient to alert staff immediately if mask feels too tight or if breathless with mask. Oral prednisone 40 mg given (transitioned from IV solumedrol per orders). Azithromycin Day 1 IV completed. DuoNeb Q4H. Incentive spirometry introduced — patient demonstrated 450 mL effort (goal 750 mL). Patient repositioned to HOB 45° to maximize respiratory mechanics. Nutritional assessment initiated — patient has low appetite; clear liquids advancing as tolerated. Family notified of admission and stable condition.",
+      Response: "Patient verbalizes improved comfort on BiPAP. States 'breathing easier than when I came in.' Tolerating mask for 2-hour stretches before requesting 15-minute breaks per respiratory protocol. SpO₂ stable at 90–92% during BiPAP. No desaturation during mask breaks. Temperature down to 37.6°C. Sputum culture pending."
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════ PHASE 3 -->
+  <PhaseHeader
+    phase={3}
+    total={3}
+    title="Day 4 — Weaning & Discharge Planning"
+    vitals={{ 'BP': '132/80 mmHg', 'HR': '82 bpm', 'RR': '18/min', 'SpO₂': '90% on 2L NC (at rest)' }}
+    labValues={{ 'ABG (on 2L NC)': 'pH 7.39, PaCO₂ 48 mmHg, PaO₂ 62 mmHg', 'WBC': '9.8 × 10³ ↓', 'Sputum Cx': 'Streptococcus pneumoniae — susceptible to azithromycin' }}
+  />
+
+  <div class="narrative-block">
+    <p>F.H. has been off BiPAP for 24 hours and is maintaining acceptable saturations on 2L nasal cannula. Sputum culture confirms Streptococcus pneumoniae — susceptible to azithromycin, antibiotic therapy appropriate. WBC normalizing. He is ambulating in the hallway with minimal dyspnea. Pulmonology has evaluated and recommended outpatient pulmonary rehabilitation. The team reviews his inhaler technique — poor technique identified as a contributing factor to his exacerbation frequency. Physical therapy has assessed deconditioning and provided home exercise guidance.</p>
+  </div>
+
+  <NursingNote
+    type="Focus"
+    time="10:30"
+    author="RN G. Brown, BSN"
+    sections={{
+      Focus: "COPD self-management education and discharge planning",
+      Data: "F.H., Day 4 AECOPD admission. Off BiPAP × 24h. SpO₂ 90% on 2L NC — adequate. PaCO₂ normalizing to 48 mmHg. Ambulating 150 feet. Sputum culture: S. pneumoniae — azithromycin appropriate (Day 5 of 5). Prednisone taper day 4 (of 5-day course). Inhaler technique assessed — significant MDI technique errors noted (no spacer, inadequate breath hold). Home O₂ assessment completed — needs 2L NC continuously at home per pulmonologist.",
+      Action: "Comprehensive COPD education session: (1) Inhaler technique — demonstrated correct DPI and MDI + spacer technique; patient demonstrated return technique × 3 until consistently correct; (2) Action plan — provided written COPD action plan with zones: green (baseline), yellow (increased symptoms — start prednisone burst, call clinic), red (severe dyspnea, cyanosis — call 911); (3) Oxygen safety — home O₂ 2L NC ordered; reviewed fire safety (no smoking, no open flames, keep cylinder upright); (4) Smoking cessation support — patient quit 5 years ago; positive reinforcement provided; (5) Pulmonary rehab — enrollment packet completed; importance of exercise on lung function explained; (6) Vaccination — pneumococcal (PPSV23) and influenza vaccines administered today (was not up to date); (7) Follow-up: PCP in 3 days, pulmonology in 2 weeks. Printed discharge instructions and COPD Foundation resources provided.",
+      Response: "Patient demonstrated correct inhaler + spacer technique. Verbalized action plan: 'If I start getting worse, I take my prednisone and call the doctor. If I can't breathe at all, I call 911.' Wife educated on home O₂ setup and emergency signs. Patient accepted pulmonary rehab referral. Discharged home in stable condition with home health oxygen."
+    }}
+  />
+
+  <div class="learning-points">
+    <h2>📚 Key Learning Points</h2>
+    <ul>
+      <li><strong>Oxygen targets in COPD</strong> are intentionally lower (SpO₂ 88–92%) to avoid suppressing the hypoxic respiratory drive in chronic CO₂ retainers — high-flow O₂ can worsen hypercapnia.</li>
+      <li><strong>BiPAP (NIV)</strong> is first-line for hypercapnic respiratory failure in COPD — it reduces the need for intubation and improves outcomes.</li>
+      <li><strong>Inhaler technique assessment</strong> is a critical nursing role — poor technique is a major, correctable cause of COPD exacerbations.</li>
+      <li>A <strong>written COPD action plan</strong> empowers patients to self-manage early exacerbations and recognize when to escalate care.</li>
+      <li><strong>Pulmonary rehabilitation</strong> is the most evidence-based intervention to improve functional capacity and quality of life in COPD — nursing referrals matter.</li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .case-breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; }
+  .case-heading { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #1a5276; margin-bottom: 0.3rem; }
+  .case-tagline { color: #2980b9; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; }
+  .scenario-box { background: #eaf4fc; border-left: 4px solid #2980b9; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .scenario-box h2 { font-size: 1rem; font-weight: 700; color: #1a5276; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scenario-box p { font-size: 0.9rem; color: #2c3e50; line-height: 1.6; }
+  .narrative-block { background: #fdfefe; border: 1px solid #d5d8dc; border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; font-size: 0.92rem; color: #2c3e50; line-height: 1.65; }
+  .narrative-block p + p { margin-top: 0.65rem; }
+  .learning-points { background: #f0faf5; border: 1px solid #a9dfbf; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .learning-points h2 { font-size: 1.1rem; font-weight: 700; color: #148f77; margin-bottom: 0.75rem; }
+  .learning-points ul { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .learning-points li { font-size: 0.9rem; color: #2c3e50; line-height: 1.55; }
+</style>
